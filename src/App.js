@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Nav from "./components/employee/Nav";
+import Footer from "./components/employee/Footer";
+import PostAJob from "./components/employee/PostAJob";
+// import { FindJobDash } from "./components/employee/FindJobDash";
+import EmployerPanel from "./components/employer/EmployerPanel";
+import LandingPage from "./components/landingPage/LandingPage"
+import {
+  BrowserRouter,
+  HashRouter,
+  Route,
+  Routes,
+  Switch,
+} from "react-router-dom";
+import HeroSection from "./components/landingPage/Landing";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+    <LandingPage />
     </div>
   );
 }

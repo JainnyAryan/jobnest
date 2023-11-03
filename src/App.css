@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  overflow: none;
+}
+
+#containerr{
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .App-logo {

@@ -1,0 +1,22 @@
+
+#text{
+    width: 50%;
+    padding: 10vw;
+}
+
+#containerr{
+    /* width: 100vw; */
+    display:flex;
+    background-color: rgb(220, 246, 251);
+    box-sizing: content-box;
+}
+.click{
+    background-color: rgb(117, 225, 255);
+}
+.click:hover{
+    background-color: rgb(33, 203, 250);
+}
+
+#lottie{
+    height:100px;
+}

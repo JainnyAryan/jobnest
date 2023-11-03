@@ -1,0 +1,22 @@
+.jobCard1{
+    background-color: #B6D0E2;
+}
+.jobCard2{
+    background-color: #6fb6e8;
+}
+
+.fullCard{
+    margin-top: 5vh;
+}
+
+.jobCard1,
+.jobCard2 {
+  display: flex;
+  height:30vh;
+  border-radius: 20px;
+  /* height: 20vh; */
+  width: 19%;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  flex-direction: column;
+}
