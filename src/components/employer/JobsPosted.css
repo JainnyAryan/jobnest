@@ -1,0 +1,10 @@
+.jobPosted{
+    border:1px solid rgb(195, 193, 193);
+    padding:7vh;
+    /* width: 50vh; */
+    /* height: 50vh; */
+    margin: 30px;
+    border-radius: 20px;
+    background-color: rgb(242, 242, 252);
+    /* background-image: linear-gradient(#FCDDB0, #F4C2C2); */
+}

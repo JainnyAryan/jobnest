@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar2 from './Navbar2'
 import { BrowserRouter,HashRouter,Route,Routes,Switch, } from "react-router-dom";
 import NoOfJobs from './NoOfJobs';
+import JobsPosted from './JobsPosted';
 // import Navigation from '../employee/Nav'
 // import Navbar from './Navbar'
 export default function EmployerPanel() {
@@ -10,6 +11,7 @@ export default function EmployerPanel() {
       <BrowserRouter>
    <Navbar2 />
     <NoOfJobs />
+    <JobsPosted />
    {/* <Routes>
     <Route path ="/find-work" element={<find-work/>}></Route>
     <Route path ="/applications" element={<student-list/>}></Route>
