@@ -1,8 +1,9 @@
 .jobCard1{
-    background-color: #B6D0E2;
+    /* background-color: #B6D0E2; */
+    background-color: rgb(251, 233, 203);
 }
 .jobCard2{
-    background-color: #6fb6e8;
+    background-color: rgb(224, 222, 248);
 }
 
 .fullCard{
@@ -11,6 +12,7 @@
 
 .jobCard1,
 .jobCard2 {
+    
   display: flex;
   height:30vh;
   border-radius: 20px;
