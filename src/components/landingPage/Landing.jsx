@@ -1,13 +1,11 @@
 import React from 'react';
 import "./styles/Landing.css";
-// import heroImage from "../images/heroImage.svg";
-// import heroAnime from "../images/heroAnimation.json";
 import heroAnime from "../../assets/anims/heroAnimation.json";
 
 import Lottie from "react-lottie";
+import Navbar from "./Navbar";
 
-
-function HeroSection(){
+function Landing(){
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -17,6 +15,8 @@ function HeroSection(){
         }
       };
     return (
+      <div>
+        <Navbar/>
         <div id="containerr">
           <div id="text">
             <h2><strong>Find a Job With<br/>Your Interests and<br/>Abilities</strong></h2>
@@ -30,10 +30,12 @@ function HeroSection(){
                   options={defaultOptions}
                   height={600}
                   width={600}
-              />
+                  isClickToPauseDisabled={true}
+                  />
           </div>
         </div>
+      </div>
     )
 }
 
-export default HeroSection;
+export default Landing;

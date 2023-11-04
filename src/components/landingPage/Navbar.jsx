@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/Navbar.css";
-import logoImage from "../LOGO/LOGO_transparent.png";
 
 function Navbar() {
   return (
     <nav className="navbar" style={{ width: "100%" }}>
       <Link to="/" className="navbar-brand mx-3">
-        <img src={logoImage} alt="Logo" style={imageStyles} />
+        <img src="/LOGO_transparent.png" alt="Logo" style={imageStyles} />
       </Link>
       <div className="nav">
-        <button id="loginButton">Login</button>
+      <Link to="/login">
+          <button id="loginButton">Sign In</button>
+        </Link>
         <Link to="/register">
-          <button id="registerButton">Register Now</button>
+          <button id="registerButton">Sign Up</button>
         </Link>
       </div>
     </nav>
@@ -21,7 +22,7 @@ function Navbar() {
 
 const imageStyles = {
   width: "200px", // Set the width
-  height: "auto", // Maintain aspect ratio
+  height: "auto", // Maintain  aspect ratio
   borderRadius: "30px", // Create a circular image
   // border: "2px solid ", // Add a border
 };
