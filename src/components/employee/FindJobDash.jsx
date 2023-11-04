@@ -1,13 +1,6 @@
 import { useState } from "react";
-import "./styles/findJobDash.css";
-import Card from 'react-bootstrap/Card';
+import styles from "./styles/findJobDash.module.css";
 import React from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
-import { Col, Container, Row } from "react-bootstrap";
-// import 'mdb-react-ui-kit/css/mdb.min.css'; // Import MDB CSS
-import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 
 export function FindJobDash() {
 
@@ -39,19 +32,17 @@ export function FindJobDash() {
         "Telecommunications"
     ];
     return (
-        <div id="dash">
-            <div id="firstText">
+        <div className={styles.dash}>
+            <div className={styles.firstText}>
                 <div>
                     <center>
                         <h1>Jobs for Unemployed Youth <br />No Experience? No Problem</h1>
                         <p>Empowering Youth through No Experience Job Opportunities</p>
-                        <button id="findJobButton">Find a Job</button>
+                        <button className={styles.findJobButton}>Find a Job</button>
                     </center>
-
                 </div>
                 <center>
-
-                    <div id="card">
+                    <div className={styles.card}>
                         <input style={{ borderRadius: "30px", border: "1px solid grey", color: "black" }} placeholder="Search for Jobs" type="text" />
                         <select name="industry" id="" style={{ borderRadius: "30px", border: "1px solid grey" }}>
                             {industry.map((e) => {
@@ -67,7 +58,6 @@ export function FindJobDash() {
                     </div>
                 </center>
             </div>
-
         </div>
     )
 }

@@ -1,0 +1,10 @@
+.box {
+  flex: 1.5;
+  float: top;
+  border: 1px solid black;
+  margin: 1% 2%;
+  border-radius: 15px;
+  height: 80vh;
+  position: sticky;
+  top: 1vh;
+}
