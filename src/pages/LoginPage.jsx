@@ -6,18 +6,20 @@ import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [isEmployer, setIsEmployer] = useState(false);
-  // const onCheck = (event) => {
-  //   setIsEmployer(event.target.checked);
-  //   console.log(event.target.checked);
-  // }
+  const [username, setUsername] = useState('');
+
+
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
+    console.log(event.target.value);
+  }
 
   const onClick = () => {
-    if (isEmployer) {
-      navigate('/employer');
+    if (username === "employer") {
+      navigate("/employer");
     }
-    else {
-      navigate('/employee');
+    else if (username === "employee") {
+      navigate("/employee");
     }
   }
 
@@ -75,20 +77,10 @@ const LoginPage = () => {
                     placeholder="Enter the Username"
                     className="form-control"
                     style={{ borderRadius: "8px", border: "1px solid grey", background: "#caf0f8" }}
-
+                    onChange={handleUsername}
                   />
                 </div>
 
-                {/* <div className="form-group mt-3">
-                <label htmlFor="email">Email</label>
-                <input
-                type="text"
-                id="email"
-                placeholder="Enter Email"
-                className="form-control"
-                style={{ borderRadius: "10px" }}
-                />
-              </div> */}
 
                 <div className="form-group mt-3">
                   <label htmlFor="password"><strong>Password</strong></label>
