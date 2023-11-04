@@ -1,9 +1,12 @@
 .dash {
   background-color: #b6d0e2;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: min-content;
+  padding: 8vh 0;
+  margin-bottom: 4vh;
 }
 
 .findJobButton {
@@ -13,22 +16,6 @@
   background-color: white;
   width: 10vw;
   color: black;
-}
-
-.card {
-  position: sticky;
-  top: 1vh;
-  border-radius: 50px;
-  margin-top: 10vh;
-  border: 1px solid rgb(168, 166, 166);
-  margin-bottom: 5vh;
-  box-shadow: 4px 4px 4px #535f67;
-  width: 50vw;
-  padding: 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: white;
 }
 
 @media screen and (max-width: 990px) {

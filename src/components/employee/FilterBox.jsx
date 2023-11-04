@@ -31,7 +31,7 @@ const FilterBox = () => {
                   {
                     filter.category === "Location"
                       ?
-                      <select name="location" className="dropdown">
+                      <select name="location" className={styles.dropdown}>
                         {filter.filters.map((e) => {
                           return <option value={e}>{e}</option>
                         })}
@@ -39,7 +39,7 @@ const FilterBox = () => {
                       :
                       (filter.filters.map((e) => (
                         <span style={{padding:"0.7vh 0vh"}}>
-                          <input type="checkbox" name={filter.category} value={e} /> 
+                          <input type="checkbox" style={{marginRight:"5px"}} name={filter.category} value={e} /> 
                           {e}
                         </span>
                       )))

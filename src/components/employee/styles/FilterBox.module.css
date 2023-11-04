@@ -5,7 +5,7 @@ span{
 .box{
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  box-shadow: 1px 2px 5px #535f67;
   border-radius: 2vh;
   width: 18vw;
   max-width: 20vw;
@@ -15,7 +15,7 @@ span{
   text-align: center;
   flex: 1.5;
   position: sticky;
-  top: 1vh;
+  top: 15vh;
 }
 
 .filters{
@@ -32,7 +32,7 @@ span{
   background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3klEQVR4nO3YSwrCMBRG4eMOVQwZ6OoVQfGxgQqVQgsiSe0zucX/QGdJuR+hgxSUUkoppZTqmQPuwBlYY68NcAGegI8tWgE3oKyfom1xhnw9UzPfo5452PVjoSWM/0KU9azRtoENuTE+MlM1a2u7wMYXcCDPN1sEZtl3fYEFjBuLsIBxUyFyYtzUiBwYNxciJWZ2RApMMsScmOSIOTDZEFNisiOmwJhBjMGYQwzBmEX0wZhHdMEsBvHr7mDtjjP4ZBZzEl0xi0LEMItENFW/lE7A0ejvJaWUUkop9U+9AdnJ7S7GX9jsAAAAAElFTkSuQmCC');
   background-repeat:no-repeat; 
   background-size : 15px;
-  background-position: 90%;
+  background-position: 95%;
   appearance: none;
   border: 1px solid grey;
   border-radius: 30px;height: 5vh;
