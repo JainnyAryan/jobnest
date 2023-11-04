@@ -86,7 +86,6 @@ const LoginPage = () => {
                   style={{ borderRadius: "10px" }}
                 />
               </div>
-
               <div className="form-group mt-3">
                 <label htmlFor="password">Password</label>
                 <input
