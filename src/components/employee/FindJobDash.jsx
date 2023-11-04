@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./findJobDash.css";
+import "./styles/findJobDash.css";
 import Card from 'react-bootstrap/Card';
 import React from 'react';
 import Form from 'react-bootstrap/Form';

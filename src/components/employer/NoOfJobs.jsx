@@ -1,5 +1,5 @@
 import React from 'react'
-import "./NoOfJobs.css"
+import "./styles/NoOfJobs.css"
 
 export default function NoOfJobs() {
   return (

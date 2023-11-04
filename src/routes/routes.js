@@ -1,15 +1,19 @@
-import React from 'react';
-import { Routes, Route, Switch, BrowserRouter } from 'react-router-dom';
+import React from "react";
+import { Routes, Route, Switch, BrowserRouter } from "react-router-dom";
 
-import Login from '../components/SignIn/Login';
-import Landing from '../components/landingPage/Landing';
+import LandingPage from "../pages/LandingPage";
+import LoginPage from "../pages/LoginPage";
+import EmployeeScreen from "../pages/EmployeeScreen";
+import EmployerScreen from "../pages/EmployerScreen";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/employer" element={<EmployerScreen />} />
+        <Route path="/employee" element={<EmployeeScreen/>} />
       </Routes>
     </BrowserRouter>
   );

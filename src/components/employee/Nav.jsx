@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./findJobDash.css";
-// import logoImage from "../LOGO/LOGO_transparent.png";
+import "./styles/findJobDash.css";
+
 
 function Navigation() {
   const imageStyles = {

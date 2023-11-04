@@ -1,5 +1,5 @@
 import React from 'react'
-import "./JobsPosted.css"
+import "./styles/JobsPosted.css"
 
 export default function JobsPosted() {
 
