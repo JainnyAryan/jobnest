@@ -1,10 +1,10 @@
 .box {
   flex: 1.5;
-  float: top;
-  box-shadow: 1px 2px 5px #535f67;
+  position: sticky;
+  top: 15vh;
+  background-color: white;
+  border: 1px solid #5F909F;
   margin: 1% 2%;
   border-radius: 15px;
   height: 80vh;
-  position: sticky;
-  top: 15vh;
 }

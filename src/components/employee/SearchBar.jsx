@@ -6,9 +6,9 @@ export const SearchBar = () => {
   const divRef = useRef();
   useEffect(() => {
     if (!divRef.current) return;
-    const handleScroll = (event) => {
+    const handleScroll = () => {
       const rect = divRef.current.getBoundingClientRect();
-      if (rect.top < 15) {
+      if (window.scrollY > 0.000000000000) {
         setExpanded(true);
       } else {
         setExpanded(false);

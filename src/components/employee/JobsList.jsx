@@ -11,7 +11,7 @@ const JobsList = (props) => {
     <div className={styles.box}>
       {jobItems.map((e) => {
         return (
-          <div style={{ display: "flex", marginTop: "10px", padding: "10px", paddingRight: "3vh", width: "100%", flexDirection: "row", alignItems: "center", border: "1px solid black", borderRadius: "20px" }}>
+          <div onClick={() => props.onClick(e)} className={e != props.selectedJob ? `${styles.jobTile}` : `${styles.jobTile} ${styles.selected}`}>
             <img src={e.jobIcon} style={{ height: "9vh", aspectRatio: "1/1", marginRight: "20px" }} />
             <div style={{ flex: 3, display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
               <div style={{ display: "flex", height: "10vh", flexDirection: "column", alignItems: "start", justifyContent: "space-evenly", width: "50%" }}>
