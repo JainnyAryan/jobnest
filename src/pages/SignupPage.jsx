@@ -21,57 +21,54 @@ const LoginPage = () => {
   };
 
   return (
+    <body style={{backgroundImage: "linear-gradient(to right top, #0de4eb, #00cff1, #00b8f3, #00a0ee, #3285df)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", display: "flex", justifyContent: "center", margin: "auto", height: "100%"}}>
+      <img src="/backgound1.jpg" alt="" />
     <div >
-        <Navbar/>
+        {/* <Navbar/> */}
     <div
-      style={{ borderRadius: "20px", width: "80%", justifyContent: "center", alignContent: "center" }}
+      style={{ borderRadius: "10px", width: "90%", justifyContent: "center", alignItems: "center", background: "#f8f9fa", margin: "auto", boxShadow: "3px 3px 10px", marginTop: "3%", marginBottom: "3%"}}
       >
       <div
         style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-        }}
+          }}
         >
         <div>
           <Lottie
             options={{
-                loop: true,
+              loop: true,
                 autoplay: true,
                 animationData: loginAnim,
                 rendererSettings: {
                     preserveAspectRatio: "xMidYMid slice",
-                },
+                  },
             }}
             isClickToPauseDisabled={true}
             style={{
                 padding: "0px",
-              margin: "0px",
-              height: "40vw",
+                margin: "0px",
+                height: "40vw",
               width: "40vw",
               cursor: "default",
             }}
             />
         </div>
 
-        <div className="card" style={{ width: "25%", borderRadius: "20px" , background: "rgb(6, 58, 66)" , color: "white"}}>
+        <div className="card" style={{ width: "100%", borderRadius: "5px"  , margin: "4%", borderColor: "white", boxShadow: "1px 1px 30px #e9ecef"}}>
           <div
             className="card-body"
-            style={{ fontFamily: "Nunito Sans, sans-serif" }}
+            style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
             >
             <img
-              src="https://i.ibb.co/C1TNMMY/LOGO-transparent.png"
+              src="/logo_black.png"
               alt="LOGO-transparent"
               border="0"
-              width={"100%"}
+              width={"60%"}
+              style={{ marginLeft: "20%"}}
               ></img>
-            {/* <h1 className="card-title text-center mb-2">
-              <strong>Login To JobNest</strong>
-            </h1> */}
-            <h5 className="text-center" style={{ color: "white" }}>
-              <strong>Welcome to JobNest</strong>
-            </h5>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ display: "flex", flexDirection: "column", textAlign: "left" }}>
 
                 {/* User enters his/her official name. */}
               <div className="form-group mt-3">
@@ -85,14 +82,14 @@ const LoginPage = () => {
                   className="form-control"
                   style={{
                       borderRadius: "8px",
-                      border: "1px solid grey",
-                      background: "#caf0f8",
+                      border: "2px solid grey",
+                      textAlign: "left"
                     }}
                     />
               </div>
 
                 {/* User enters his/her account name for jobnest platform. */}
-              <div className="form-group mt-3" style={{ color: "white"}}>
+              <div className="form-group mt-3" style={{ color: "black"}}>
                 <label htmlFor="username">
                   <strong>Username</strong>
                 </label>
@@ -103,8 +100,7 @@ const LoginPage = () => {
                   className="form-control"
                   style={{
                     borderRadius: "8px",
-                    border: "1px solid grey",
-                    background: "#caf0f8",
+                    border: "2px solid grey",
                 }}
                 />
               </div>
@@ -121,8 +117,7 @@ const LoginPage = () => {
                   className="form-control"
                   style={{
                       borderRadius: "8px",
-                      border: "1px solid grey",
-                      background: "#caf0f8",
+                      border: "2px solid grey",
                     }}
                     />
               </div>
@@ -139,8 +134,7 @@ const LoginPage = () => {
                   className="form-control"
                   style={{
                       borderRadius: "8px",
-                      border: "1px solid grey",
-                      background: "#caf0f8",
+                      border: "2px solid grey",
                       textAlign: "left",
                     }}
                     />
@@ -158,9 +152,8 @@ const LoginPage = () => {
                   className="form-control"
                   style={{
                       borderRadius: "8px",
-                      border: "1px solid grey",
-                      background: "#caf0f8",
-                      textAlign: "left",
+                      border: "2px solid grey",
+                    textAlign: "left",
                     }}
                     />
               </div>
@@ -172,14 +165,14 @@ const LoginPage = () => {
                   onChange={onCheck}
                   checked={isEmployer}
                   />{" "}
-                <strong>Signup as an Employer</strong>
+                Signup as an Employer
               </span>
               <button
                 className="btn btn-primary mt-4"
                 style={{ borderRadius: "10px" }}
                 onClick={onClick}
                 >
-                Login
+                <strong>Login</strong>
               </button>
             </div>
           </div>
@@ -187,6 +180,7 @@ const LoginPage = () => {
       </div>
     </div>
     </div>
+    </body>
   );
 };
 
