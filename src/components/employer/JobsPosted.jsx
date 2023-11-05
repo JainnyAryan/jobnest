@@ -70,68 +70,61 @@ export default function JobsPosted() {
             <div className={styles.jobPosted}>
               <h3>{e.role}</h3>
               <center>
-              <div style={{ display: "flex", flexDirection:"row", justifyContent:"space-evenly"}}>
-                <div style={{ display: "flex", flexDirection:"column", alignItems:"start"}}>
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+
+                    <div style={{ display: "flex", }}>
+                      <IconContext.Provider value={{ color: "", className: "global-class-name", size: "1em", }}>
+                        <div>
+                          <FaStopwatch />
+                        </div>
+                      </IconContext.Provider>
+                      {e.location}
+                    </div>
 
 
-                  <div className="px-2" style={{ display: "flex",  }}>
-                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
-                      <div>
-                        <FaStopwatch />
-                      </div>
-                    </IconContext.Provider>
-                    {e.location}
+
+                    <div  style={{ display: "flex" }}>
+                      <IconContext.Provider value={{ color: "", className: "global-class-name", size: "1em", }}>
+                        <div>
+                          <FaMoneyBillAlt />
+                        </div>
+                      </IconContext.Provider>
+                      {e.salary}
+                    </div>
                   </div>
 
 
+                  <div className="" style={{ display: "flex", flexDirection: "column", alignItems:"start", justifyContent:"center" }}>
+                    <div style={{ display: "flex" }}>
+                      <IconContext.Provider
+                        value={{ color: "", className: "global-class-name", size: "1em", }}>
+                        <div>
+                          <FaMapMarkerAlt />
+                        </div>
+                      </IconContext.Provider>
+                      {e.time}
+                    </div>
 
 
-                  <div className="px-2" style={{ display: "flex" }}>
-                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
-                      <div>
-                        <FaMoneyBillAlt />
-                      </div>
-                    </IconContext.Provider>
-                    {e.salary}
+
+                    <div className="" style={{ display: "flex" }}>
+                      <IconContext.Provider value={{ color: "", className: "global-class-name", size: "1em", }}>
+                        <div>
+                          <FaLaptop />
+                        </div>
+                      </IconContext.Provider>
+                      {e.type}
+                    </div>
                   </div>
                 </div>
-
-
-              <div className="px-2" style={{ display: "flex", flexDirection:"column" }}>
-                <div style={{ display: "flex" }}>
-                  <IconContext.Provider
-                    value={{color: "", className: "global-class-name", size: "1em", }}>
-                      <div>
-                      <FaMapMarkerAlt />
-                    </div>
-                  </IconContext.Provider>
-                  {e.time}
-                </div>
-
-
-
-
-                <div className="px-2" style={{ display: "flex" }}>
-                  <IconContext.Provider value={{ color: "",className: "global-class-name",  size: "1em",}}>
-                    <div>
-                      <FaLaptop />
-                    </div>
-                  </IconContext.Provider>
-                  {e.type}
-                </div>
-              </div>
-              </div>
               </center>
 
-
-
-
-
-            <button className="btn btn-info mt-3">View Applicants</button>
+              <button className="btn btn-info mt-3">View Applicants</button>
 
 
             </div>
-            
+
           );
         })}
       </div>

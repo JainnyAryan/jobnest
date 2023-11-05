@@ -1,10 +1,11 @@
 import { FindJobDash } from "./FindJobDash";
 import styles from "./styles/JobDescSidePanel.module.css";
 
-const JobDescSidePanel = () => {
+const JobDescSidePanel = (props) => {
   return (
     <div className={styles.box}>
-      <FindJobDash/>
+      {!props.selectedJob &&
+        <FindJobDash />}
     </div>
   )
 }
