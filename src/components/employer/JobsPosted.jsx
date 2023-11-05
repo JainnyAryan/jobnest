@@ -63,14 +63,18 @@ export default function JobsPosted() {
 
   return (
     <center>
-      <div className={styles.allCards} style={{display: "grid",flexDirection: "row",gridTemplateColumns: "repeat(3, 1fr)",}}>
+      <div className={styles.allCards}>
+
         {jobs.map((e) => {
           return (
             <div className={styles.jobPosted}>
               <h3>{e.role}</h3>
               <center>
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <div style={{ display: "flex" }}>
+              <div style={{ display: "flex", flexDirection:"row", justifyContent:"space-evenly"}}>
+                <div style={{ display: "flex", flexDirection:"column", alignItems:"start"}}>
+
+
+                  <div className="px-2" style={{ display: "flex",  }}>
                     <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
                       <div>
                         <FaStopwatch />
@@ -78,7 +82,11 @@ export default function JobsPosted() {
                     </IconContext.Provider>
                     {e.location}
                   </div>
-                  <div style={{ display: "flex" }}>
+
+
+
+
+                  <div className="px-2" style={{ display: "flex" }}>
                     <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
                       <div>
                         <FaMoneyBillAlt />
@@ -87,9 +95,9 @@ export default function JobsPosted() {
                     {e.salary}
                   </div>
                 </div>
-              </center>
 
-              <div style={{ display: "flex", justifyContent: "center" }}>
+
+              <div className="px-2" style={{ display: "flex", flexDirection:"column" }}>
                 <div style={{ display: "flex" }}>
                   <IconContext.Provider
                     value={{color: "", className: "global-class-name", size: "1em", }}>
@@ -99,7 +107,11 @@ export default function JobsPosted() {
                   </IconContext.Provider>
                   {e.time}
                 </div>
-                <div style={{ display: "flex" }}>
+
+
+
+
+                <div className="px-2" style={{ display: "flex" }}>
                   <IconContext.Provider value={{ color: "",className: "global-class-name",  size: "1em",}}>
                     <div>
                       <FaLaptop />
@@ -108,7 +120,18 @@ export default function JobsPosted() {
                   {e.type}
                 </div>
               </div>
+              </div>
+              </center>
+
+
+
+
+
+            <button className="btn btn-info mt-3">View Applicants</button>
+
+
             </div>
+            
           );
         })}
       </div>
