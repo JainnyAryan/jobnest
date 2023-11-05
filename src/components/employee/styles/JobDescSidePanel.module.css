@@ -1,10 +1,64 @@
+.box::-webkit-scrollbar {
+  border-radius: 20px;
+}
+
+.box::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+  border: 5px solid transparent;
+  background-clip: content-box;
+}
+
 .box {
   flex: 1.5;
   position: sticky;
   top: 15vh;
   background-color: white;
-  border: 1px solid #5F909F;
+  border: 1px solid #5f909f;
   margin: 1% 2%;
   border-radius: 15px;
-  height: 80vh;
+  height: min-content;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.panel {
+  padding: 3vw;
+}
+
+.jobDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.jobTitle {
+  font-size: calc(16px + 1.5vw);
+  font-weight: 500;
+}
+
+.jobCompany {
+  font-size: calc(16px + 0.5vw);
+  color: #113e4d;
+}
+
+.jobLocation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: calc(16px + 0.5vw);
+  color: gray;
+}
+
+.applyButton {
+  background-color: #18408e;
+  color: white;
+  width: calc(16px + 10vw);
+  height: calc(16px + 4vh);
+  font-size: calc(16px + 0.6vw);
+  padding-bottom: calc(16px + 0.8vw);
+  outline: none;
+}
+
+.jobDesc {
+  font-size: calc(16px + 0.3vw);
 }

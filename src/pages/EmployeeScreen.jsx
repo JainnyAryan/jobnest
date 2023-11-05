@@ -13,7 +13,8 @@ const jobItems = [
     location: "Cape Town",
     locationType: "On-site",
     jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "Senior Web Dev",
@@ -21,7 +22,8 @@ const jobItems = [
     location: "WFH",
     locationType: "Remote",
     jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "Intern",
@@ -29,7 +31,8 @@ const jobItems = [
     location: "Vellore",
     locationType: "On-site",
     jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
@@ -37,111 +40,112 @@ const jobItems = [
     location: "New York",
     locationType: "On-site",
     jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>",
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
   {
     jobName: "CEO",
     company: "Netflix",
     location: "New York",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
-    description: "A B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\nA B C D\n"
+    jobIcon: "/logo192.png", salary: "20000 a month",
+    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
 ];
 
@@ -154,7 +158,7 @@ const EmployeeScreen = () => {
       <SearchBar />
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
         <FilterBox />
-        <JobsList jobItems={jobItems} selectedJob={selectedJob} onClick={(job) => {setSelectedJob(job)}}/>
+        <JobsList jobItems={jobItems} selectedJob={selectedJob} onClick={(job) => { setSelectedJob(job) }} />
         <JobDescSidePanel selectedJob={selectedJob} />
       </div>
     </div>

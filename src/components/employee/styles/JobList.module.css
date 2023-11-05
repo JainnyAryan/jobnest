@@ -23,8 +23,8 @@
 .selected {
   scale: 1.05;
   border: none;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.357);
-  border: 1px solid #5F909F;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.357);
+  border: 2px solid #5F909F;
   background-color: white;
   transition: ease-out 100ms;
 }
