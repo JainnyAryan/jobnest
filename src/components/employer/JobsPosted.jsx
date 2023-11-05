@@ -63,11 +63,7 @@ export default function JobsPosted() {
 
   return (
     <center>
-<<<<<<< Updated upstream
-      <div className={styles.allCards} style={{display: "grid",flexDirection: "row",gridTemplateColumns: "repeat(3, 1fr)"}}>
-=======
       <div className={styles.allCards} style={{display: "grid",flexDirection: "row",gridTemplateColumns: "repeat(3, 1fr)",}}>
->>>>>>> Stashed changes
         {jobs.map((e) => {
           return (
             <div className={styles.jobPosted}>
@@ -75,11 +71,7 @@ export default function JobsPosted() {
               <center>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div style={{ display: "flex" }}>
-<<<<<<< Updated upstream
-                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
-=======
                     <IconContext.Provider value={{ color: "",className: "global-class-name", size: "1em",  }} >
->>>>>>> Stashed changes
                       <div>
                         <FaStopwatch />
                       </div>
@@ -87,11 +79,7 @@ export default function JobsPosted() {
                     {e.location}
                   </div>
                   <div style={{ display: "flex" }}>
-<<<<<<< Updated upstream
-                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
-=======
                     <IconContext.Provider value=  {{ color: "",className: "global-class-name",size: "1em", }}>
->>>>>>> Stashed changes
                       <div>
                         <FaMoneyBillAlt />
                       </div>

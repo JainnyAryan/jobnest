@@ -97,28 +97,6 @@ export default function Footer() {
                 </a>
               </p>
             </MDBCol>
-<<<<<<< Updated upstream
-            {/* 
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Location</h6>
-              <p>
-                <MDBIcon icon="home" className="me-2" />
-                Cape Town
-              </p>
-              <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                info@example.com
-              </p>
-              <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
-              </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
-            </MDBCol> */}
-=======
-
->>>>>>> Stashed changes
           </MDBRow>
         </MDBContainer>
       </section>
