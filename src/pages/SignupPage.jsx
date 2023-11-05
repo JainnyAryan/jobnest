@@ -31,8 +31,7 @@ const LoginPage = () => {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-          }}
+            alignItems: "center"
           }}
         >
         <div>
@@ -83,7 +82,7 @@ const LoginPage = () => {
                     style={{
                       borderRadius: "8px",
                       border: "2px solid grey",
-                      textAlign: "left"
+                      alignItems: "start"
                     }}
                   />
                 </div>
