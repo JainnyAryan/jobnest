@@ -63,14 +63,7 @@ export default function JobsPosted() {
 
   return (
     <center>
-      <div
-        className={styles.allCards}
-        style={{
-          display: "grid",
-          flexDirection: "row",
-          gridTemplateColumns: "repeat(3, 1fr)",
-        }}
-      >
+      <div className={styles.allCards} style={{display: "grid",flexDirection: "row",gridTemplateColumns: "repeat(3, 1fr)"}}>
         {jobs.map((e) => {
           return (
             <div className={styles.jobPosted}>
@@ -78,13 +71,7 @@ export default function JobsPosted() {
               <center>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div style={{ display: "flex" }}>
-                    <IconContext.Provider
-                      value={{
-                        color: "",
-                        className: "global-class-name",
-                        size: "1em",
-                      }}
-                    >
+                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
                       <div>
                         <FaStopwatch />
                       </div>
@@ -92,13 +79,7 @@ export default function JobsPosted() {
                     {e.location}
                   </div>
                   <div style={{ display: "flex" }}>
-                    <IconContext.Provider
-                      value={{
-                        color: "",
-                        className: "global-class-name",
-                        size: "1em",
-                      }}
-                    >
+                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
                       <div>
                         <FaMoneyBillAlt />
                       </div>
