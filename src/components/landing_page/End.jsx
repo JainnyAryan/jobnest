@@ -1,20 +1,18 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
-export default function Footer() {
+export default function End() {
   return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted' >
-
-
+    <MDBFooter className='text-center text-lg-start text-muted' style={{backgroundColor: "rgb(176, 239, 255)"}}>
       <section className=''>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
-
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4' style={{ marginTop: '20px' }}>
+           
+            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'style={{marginTop:'20px'}}>
               <h6 class='text-uppercase  mb-4 text-primary' >Navigation</h6>
               <p>
-                <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  Find Work
+                <a href='#!' className='text-reset'  style={{ textDecoration: 'none' }}>
+                 Find Work
                 </a>
               </p>
               <p>
@@ -33,22 +31,22 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  Post a featured job
+                <a href='#!' className='text-reset'  style={{ textDecoration: 'none' }}>
+                 Post a featured job
                 </a>
               </p>
             </MDBCol>
 
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4' style={{ marginTop: '20px' }}>
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'style={{marginTop:'20px'}}>
               <h6 class='text-uppercase mb-4 text-primary'>Industry</h6>
               <p>
-                <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  Technology
+                <a href='#!' className='text-reset'  style={{ textDecoration: 'none' }}>
+                 Technology
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  Marketing
+                 Marketing
                 </a>
               </p>
               <p>
@@ -63,17 +61,17 @@ export default function Footer() {
               </p>
               <p>
                 <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  Education
+                Education
                 </a>
               </p>
             </MDBCol>
 
-
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4' style={{ marginTop: '20px' }}>
+            
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4' style={{marginTop:'20px'}}>
               <h6 className='text-uppercase mb-4 text-primary' >Location</h6>
               <p>
-                <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  Cape Town
+                <a href='#!' className='text-reset'  style={{ textDecoration: 'none' }}>
+                 Cape Town
                 </a>
               </p>
               <p>
@@ -93,41 +91,16 @@ export default function Footer() {
               </p>
               <p>
                 <a href='#!' className='text-reset' style={{ textDecoration: 'none' }}>
-                  International
+               International
                 </a>
               </p>
             </MDBCol>
-<<<<<<< Updated upstream
-            {/* 
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Location</h6>
-              <p>
-                <MDBIcon icon="home" className="me-2" />
-                Cape Town
-              </p>
-              <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                info@example.com
-              </p>
-              <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
-              </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
-            </MDBCol> */}
-=======
-
->>>>>>> Stashed changes
           </MDBRow>
         </MDBContainer>
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2023 Copyright.All rights reserved
-        {/* <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com */}
-        {/* </a> */}
+        ©️ 2023 Copyright. All rights reserved
       </div>
     </MDBFooter>
   );
