@@ -71,7 +71,7 @@ export default function JobsPosted() {
               <center>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div style={{ display: "flex" }}>
-                    <IconContext.Provider value={{ color: "",className: "global-class-name", size: "1em",  }} >
+                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
                       <div>
                         <FaStopwatch />
                       </div>
@@ -79,7 +79,7 @@ export default function JobsPosted() {
                     {e.location}
                   </div>
                   <div style={{ display: "flex" }}>
-                    <IconContext.Provider value=  {{ color: "",className: "global-class-name",size: "1em", }}>
+                    <IconContext.Provider value={{color: "",className: "global-class-name",size: "1em",}}>
                       <div>
                         <FaMoneyBillAlt />
                       </div>
