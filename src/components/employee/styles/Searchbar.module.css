@@ -1,0 +1,28 @@
+.card {
+  position: sticky;
+  top: 0vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 20vw;
+  width: 60vw;
+  height: 15vh;
+  box-shadow: 2px 2px 5px #535f67;
+  background-color: white;
+  transition: 300ms;
+}
+
+.expanded {
+  width: 99vw;
+  margin-left: 0vw;
+  height: 11vh;
+  border-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: 200ms;
+}

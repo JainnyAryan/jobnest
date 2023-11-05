@@ -15,6 +15,7 @@ function AppRoutes() {
         <Route path="/register" element={<SignupPage />}/>
         <Route path="/employer" element={<EmployerScreen />} />
         <Route path="/employee" element={<EmployeeScreen/>} />
+        
       </Routes>
     </BrowserRouter>
   );

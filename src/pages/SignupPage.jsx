@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
-import Navbar from "../components/landing_page/Navbar";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -28,11 +27,12 @@ const LoginPage = () => {
     <div
       style={{ borderRadius: "10px", width: "90%", justifyContent: "center", alignItems: "center", background: "#f8f9fa", margin: "auto", boxShadow: "3px 3px 10px", marginTop: "3%", marginBottom: "3%"}}
       >
-      <div
-        style={{
+        <div
+          style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+          }}
           }}
         >
         <div>
@@ -54,7 +54,7 @@ const LoginPage = () => {
               cursor: "default",
             }}
             />
-        </div>
+          </div>
 
         <div className="card" style={{ width: "100%", borderRadius: "5px"  , margin: "4%", borderColor: "white", boxShadow: "1px 1px 30px #e9ecef"}}>
           <div
@@ -71,22 +71,22 @@ const LoginPage = () => {
             <div style={{ display: "flex", flexDirection: "column", textAlign: "left" }}>
 
                 {/* User enters his/her official name. */}
-              <div className="form-group mt-3">
-                <label htmlFor="name">
-                  <strong>Name</strong>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Enter your name"
-                  className="form-control"
-                  style={{
+                <div className="form-group mt-3">
+                  <label htmlFor="name">
+                    <strong>Name</strong>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    className="form-control"
+                    style={{
                       borderRadius: "8px",
                       border: "2px solid grey",
                       textAlign: "left"
                     }}
-                    />
-              </div>
+                  />
+                </div>
 
                 {/* User enters his/her account name for jobnest platform. */}
               <div className="form-group mt-3" style={{ color: "black"}}>
@@ -105,65 +105,65 @@ const LoginPage = () => {
                 />
               </div>
 
-                  {/* User enters his/her email address */}
-              <div className="form-group mt-3">
-                <label htmlFor="email">
-                  <strong>Email</strong>
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Enter your Email"
-                  className="form-control"
-                  style={{
+                {/* User enters his/her email address */}
+                <div className="form-group mt-3">
+                  <label htmlFor="email">
+                    <strong>Email</strong>
+                  </label>
+                  <input
+                    type="text"
+                    id="email"
+                    placeholder="Enter your Email"
+                    className="form-control"
+                    style={{
                       borderRadius: "8px",
                       border: "2px solid grey",
                     }}
-                    />
-              </div>
+                  />
+                </div>
 
-                  {/* User enters his/her password for their account on jobnest. */}
-              <div className="form-group mt-3">
-                <label htmlFor="password">
-                  <strong>Password</strong>
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Enter the Password"
-                  className="form-control"
-                  style={{
+                {/* User enters his/her password for their account on jobnest. */}
+                <div className="form-group mt-3">
+                  <label htmlFor="password">
+                    <strong>Password</strong>
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter the Password"
+                    className="form-control"
+                    style={{
                       borderRadius: "8px",
                       border: "2px solid grey",
                       textAlign: "left",
                     }}
-                    />
-              </div>
+                  />
+                </div>
 
-                  {/* User enters his/her confirmed password for their account on jobnest. */}
-              <div className="form-group mt-3">
-                <label htmlFor="password">
-                  <strong>Confirm Password</strong>
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Enter the confirm Password"
-                  className="form-control"
-                  style={{
+                {/* User enters his/her confirmed password for their account on jobnest. */}
+                <div className="form-group mt-3">
+                  <label htmlFor="password">
+                    <strong>Confirm Password</strong>
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter the confirm Password"
+                    className="form-control"
+                    style={{
                       borderRadius: "8px",
                       border: "2px solid grey",
                     textAlign: "left",
                     }}
-                    />
-              </div>
-              <br/>
-              {/* User registers either as an employer or a job seeker. */}
-              <span>
-                <input
-                  type="checkbox"
-                  onChange={onCheck}
-                  checked={isEmployer}
+                  />
+                </div>
+                <br />
+                {/* User registers either as an employer or a job seeker. */}
+                <span>
+                  <input
+                    type="checkbox"
+                    onChange={onCheck}
+                    checked={isEmployer}
                   />{" "}
                 Signup as an Employer
               </span>
