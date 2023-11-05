@@ -1,6 +1,11 @@
 import React from "react";
-import "./styles/JobsPosted.css";
-import { FaStopwatch, FaMoneyBillAlt, FaMapMarkerAlt, FaLaptop } from "react-icons/fa";
+import styles from "./styles/JobsPosted.module.css";
+import {
+  FaStopwatch,
+  FaMoneyBillAlt,
+  FaMapMarkerAlt,
+  FaLaptop,
+} from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 export default function JobsPosted() {
@@ -59,7 +64,7 @@ export default function JobsPosted() {
   return (
     <center>
       <div
-        className="allCards"
+        className={styles.allCards}
         style={{
           display: "grid",
           flexDirection: "row",
@@ -68,11 +73,11 @@ export default function JobsPosted() {
       >
         {jobs.map((e) => {
           return (
-            <div class="jobPosted">
+            <div className={styles.jobPosted}>
               <h3>{e.role}</h3>
               <center>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <div style={{display:"flex"}}>
+                  <div style={{ display: "flex" }}>
                     <IconContext.Provider
                       value={{
                         color: "",
@@ -86,8 +91,8 @@ export default function JobsPosted() {
                     </IconContext.Provider>
                     {e.location}
                   </div>
-                  <div style={{display:"flex"}}>
-                  <IconContext.Provider
+                  <div style={{ display: "flex" }}>
+                    <IconContext.Provider
                       value={{
                         color: "",
                         className: "global-class-name",
@@ -98,35 +103,40 @@ export default function JobsPosted() {
                         <FaMoneyBillAlt />
                       </div>
                     </IconContext.Provider>
-                    {e.salary}</div>
+                    {e.salary}
+                  </div>
                 </div>
               </center>
 
               <div style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{display:"flex"}}>
+                <div style={{ display: "flex" }}>
                   <IconContext.Provider
-                      value={{
-                        color: "",
-                        className: "global-class-name",
-                        size: "1em",
-                      }}
-                    >
-                      <div>
-                        < FaMapMarkerAlt/>
-                      </div>
-                    </IconContext.Provider>{e.time}</div>
-                    <div style={{display:"flex"}}>
+                    value={{
+                      color: "",
+                      className: "global-class-name",
+                      size: "1em",
+                    }}
+                  >
+                    <div>
+                      <FaMapMarkerAlt />
+                    </div>
+                  </IconContext.Provider>
+                  {e.time}
+                </div>
+                <div style={{ display: "flex" }}>
                   <IconContext.Provider
-                      value={{
-                        color: "",
-                        className: "global-class-name",
-                        size: "1em",
-                      }}
-                    >
-                      <div>
-                        <FaLaptop/>
-                      </div>
-                    </IconContext.Provider>{e.type}</div>
+                    value={{
+                      color: "",
+                      className: "global-class-name",
+                      size: "1em",
+                    }}
+                  >
+                    <div>
+                      <FaLaptop />
+                    </div>
+                  </IconContext.Provider>
+                  {e.type}
+                </div>
               </div>
             </div>
           );

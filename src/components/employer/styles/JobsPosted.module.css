@@ -1,0 +1,16 @@
+.jobPosted {
+    border: 1px solid rgb(195, 193, 193);
+    padding: 7vh;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: rgb(245, 238, 238);
+  }
+  
+  .allCards {
+    background-color: rgb(242, 242, 253);
+    margin-top: 5vh;
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
