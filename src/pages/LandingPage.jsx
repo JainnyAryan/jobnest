@@ -16,13 +16,13 @@ function LandingPage() {
   return (
     <div>
       <Navbar />
-      <div className={styles.container}>
+      <div className={styles.containerr}>
         <div className={styles.text}>
           <h2><strong>Find a Job With<br />Your Interests and<br />Abilities</strong></h2>
           <br />
           <h5>Find jobs that match your interests with us. Jabang provides a place to find your jobs</h5>
           <br />
-          <button className="btn click">Get Started</button>
+          <button className={`${styles.click} btn`}>Get Started</button>
         </div>
         <div id="image" >
           <Lottie
