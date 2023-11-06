@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
-import Navbar from "../components/landing_page/Navbar";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -26,36 +25,35 @@ const LoginPage = () => {
       style={{
         backgroundImage:
           'url("/background1.jpg")',
-        // filter: 'blur(8px)',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "center center",
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         margin: "auto",
-        height: "100%",
+        height: "100vh",
       }}
     >
       <div>
         <div
           style={{
-            borderRadius: "10px",
-            width: "90%",
+            borderRadius: "20px",
+            width: "70vw",
+            height: "80vh",
             justifyContent: "center",
             alignItems: "center",
             background: "#f8f9fa",
             margin: "auto",
             boxShadow: "3px 3px 10px",
-            marginTop: "3%",
-            marginBottom: "10%",
           }}
         >
           <div
             style={{
               display: "flex",
+              flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              marginRight: "7%"
             }}
           >
             <div>
@@ -79,76 +77,74 @@ const LoginPage = () => {
               />
             </div>
 
+
             <div
-              className="card"
               style={{
-                width: "100%",
-                borderRadius: "5px",
-                margin: "4%",
-                borderColor: "white",
-                boxShadow: "1px 1px 30px #e9ecef",
-                // marginRight: "5%"
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                fontFamily: "Signika Negative, Arial, sans-serif",
+                paddingBottom: "5%",
+                height: "80vh",
+                backgroundColor:"#232423",
+                // background: "rgb(69,223,245)",
+                // background: "-moz-linear-gradient(42deg, rgba(69,223,245,1) 10%, rgba(106,227,242,1) 52%, rgba(163,239,249,1) 85%, rgba(194,246,252,1) 96%)",
+                // background: "-webkit-linear-gradient(42deg, rgba(69,223,245,1) 10%, rgba(106,227,242,1) 52%, rgba(163,239,249,1) 85%, rgba(194,246,252,1) 96%)",
+                // background: "linear-gradient(42deg, rgba(69,223,245,1) 10%, rgba(106,227,242,1) 52%, rgba(163,239,249,1) 85%, rgba(194,246,252,1) 96%)",
+                // boxShadow: "none",
+                borderTopRightRadius: "20px",
+                borderBottomRightRadius: "20px"
               }}
             >
-              <div
-                className="card-body"
-                style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
-              >
-                <img
-                  src="/logo_black.png"
-                  alt="LOGO-transparent"
-                  border="0"
-                  width={"100%"}
-                ></img>
-                {/* <h1 className="card-title text-center mb-2">
-              <strong>Login To JobNest</strong>
-            </h1> */}
-                <h5 className="text-center" style={{ color: "grey " }}>
-                  <strong>Login to JobNest</strong>
-                </h5>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div className="form-group">
-                    <label htmlFor="username">
-                      <strong>Username</strong>
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      placeholder="Enter the Username"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                      }}
-                      onChange={handleUsername}
-                    />
-                  </div>
+              <img
+                src="/LOGO_transparent.png"
+                alt="LOGO-transparent"
+                border="0"
+                width={"100%"}
+                style={{ borderTopRightRadius: "20px" }}
+              ></img>
 
-                  <div className="form-group mt-3">
-                    <label htmlFor="password">
-                      <strong>Password</strong>
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      placeholder="Enter the Password"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                        textAlign: "left",
-                      }}
-                    />
-                  </div>
-                  {/* <span><input type="checkbox" onChange={onCheck} checked={isEmployer} /> Signup as an Employer</span> */}
-                  <button
-                    className="btn btn-primary mt-4"
-                    style={{ borderRadius: "10px" }}
-                    onClick={onClick}
-                  >
-                    Login
-                  </button>
+              <div style={{ display: "flex", flexDirection: "column", height: "65%", padding: "10%" }}>
+                <div className="form-group">
+                  <label htmlFor="username" style={{color:"#6CE4F3"}}>
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter the Username"
+                    className="form-control"
+                    style={{
+                      borderRadius: "8px",
+                      border: "1px solid #ccdce1",
+                    }}
+                    onChange={handleUsername}
+                  />
                 </div>
+
+                <div className="form-group mt-3">
+                  <label htmlFor="password" style={{color:"#6CE4F3"}}>
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter the Password"
+                    className="form-control"
+                    style={{
+                      borderRadius: "8px",
+                      border: "1px solid #ccdce1",
+                      textAlign: "left",
+                    }}
+                  />
+                </div>
+                <button
+                  className="btn mt-4"
+                  style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
+                  onClick={onClick}
+                >
+                  Login
+                </button>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ span {
   display: flex;
   flex-direction: column;
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.51);
+  border: 1px solid rgba(0, 0, 0, 0.405);
   border-radius: 2vh;
   width: 18vw;
   max-width: 20vw;

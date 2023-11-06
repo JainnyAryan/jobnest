@@ -29,6 +29,7 @@
 .jobDetails {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .jobTitle {
@@ -47,16 +48,21 @@
   align-items: center;
   font-size: calc(16px + 0.5vw);
   color: gray;
+  padding: 5px 0;
 }
 
 .applyButton {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
   background-color: #18408e;
   color: white;
   width: calc(16px + 10vw);
   height: calc(16px + 4vh);
-  font-size: calc(16px + 0.6vw);
-  padding-bottom: calc(16px + 0.8vw);
+  font-size: calc(16px + 0.5vw);
   outline: none;
+  margin: 10px 0;
 }
 
 .jobDesc {

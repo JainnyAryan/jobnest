@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from "./styles/Searchbar.module.css"
+import { Input, TextField } from '@mui/material';
 
 export const SearchBar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -49,18 +50,37 @@ export const SearchBar = () => {
 
   return (
     <div className={!expanded ? styles.card : `${styles.card} ${styles.expanded}`} ref={divRef}>
-      <input style={{ borderRadius: "30px", border: "1px solid grey", color: "black", height: "5vh" }} placeholder="Search for Jobs" type="text" />
-      <select name="industry" id="" style={{ borderRadius: "30px", border: "1px solid grey", height: "5vh" }}>
+      <input placeholder="Search for Jobs" type="text" className={styles.input}/>
+      <select name="industry">
         {industry.map((e) => {
-          return <option value={e}>{e}</option>
+          if(e === "Industry"){
+            return (
+              <option value="" disabled selected hidden>{e}</option>
+              )
+            }
+            else{
+              return(
+              <option value={e}>{e}</option>
+            )
+          }
         })}
       </select>
-      <select name="location" id="" style={{ borderRadius: "30px", border: "1px solid grey", height: "5vh" }}>
+      <select name="location" placeholder='Location'>
         {locations.map((e) => {
-          return <option value={e}>{e}</option>
-        })}
+          if(e === "Location"){
+            return (
+              <option value="" disabled selected hidden>{e}</option>
+              )
+            }
+            else{
+              return(
+              <option value={e}>{e}</option>
+            )
+          }
+        }
+        )}
       </select>
-      <button style={{ color: "White", height: "5vh", backgroundColor: "#2062E2", borderRadius: "30px", border: "1px solid grey", padding: "10px" }} type="submit">Search</button>
+      <button type="submit" className={styles.button}>Search</button>
     </div >
   )
 }
