@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from "react-lottie";
-import "./styles/Landing.css";
+import styles from "./styles/LandingPage.module.css";
 import Navbar from "../components/landing_page/Navbar";
 import heroAnime from "../assets/anims/heroAnimation.json";
 
@@ -16,13 +16,13 @@ function LandingPage() {
   return (
     <div>
       <Navbar />
-      <div id="containerr">
-        <div id="text">
+      <div className={styles.container}>
+        <div className={styles.text}>
           <h2><strong>Find a Job With<br />Your Interests and<br />Abilities</strong></h2>
           <br />
           <h5>Find jobs that match your interests with us. Jabang provides a place to find your jobs</h5>
           <br />
-          <button class="btn click">Get Started</button>
+          <button className="btn click">Get Started</button>
         </div>
         <div id="image" >
           <Lottie

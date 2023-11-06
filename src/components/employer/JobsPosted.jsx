@@ -120,7 +120,7 @@ export default function JobsPosted() {
                 </div>
               </center>
 
-              <button className="btn btn-info mt-3">View Applicants</button>
+              <button className={styles.buttonAll}>View Applicants</button>
 
 
             </div>

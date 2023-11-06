@@ -3,7 +3,6 @@ import { MdLocationPin } from "react-icons/md";
 
 import styles from "./styles/JobList.module.css";
 
-
 const JobsList = (props) => {
   const jobItems = props.jobItems;
 

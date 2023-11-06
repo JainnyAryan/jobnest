@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./styles/findJobDash.css";
+import styles from "./styles/findJobDash.module.css";
 
 function Navbar2() {
   const imageStyles = {
@@ -18,7 +18,7 @@ function Navbar2() {
     </Link>
     <div class="nav ml-auto"> 
        <Link to="/skill" class="nav-link text-light"><center>
-          <button id="findJobButton" style={{marginRight :"2vw"}}>Post a Job</button>
+          <button className={styles.findJobButton} style={{marginRight :"2vw"}}>Post a Job</button>
       </center></Link> 
         
        

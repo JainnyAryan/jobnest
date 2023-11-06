@@ -6,16 +6,16 @@
     padding: 10px;
   }
   
-  #loginButton{
+  .loginButton{
     padding: 0.7rem 2rem;
-
     border-radius: 30px;
     border: 1px solid black;
     background-color: rgb(175, 242, 253);
     color: black;
     margin: 5px;
   }
-  #registerButton {
+
+  .registerButton {
     padding: 0.7rem 1.4rem;
     border-radius: 30px;
     border: 1px solid black;
@@ -31,8 +31,8 @@
       align-items: center;
     }
   
-    #findJobButton,
-    #JobButton {
+    .findJobButton,
+    .JobButton {
       width: 100%;
     }
   }

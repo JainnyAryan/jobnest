@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/Navbar.css";
+import styles from "./styles/Navbar.module.css";
 
 function Navbar() {
   return (
-    <nav className="navbar" style={{ width: "100%" }}>
+    <nav className={styles.navbar} style={{ width: "100%" }}>
       <Link to="/" className="navbar-brand mx-3">
         <img src="/LOGO_transparent.png" alt="Logo" style={imageStyles} />
       </Link>
       <div className="nav">
       <Link to="/login">
-          <button id="loginButton">Sign In</button>
+          <button className={styles.loginButton}>Sign In</button>
         </Link>
         <Link to="/register">
-          <button id="registerButton">Sign Up</button>
+          <button className={styles.registerButton}>Sign Up</button>
         </Link>
       </div>
     </nav>
