@@ -9,19 +9,8 @@ const EmployeeDetailsForm = () => {
   }
 
   return (
-    <div
-      style={{
-        backgroundImage: 'url("/blue_bg2.jpg")',
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        display: "flex",
-        margin: "auto",
-      }}
-    >
-      <div
-        className={styles.formBox}
-      >
+    <div className={styles.background_image}>
+      <div className={styles.formBox}>
         <div
           className="card-body"
           style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
@@ -42,8 +31,8 @@ const EmployeeDetailsForm = () => {
             }}
           >
             <strong>Please fill all the details before proceeding.</strong>
-          </p >
-          <h5 style={{ color: "white" }}>
+          </p>
+          <h5 className={styles.headingColor}>
             <u>
               <strong>Personal Information: </strong>
             </u>
@@ -56,44 +45,30 @@ const EmployeeDetailsForm = () => {
             }}
           >
             {/* User enters his/her official name. */}
-            <div className="form-group">
-              <label htmlFor="name">
-                Name
-              </label>
+            <div>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
                 id="name"
                 placeholder="User's Official Name" // Retrive from the backend
-                className="form-control"
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her email address */}
-            <div className="form-group mt-3">
-              <label htmlFor="email">
-                Email
-              </label>
+            <div>
+              <label htmlFor="email">Email</label>
               <input
                 type="text"
                 id="email"
                 placeholder="User's Official Email ID" // Retrive from the backend
-                className="form-control"
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her password for their account on jobnest. */}
             <div className="form-group mt-3">
-              <label htmlFor="phoneno">
-                Phone Number
-              </label>
+              <label htmlFor="phoneno">Phone Number</label>
               <input
                 type="number"
                 id="phoneno"
@@ -109,9 +84,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her confirmed password for their account on jobnest. */}
             <div className="form-group mt-3">
-              <label htmlFor="password">
-                Date of Birth
-              </label>
+              <label htmlFor="password">Date of Birth</label>
               <input
                 type="date"
                 id="dob"
@@ -128,9 +101,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her description for their account on jobnest. */}
             <div className="form-group mt-3">
-              <label htmlFor="gender">
-                Gender
-              </label>
+              <label htmlFor="gender">Gender</label>
               <select
                 name="gender"
                 id="gender"
@@ -149,9 +120,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her description for their account on jobnest. */}
             <div className="form-group mt-3">
-              <label htmlFor="description">
-                Description
-              </label>
+              <label htmlFor="description">Description</label>
               <br />
               <textarea
                 name="description"
@@ -176,9 +145,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her college name. */}
             <div className="form-group mt-1">
-              <label htmlFor="collegename">
-                College Name
-              </label>
+              <label htmlFor="collegename">College Name</label>
               <input
                 type="text"
                 id="collegename"
@@ -193,9 +160,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her Stream. */}
             <div className="form-group mt-3">
-              <label htmlFor="collegestream">
-                Stream
-              </label>
+              <label htmlFor="collegestream">Stream</label>
               <input
                 type="text"
                 id="collegestream"
@@ -210,9 +175,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her college cgpa. */}
             <div className="form-group mt-3">
-              <label htmlFor="cgpa">
-                College CGPA
-              </label>
+              <label htmlFor="cgpa">College CGPA</label>
               <input
                 type="number"
                 id="name"
@@ -227,9 +190,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her school name. */}
             <div className="form-group mt-3">
-              <label htmlFor="schoolname">
-                School Name
-              </label>
+              <label htmlFor="schoolname">School Name</label>
               <input
                 type="text"
                 id="schoolname"
@@ -244,9 +205,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her college cgpa. */}
             <div className="form-group mt-3">
-              <label htmlFor="highschoolpercent">
-                High School Percentage
-              </label>
+              <label htmlFor="highschoolpercent">High School Percentage</label>
               <input
                 type="number"
                 id="highschoolpercent"
@@ -284,9 +243,7 @@ const EmployeeDetailsForm = () => {
             </h5>
             {/* User enters his/her first company name. */}
             <div className="form-group mt-1">
-              <label htmlFor="company1">
-                Organization
-              </label>
+              <label htmlFor="company1">Organization</label>
               <input
                 type="text"
                 id="company1"
@@ -301,9 +258,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her first company work duration. */}
             <div className="form-group mt-1">
-              <label htmlFor="duration1">
-                Duration
-              </label>
+              <label htmlFor="duration1">Duration</label>
               <input
                 type="text"
                 id="duration1"
@@ -318,9 +273,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her first company role. */}
             <div className="form-group mt-1">
-              <label htmlFor="role1">
-                Role
-              </label>
+              <label htmlFor="role1">Role</label>
               <input
                 type="text"
                 id="role"
@@ -335,9 +288,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her role description. */}
             <div className="form-group mt-3">
-              <label htmlFor="roledescription1">
-                Role Description
-              </label>
+              <label htmlFor="roledescription1">Role Description</label>
               <br />
               <textarea
                 name="roledescription1"
@@ -361,9 +312,7 @@ const EmployeeDetailsForm = () => {
             </h5>
             {/* Awards Won by User */}
             <div className="form-group mt-3">
-              <label htmlFor="listawards">
-                Awards
-              </label>
+              <label htmlFor="listawards">Awards</label>
               <br />
               <textarea
                 name="listawards"
@@ -381,9 +330,7 @@ const EmployeeDetailsForm = () => {
 
             {/* User enters his/her certificates */}
             <div className="form-group mt-1">
-              <label htmlFor="certificate">
-                Certifications
-              </label>
+              <label htmlFor="certificate">Certifications</label>
               <textarea
                 name="certificate"
                 id="certificate"

@@ -9,6 +9,29 @@
   padding: 2vw;
 }
 
+.background_image {
+  padding: 0%;
+  background-size: "cover";
+  background-repeat: "no-repeat";
+  background-position: "center center";
+  display: flex;
+  margin: auto;
+  background-image: url("/public/blue_bg2.jpg");
+}
+
+.headingColor {
+  color: white;
+}
+
+.inputDimensions {
+  padding: 1.7%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: "2px solid grey";
+  margin-bottom: 2%;
+}
+
 ::placeholder {
   text-align: left;
   padding: 0;
