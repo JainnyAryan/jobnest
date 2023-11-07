@@ -15,7 +15,7 @@ const LoginPage = () => {
     if (isEmployer) {
       navigate("/employer");
     } else {
-      navigate("/employee");
+      navigate("/fill-employee-details");
     }
   };
 

@@ -1,10 +1,17 @@
 import React from "react";
 import styles from "../pages/styles/EmployeeDetailsForm.module.css";
+import { useNavigate } from "react-router-dom";
+
 const EmployeeDetailsForm = () => {
+    const navigate = useNavigate();
+    function onClick() {
+          navigate("/employee");
+      };
+
   return (
     <body
       style={{
-        backgroundImage: 'url("/blue_bg.jpg")',
+        backgroundImage: 'url("/blue_bg2.jpg")',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -20,7 +27,7 @@ const EmployeeDetailsForm = () => {
           borderRadius: "5px",
           margin: "4%",
           borderColor: "",
-          boxShadow: "1px 1px 30px #e9ecef",
+          boxShadow: "1px 1px 20px #e9ecef",
           marginLeft: "30%",
         }}
       >
@@ -439,7 +446,7 @@ const EmployeeDetailsForm = () => {
             <button
               className="btn btn-primary mt-4"
               style={{ borderRadius: "10px" }}
-              //   onClick={onClick}
+                onClick={onClick}
             >
               {/* User registers either as an employer or a job seeker. */}
               <strong>Login</strong>
@@ -453,15 +460,3 @@ const EmployeeDetailsForm = () => {
 
 export default EmployeeDetailsForm;
 
-{
-  /* <span> */
-}
-{
-  /* <input
-            type="checkbox"
-            onChange={onCheck}
-            checked={isEmployer}
-          />{" "}
-          Signup as an Employer
-        </span> */
-}
