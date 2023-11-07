@@ -3,7 +3,7 @@ import Lottie from "react-lottie";
 import styles from "./styles/LandingPage.module.css";
 import heroAnime from "../assets/anims/heroAnimation.json";
 import MyFooter from '../components/common/MyFooter';
-import MyNavbar from '../components/landing_page/MyNavbar';
+import MyNavbar from '../components/common/MyNavbar';
 
 function LandingPage() {
   const defaultOptions = {
