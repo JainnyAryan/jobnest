@@ -72,7 +72,7 @@ const SignupPage = () => {
               alt="LOGO-transparent"
               border="0"
               width={"100%"}
-              style={{ borderTopRightRadius: "20px", marginTop:"30px" }}
+              style={{ borderTopRightRadius: "20px", marginTop:"30px", padding:"0 10%" }}
             ></img>
 
             <div style={{ display: "flex", flexDirection: "column", padding: "0 10%", overflow: "auto" }}>

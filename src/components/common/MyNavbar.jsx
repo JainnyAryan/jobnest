@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./styles/MyNavbar.module.css";
 import MyNavbarState from "../../enums/MyNavbarState";
 import SearchBar from "../employee/SearchBar";
-import { Add, PlusOne } from "@mui/icons-material";
+import { Add, PlusOne, Settings } from "@mui/icons-material";
 
 
 function MyNavbar(props) {
@@ -30,7 +30,10 @@ function MyNavbar(props) {
         (
           <>
             <SearchBar />
-            <button className={styles.loginButton}>Sign Out</button>
+            <div>
+            <button className={styles.registerButton}><Settings/></button>
+              <button className={styles.loginButton}>Sign Out</button>
+            </div>
           </>
         )
       }
