@@ -162,7 +162,7 @@ const SignupPage = () => {
                 style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
                 onClick={onClick}
               >
-                Login
+                Register
               </button>
               <p style={{ color: "#6CE4F3", marginTop: "2vh" }}>
                 Already have an account?
