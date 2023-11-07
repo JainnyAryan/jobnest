@@ -13,3 +13,34 @@
 .tableRows:nth-child(odd) { 
     background-color: rgb(250, 243, 234); 
 }
+
+.popupcard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupcontent {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  width: 20%;
+  height: 20%;
+}
+
+.popup-content h2 {
+  margin: 0;
+}
+
+.popup-content button {
+  margin-top: 10px;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles/JobsPosted.module.css";
+import { useNavigate } from "react-router-dom";
 import {
   FaStopwatch,
   FaMoneyBillAlt,
@@ -9,6 +10,9 @@ import {
 import { IconContext } from "react-icons";
 
 export default function JobsPosted() {
+
+  const navigate = useNavigate()
+
   const jobs = [
     {
       role: "Web Developer",
@@ -120,7 +124,7 @@ export default function JobsPosted() {
                 </div>
               </center>
 
-              <button className={styles.buttonAll}>View Applicants</button>
+              <button className={styles.buttonAll} onClick={()=> navigate('/applicants')}>View Applicants</button>
 
 
             </div>

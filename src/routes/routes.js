@@ -18,7 +18,6 @@ function AppRoutes() {
         <Route path="/employer" element={<EmployerScreen />} />
         <Route path="/employee" element={<EmployeeScreen/>} />     
         <Route path="/fill-employee-details" element={<EmployeeDetailsForm/>} />   
-        {/* <Route path="/employer" element={<AcceptRejectEmployerScreen/>} /> */}
         <Route path="/employee" element={<EmployeeScreen/>} /> 
         <Route path="/applicants" element={<AcceptRejectEmployerScreen/>}/>
       </Routes>
