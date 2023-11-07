@@ -4,8 +4,11 @@ import styles from "./styles/LandingPage.module.css";
 import heroAnime from "../assets/anims/heroAnimation.json";
 import MyFooter from '../components/common/MyFooter';
 import MyNavbar from '../components/common/MyNavbar';
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
+  const navigate = useNavigate();
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -24,9 +27,7 @@ function LandingPage() {
           <br />
           <h5>Find jobs that match your interests with us. Jabang provides a place to find your jobs</h5>
           <br />
-          <Link to="/register">
-            <button className={`${styles.click} btn`}>Get Started</button>
-          </Link>
+          <button className={`${styles.click} btn`} onClick={() => navigate("/register")}>Get Started</button>
         </div>
         <div id="image" >
           <Lottie
