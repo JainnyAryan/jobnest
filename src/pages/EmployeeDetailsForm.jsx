@@ -3,10 +3,10 @@ import styles from "../pages/styles/EmployeeDetailsForm.module.css";
 import { useNavigate } from "react-router-dom";
 
 const EmployeeDetailsForm = () => {
-    const navigate = useNavigate();
-    function onClick() {
-          navigate("/employee");
-      };
+  const navigate = useNavigate();
+  function onClick() {
+    navigate("/employee");
+  }
 
   return (
     <body
@@ -22,13 +22,14 @@ const EmployeeDetailsForm = () => {
       <div
         className="card"
         style={{
-          background: "white",
+          background: "#30343f",
           width: "40%",
           borderRadius: "5px",
           margin: "4%",
           borderColor: "",
-          boxShadow: "1px 1px 20px #e9ecef",
+          boxShadow: "1px 1px 30px grey",
           marginLeft: "30%",
+          color: "#6CE4F3",
         }}
       >
         <div
@@ -36,11 +37,11 @@ const EmployeeDetailsForm = () => {
           style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
         >
           <img
-            src="/logo_black.png"
+            src="/LOGO_transparent.png"
             alt="LOGO-transparent"
             border="0"
-            width={"50%"}
-            style={{ marginLeft: "25%", marginTop: "5%" }}
+            width={"60%"}
+            style={{ marginLeft: "20%", marginTop: "5%" }}
           ></img>
           <br />
           <br />
@@ -51,8 +52,8 @@ const EmployeeDetailsForm = () => {
             }}
           >
             <strong>Please fill all the details before proceeding.</strong>
-          </p>
-          <h5>
+          </p >
+          <h5 style={{color: "white"}}>
             <u>
               <strong>Personal Information: </strong>
             </u>
@@ -67,7 +68,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her official name. */}
             <div className="form-group">
               <label htmlFor="name">
-                <strong>Name</strong>
+                Name
               </label>
               <input
                 type="text"
@@ -77,8 +78,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -86,7 +85,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her email address */}
             <div className="form-group mt-3">
               <label htmlFor="email">
-                <strong>Email</strong>
+                Email
               </label>
               <input
                 type="text"
@@ -96,8 +95,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -105,7 +102,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her password for their account on jobnest. */}
             <div className="form-group mt-3">
               <label htmlFor="phoneno">
-                <strong>Phone Number</strong>
+                Phone Number
               </label>
               <input
                 type="number"
@@ -116,8 +113,6 @@ const EmployeeDetailsForm = () => {
                   borderRadius: "8px",
                   border: "2px solid grey",
                   textAlign: "left",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -125,7 +120,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her confirmed password for their account on jobnest. */}
             <div className="form-group mt-3">
               <label htmlFor="password">
-                <strong>Date of Birth </strong>
+                Date of Birth
               </label>
               <input
                 type="date"
@@ -137,8 +132,6 @@ const EmployeeDetailsForm = () => {
                   border: "2px solid grey",
                   textAlign: "left",
                   paddingLeft: "10%",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -146,7 +139,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her description for their account on jobnest. */}
             <div className="form-group mt-3">
               <label htmlFor="gender">
-                <strong>Gender </strong>
+                Gender
               </label>
               <select
                 name="gender"
@@ -156,8 +149,6 @@ const EmployeeDetailsForm = () => {
                   borderRadius: "8px",
                   border: "2px solid grey",
                   textAlign: "left",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               >
                 <option value="male">Male</option>
@@ -169,7 +160,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her description for their account on jobnest. */}
             <div className="form-group mt-3">
               <label htmlFor="description">
-                <strong>Description</strong>
+                Description
               </label>
               <br />
               <textarea
@@ -182,14 +173,12 @@ const EmployeeDetailsForm = () => {
                   border: "2px solid grey",
                   textAlign: "left",
                   width: "100%",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               ></textarea>
             </div>
-            <hr />
+            <hr style={{color: "white"}}/>
 
-            <h5>
+            <h5 style={{color: "white"}}>
               <u>
                 <strong>Education Qualifications: </strong>
               </u>
@@ -198,7 +187,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her college name. */}
             <div className="form-group mt-1">
               <label htmlFor="collegename">
-                <strong>College Name </strong>
+                College Name
               </label>
               <input
                 type="text"
@@ -208,8 +197,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -217,7 +204,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her Stream. */}
             <div className="form-group mt-3">
               <label htmlFor="collegestream">
-                <strong>Stream </strong>
+                Stream
               </label>
               <input
                 type="text"
@@ -227,8 +214,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -236,7 +221,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her college cgpa. */}
             <div className="form-group mt-3">
               <label htmlFor="cgpa">
-                <strong>College CGPA</strong>
+                College CGPA
               </label>
               <input
                 type="number"
@@ -246,8 +231,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -255,7 +238,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her school name. */}
             <div className="form-group mt-3">
               <label htmlFor="schoolname">
-                <strong>School Name </strong>
+                School Name
               </label>
               <input
                 type="text"
@@ -265,8 +248,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -274,7 +255,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her college cgpa. */}
             <div className="form-group mt-3">
               <label htmlFor="highschoolpercent">
-                <strong>High School Percentage</strong>
+                High School Percentage
               </label>
               <input
                 type="number"
@@ -284,8 +265,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -293,7 +272,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her college cgpa. */}
             <div className="form-group mt-3">
               <label htmlFor="intermediatepercent">
-                <strong>Intermediate Percentage</strong>
+                Intermediate Percentage
               </label>
               <input
                 type="number"
@@ -303,14 +282,12 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
-            <hr />
+            <hr style={{color: "white"}}/>
 
-            <h5>
+            <h5 style={{color: "white"}}>
               <u>
                 <strong>Job Experience: </strong>
               </u>
@@ -318,7 +295,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her first company name. */}
             <div className="form-group mt-1">
               <label htmlFor="company1">
-                <strong>Organization </strong>
+                Organization
               </label>
               <input
                 type="text"
@@ -328,8 +305,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -337,7 +312,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her first company work duration. */}
             <div className="form-group mt-1">
               <label htmlFor="duration1">
-                <strong>Duration </strong>
+                Duration
               </label>
               <input
                 type="text"
@@ -347,8 +322,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -356,7 +329,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her first company role. */}
             <div className="form-group mt-1">
               <label htmlFor="role1">
-                <strong>Role </strong>
+                Role
               </label>
               <input
                 type="text"
@@ -366,8 +339,6 @@ const EmployeeDetailsForm = () => {
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               />
             </div>
@@ -375,7 +346,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her role description. */}
             <div className="form-group mt-3">
               <label htmlFor="roledescription1">
-                <strong>Role Description</strong>
+                Role Description
               </label>
               <br />
               <textarea
@@ -388,14 +359,12 @@ const EmployeeDetailsForm = () => {
                   border: "2px solid grey",
                   textAlign: "left",
                   width: "100%",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               ></textarea>
             </div>
 
-            <hr />
-            <h5>
+            <hr style={{color: "white"}} />
+            <h5 style={{color: "white"}}>
               <u>
                 <strong>Awards & Cerifications: </strong>
               </u>
@@ -403,7 +372,7 @@ const EmployeeDetailsForm = () => {
             {/* Awards Won by User */}
             <div className="form-group mt-3">
               <label htmlFor="listawards">
-                <strong>Awards</strong>
+                Awards
               </label>
               <br />
               <textarea
@@ -416,8 +385,6 @@ const EmployeeDetailsForm = () => {
                   border: "2px solid grey",
                   textAlign: "left",
                   width: "100%",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               ></textarea>
             </div>
@@ -425,7 +392,7 @@ const EmployeeDetailsForm = () => {
             {/* User enters his/her certificates */}
             <div className="form-group mt-1">
               <label htmlFor="certificate">
-                <strong>Certifications </strong>
+                Certifications
               </label>
               <textarea
                 name="certificate"
@@ -437,8 +404,6 @@ const EmployeeDetailsForm = () => {
                   border: "2px solid grey",
                   textAlign: "left",
                   width: "100%",
-                  background:
-                    "linear-gradient(to left, #48cae4, #61d0e7, #75d6ea, #87dbed, #98e1f0, #a2e4f2, #abe7f3, #b4eaf5, #baecf6, #bfedf7, #c5eff7, #caf0f8)",
                 }}
               ></textarea>
             </div>
@@ -446,7 +411,7 @@ const EmployeeDetailsForm = () => {
             <button
               className="btn btn-primary mt-4"
               style={{ borderRadius: "10px" }}
-                onClick={onClick}
+              onClick={onClick}
             >
               {/* User registers either as an employer or a job seeker. */}
               <strong>Login</strong>
@@ -459,4 +424,3 @@ const EmployeeDetailsForm = () => {
 };
 
 export default EmployeeDetailsForm;
-
