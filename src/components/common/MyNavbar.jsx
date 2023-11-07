@@ -1,21 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/MyNavbar.module.css";
+import MyNavbarState from "../../enums/MyNavbarState";
+import SearchBar from "../employee/SearchBar";
+import { Add, PlusOne } from "@mui/icons-material";
 
-function MyNavbar() {
+
+function MyNavbar(props) {
   return (
     <nav className={styles.navbar} style={{ width: "100%" }}>
       <Link to="/" className="navbar-brand mx-3">
         <img src="/LOGO_transparent.png" alt="Logo" style={imageStyles} />
       </Link>
-      <div className="nav">
-      <Link to="/login">
-          <button className={styles.loginButton}>Sign In</button>
-        </Link>
-        <Link to="/register">
-          <button className={styles.registerButton}>Sign Up</button>
-        </Link>
-      </div>
+      {
+        props.currentState == MyNavbarState.LANDING &&
+        (
+          <div>
+            <Link to="/login">
+              <button className={styles.loginButton}>Sign In</button>
+            </Link>
+            <Link to="/register">
+              <button className={styles.registerButton}>Sign Up</button>
+            </Link>
+          </div>
+        )
+      }
+      {
+        props.currentState == MyNavbarState.EMPLOYEE &&
+        (
+          <>
+            <SearchBar />
+            <button className={styles.loginButton}>Sign Out</button>
+          </>
+        )
+      }
+      {
+        props.currentState == MyNavbarState.EMPLOYER &&
+        (
+          <>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <button className={styles.registerButton} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}><Add /> Post a Job</button>
+              <button className={styles.loginButton}>Sign Out</button>
+            </div>
+          </>
+        )
+      }
     </nav>
   );
 }

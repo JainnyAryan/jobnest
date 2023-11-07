@@ -3,7 +3,7 @@ import styles from "./styles/Searchbar.module.css"
 import { Input, TextField } from '@mui/material';
 
 export const SearchBar = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const divRef = useRef();
   // useEffect(() => {
   //   // if (!divRef.current) return;
@@ -49,9 +49,9 @@ export const SearchBar = () => {
 
 
   return (
-    <div className={`${styles.card} ${styles.expanded}`} ref={divRef}>
-      <input placeholder="Search for Jobs" type="text" className={styles.input}/>
-      <select name="industry">
+    <div className={!isFocused ? `${styles.card}` : `${styles.card} ${styles.expanded}`} ref={divRef}>
+      <input placeholder="Search for Jobs" type="text" className={styles.input} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} />
+      {/* <select name="industry">
         {industry.map((e) => {
           if(e === "Industry"){
             return (
@@ -79,7 +79,7 @@ export const SearchBar = () => {
           }
         }
         )}
-      </select>
+      </select> */}
       <button type="submit" className={styles.button}>Search</button>
     </div >
   )

@@ -63,7 +63,7 @@ const EmployeeDetailsForm = () => {
                 type="number"
                 id="phoneno"
                 placeholder="Enter the Phone Number"
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -79,7 +79,7 @@ const EmployeeDetailsForm = () => {
                 type="date"
                 id="dob"
                 placeholder="Enter the Date of Birth"
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -95,7 +95,7 @@ const EmployeeDetailsForm = () => {
               <select
                 name="gender"
                 id="gender"
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -140,7 +140,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="collegename"
                 placeholder="Name of your college" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -155,7 +155,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="collegestream"
                 placeholder="Name of your stream" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -170,7 +170,7 @@ const EmployeeDetailsForm = () => {
                 type="number"
                 id="name"
                 placeholder="Your CGPA in college" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -185,7 +185,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="schoolname"
                 placeholder="Name of your school" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -200,7 +200,7 @@ const EmployeeDetailsForm = () => {
                 type="number"
                 id="highschoolpercent"
                 placeholder="Your high school percentage" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -217,7 +217,7 @@ const EmployeeDetailsForm = () => {
                 type="number"
                 id="intermediatepercent"
                 placeholder="Your intermediate percentage" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -238,7 +238,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="company1"
                 placeholder="Name of your organization " // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -253,7 +253,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="duration1"
                 placeholder="Duration" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",
@@ -268,7 +268,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="role"
                 placeholder="Your role in the oragnization" // Retrive from the backend
-                className="form-control"
+                className={`form-control ${styles.input}`}
                 style={{
                   borderRadius: "8px",
                   border: "2px solid grey",

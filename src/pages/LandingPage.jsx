@@ -6,6 +6,10 @@ import MyFooter from '../components/common/MyFooter';
 import MyNavbar from '../components/common/MyNavbar';
 import { useNavigate } from 'react-router-dom';
 
+
+const currentState = "LANDING";
+
+
 function LandingPage() {
   const navigate = useNavigate();
 
@@ -20,7 +24,7 @@ function LandingPage() {
   };
   return (
     <div>
-      <MyNavbar />
+      <MyNavbar currentState={currentState} />
       <div className={styles.containerr}>
         <div className={styles.text}>
           <h2><strong>Find a Job With<br />Your Interests and<br />Abilities</strong></h2>
