@@ -11,7 +11,8 @@ const EmployeeDetailsForm = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("/blue_bg2.jpg")',
+        // backgroundImage: 'url("/blue_bg2.jpg")',
+        backgroundColor: "#232423",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -19,23 +20,11 @@ const EmployeeDetailsForm = () => {
         margin: "auto",
       }}
     >
-      <div
-        className={styles.formBox}
-      >
+      <div className={styles.formBox}>
         <div
           className="card-body"
           style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
         >
-          <img
-            src="/LOGO_transparent.png"
-            alt="LOGO-transparent"
-            border="0"
-            width={"60%"}
-            style={{ marginLeft: "20%", marginTop: "5%" }}
-          ></img>
-          <br />
-          <br />
-
           <p
             style={{
               textAlign: "center",
@@ -55,40 +44,6 @@ const EmployeeDetailsForm = () => {
               textAlign: "left",
             }}
           >
-            {/* User enters his/her official name. */}
-            <div className="form-group">
-              <label htmlFor="name">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="User's Official Name" // Retrive from the backend
-                className="form-control"
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
-              />
-            </div>
-
-            {/* User enters his/her email address */}
-            <div className="form-group mt-3">
-              <label htmlFor="email">
-                Email
-              </label>
-              <input
-                type="text"
-                id="email"
-                placeholder="User's Official Email ID" // Retrive from the backend
-                className="form-control"
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
-              />
-            </div>
-
             {/* User enters his/her password for their account on jobnest. */}
             <div className="form-group mt-3">
               <label htmlFor="phoneno">
@@ -400,11 +355,10 @@ const EmployeeDetailsForm = () => {
 
             <button
               className="btn btn-primary mt-4"
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px", backgroundColor: "rgb(108,228,242)", color: "rgb(35,36,35)", border: "none", margin: "auto", width: "30%" }}
               onClick={onClick}
             >
-              {/* User registers either as an employer or a job seeker. */}
-              <strong>Login</strong>
+              Save
             </button>
           </div>
         </div>
