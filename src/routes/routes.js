@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import EmployeeScreen from "../pages/EmployeeScreen";
 import EmployerScreen from "../pages/EmployerScreen";
 import SignupPage from "../pages/SignupPage";
+import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
 
 function AppRoutes() {
   return (
@@ -14,7 +15,8 @@ function AppRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignupPage />}/>
         <Route path="/employer" element={<EmployerScreen />} />
-        <Route path="/employee" element={<EmployeeScreen/>} />        
+        <Route path="/employee" element={<EmployeeScreen/>} />     
+        <Route path="/fill-employee-details" element={<EmployeeDetailsForm/>} />   
       </Routes>
     </BrowserRouter>
   );
