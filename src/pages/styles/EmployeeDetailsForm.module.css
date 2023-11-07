@@ -1,11 +1,9 @@
 .formBox {
-  background: #30343f;
-  width: 40%;
+  width: 60%;
   border-radius: 10px;
   margin: 4%;
-  box-shadow: 1px 1px 30px grey;
-  margin-left: 30%;
-  color: #6ce4f3;
+  margin: 2vh auto;
+  color: hsl(187, 85%, 69%);
   padding: 2vw;
 }
 
@@ -36,4 +34,8 @@
   text-align: left;
   padding: 0;
   margin: 0;
+}
+
+input, select, textarea{
+  background-color: rgb(237, 237, 237) !important;
 }

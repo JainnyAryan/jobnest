@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0vh;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+
+.tableRows:nth-child(odd) { 
+    background-color: rgb(250, 243, 234); 
+}

@@ -15,16 +15,6 @@ const EmployeeDetailsForm = () => {
           className="card-body"
           style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
         >
-          <img
-            src="/LOGO_transparent.png"
-            alt="LOGO-transparent"
-            border="0"
-            width={"60%"}
-            style={{ marginLeft: "20%", marginTop: "5%" }}
-          ></img>
-          <br />
-          <br />
-
           <p
             style={{
               textAlign: "center",
@@ -347,11 +337,10 @@ const EmployeeDetailsForm = () => {
 
             <button
               className="btn btn-primary mt-4"
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px", backgroundColor: "rgb(108,228,242)", color: "rgb(35,36,35)", border: "none", margin: "auto", width: "30%" }}
               onClick={onClick}
             >
-              {/* User registers either as an employer or a job seeker. */}
-              <strong>Login</strong>
+              Save
             </button>
           </div>
         </div>

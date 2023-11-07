@@ -160,7 +160,7 @@ const SignupPage = () => {
               <button
                 className="btn mt-4"
                 style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
-                onClick={onClick}
+                onClick={() => navigate('/fill-employee-details')}
               >
                 Register
               </button>
