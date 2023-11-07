@@ -23,12 +23,12 @@ const EmployeeDetailsForm = () => {
         className="card"
         style={{
           background: "#30343f",
-          width: "40%",
+          width: "50%",
           borderRadius: "5px",
           margin: "4%",
           borderColor: "",
           boxShadow: "1px 1px 30px grey",
-          marginLeft: "30%",
+          marginLeft: "25%",
           color: "#6CE4F3",
         }}
       >
