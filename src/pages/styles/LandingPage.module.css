@@ -1,22 +1,42 @@
-
-.text{
-    width: 50%;
-    padding: 10vw;
+body {
+  background-color: rgb(220, 246, 251);
 }
 
-.containerr{
-    /* width: 100vw; */
-    display:flex;
+.text {
+  width: 50%;
+  padding: 10vw;
+}
+
+.containerr {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(220, 246, 251);
+  box-sizing: content-box;
+}
+.click {
+  background-color: rgb(117, 225, 255);
+}
+.click:hover {
+  background-color: rgb(33, 203, 250);
+}
+
+.lottie {
+  padding-top: 5vh;
+  height: 85vh !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .containerr {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(220, 246, 251);
     box-sizing: content-box;
-}
-.click{
-    background-color: rgb(117, 225, 255);
-}
-.click:hover{
-    background-color: rgb(33, 203, 250);
-}
-
-#lottie{
-    height:100px;
+  }
+  .lottie {
+    height: auto !important;
+  }
+  .text {
+    width: 100%;
+    padding: 10vw;
+  }
 }

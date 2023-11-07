@@ -3,221 +3,177 @@ import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+import styles from "./styles/SignupPage.module.css";
+import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
+
+const SignupPage = () => {
   const navigate = useNavigate();
-  const [isEmployer, setIsEmployer] = useState(false);
-  const onCheck = (event) => {
-    setIsEmployer(event.target.checked);
-    console.log(event.target.checked);
+  const [username, setUsername] = useState("");
+
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
+    console.log(event.target.value);
   };
 
   const onClick = () => {
-    if (isEmployer) {
+    if (username === "employer") {
       navigate("/employer");
-    } else {
-      navigate("/fill-employee-details");
+    } else if (username === "employee") {
+      navigate("/employee");
     }
   };
 
   return (
-    <body
+    <div
       style={{
         backgroundImage:
           'url("/background1.jpg")',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "center center",
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         margin: "auto",
-        height: "100%",
+        height: "100vh",
       }}
     >
-      <img src="/backgound1.jpg" alt="" />
-      <div>
-        {/* <Navbar/> */}
-        <div
-          style={{
-            borderRadius: "10px",
-            width: "90%",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "#f8f9fa",
-            margin: "auto",
-            boxShadow: "3px 3px 10px",
-            marginTop: "3%",
-            marginBottom: "10%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginRight: "3%"
-            }}
-          >
-            <div>
-              <Lottie
-                options={{
-                  loop: true,
-                  autoplay: true,
-                  animationData: loginAnim,
-                  rendererSettings: {
-                    preserveAspectRatio: "xMidYMid slice",
-                  },
-                }}
-                isClickToPauseDisabled={true}
-                style={{
-                  padding: "0px",
-                  margin: "0px",
-                  height: "40vw",
-                  width: "40vw",
-                  cursor: "default",
-                }}
-              />
-            </div>
+      <div className={styles.box}>
+      <ArrowBack className={styles.backIcon} onClick={() => navigate("/")} fontSize="large" />
 
-            <div
-              className="card"
-              style={{
-                width: "100%",
-                borderRadius: "5px",
-                margin: "4%",
-                borderColor: "white",
-                boxShadow: "1px 1px 30px #e9ecef",
+        <div
+          className={styles.registerBox}
+        >
+          <div className={styles.lottieDiv}>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: loginAnim,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
               }}
-            >
-              <div
-                className="card-body"
-                style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
-              >
-                <img
-                  src="/logo_black.png"
-                  alt="LOGO-transparent"
-                  border="0"
-                  width={"60%"}
-                  style={{ marginLeft: "20%" }}
-                ></img>
-                <div
+              isClickToPauseDisabled={true}
+              style={{
+                padding: "0px",
+                margin: "0px",
+                height: "40vw",
+                width: "40vw",
+                cursor: "default",
+              }}
+            />
+          </div>
+          <div
+            className={styles.formBox}
+          >
+            <img
+              src="/LOGO_transparent.png"
+              alt="LOGO-transparent"
+              border="0"
+              width={"100%"}
+              style={{ borderTopRightRadius: "20px", marginTop:"30px" }}
+            ></img>
+
+            <div style={{ display: "flex", flexDirection: "column", padding: "0 10%", overflow: "auto" }}>
+              <div className="form-group">
+                <label htmlFor="name" style={{ color: "#6CE4F3" }}>
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Enter the name"
+                  className="form-control"
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
+                    borderRadius: "8px",
+                    border: "1px solid #ccdce1",
+                  }}
+                  onChange={handleUsername}
+                />
+              </div>
+
+              <div className="form-group mt-3">
+                <label htmlFor="username" style={{ color: "#6CE4F3" }}>
+                  Username
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Enter the Password"
+                  className="form-control"
+                  style={{
+                    borderRadius: "8px",
+                    border: "1px solid #ccdce1",
                     textAlign: "left",
                   }}
-                >
-                  {/* User enters his/her official name. */}
-                  <div className="form-group mt-3">
-                    <label htmlFor="name">
-                      <strong>Name</strong>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      placeholder="Enter your name"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                        alignItems: "start",
-                      }}
-                    />
-                  </div>
-
-                  {/* User enters his/her account name for jobnest platform. */}
-                  <div className="form-group mt-3" style={{ color: "black" }}>
-                    <label htmlFor="username">
-                      <strong>Username</strong>
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      placeholder="Enter your Username"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                      }}
-                    />
-                  </div>
-
-                  {/* User enters his/her email address */}
-                  <div className="form-group mt-3">
-                    <label htmlFor="email">
-                      <strong>Email</strong>
-                    </label>
-                    <input
-                      type="text"
-                      id="email"
-                      placeholder="Enter your Email"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                      }}
-                    />
-                  </div>
-
-                  {/* User enters his/her password for their account on jobnest. */}
-                  <div className="form-group mt-3">
-                    <label htmlFor="password">
-                      <strong>Password</strong>
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      placeholder="Enter the Password"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                        textAlign: "left",
-                      }}
-                    />
-                  </div>
-
-                  {/* User enters his/her confirmed password for their account on jobnest. */}
-                  <div className="form-group mt-3">
-                    <label htmlFor="password">
-                      <strong>Confirm Password</strong>
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      placeholder="Enter the confirm Password"
-                      className="form-control"
-                      style={{
-                        borderRadius: "8px",
-                        border: "2px solid grey",
-                        textAlign: "left",
-                      }}
-                    />
-                  </div>
-                  <br />
-                  {/* User registers either as an employer or a job seeker. */}
-                  <span>
-                    <input
-                      type="checkbox"
-                      onChange={onCheck}
-                      checked={isEmployer}
-                    />{" "}
-                    Signup as an Employer
-                  </span>
-                  <button
-                    className="btn btn-primary mt-4"
-                    style={{ borderRadius: "10px" }}
-                    onClick={onClick}
-                  >
-                    <strong>Login</strong>
-                  </button>
-                </div>
+                />
               </div>
+              <div className="form-group mt-3">
+                <label htmlFor="email" style={{ color: "#6CE4F3" }}>
+                  Email
+                </label>
+                <input
+                  type="password"
+                  name="email"
+                  placeholder="Enter the email"
+                  className="form-control"
+                  style={{
+                    borderRadius: "8px",
+                    border: "1px solid #ccdce1",
+                    textAlign: "left",
+                  }}
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label htmlFor="password" style={{ color: "#6CE4F3" }}>
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter the Password"
+                  className="form-control"
+                  style={{
+                    borderRadius: "8px",
+                    border: "1px solid #ccdce1",
+                    textAlign: "left",
+                  }}
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label htmlFor="confirmpassword" style={{ color: "#6CE4F3" }}>
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  name="confirmpassword"
+                  placeholder="Enter the Password"
+                  className="form-control"
+                  style={{
+                    borderRadius: "8px",
+                    border: "1px solid #ccdce1",
+                    textAlign: "left",
+                  }}
+                />
+              </div>
+              <button
+                className="btn mt-4"
+                style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
+                onClick={onClick}
+              >
+                Login
+              </button>
+              <p style={{ color: "#6CE4F3", marginTop: "2vh" }}>
+                Already have an account?
+                <a href="" style={{ marginLeft: "5px", color: "#6CE4F3" }} onClick={() => navigate('/login')}>Login</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 
-export default LoginPage;
+export default SignupPage;

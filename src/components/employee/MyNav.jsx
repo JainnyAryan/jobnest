@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./styles/findJobDash.css";
 
 
-function Navigation() {
+function MyNav() {
   const imageStyles = {
     width: "200px",
     height: "auto",
@@ -39,5 +38,5 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default MyNav;
 

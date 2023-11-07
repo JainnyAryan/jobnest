@@ -1,8 +1,9 @@
 import React from 'react';
 import Lottie from "react-lottie";
 import styles from "./styles/LandingPage.module.css";
-import Navbar from "../components/landing_page/Navbar";
 import heroAnime from "../assets/anims/heroAnimation.json";
+import MyFooter from '../components/common/MyFooter';
+import MyNavbar from '../components/landing_page/MyNavbar';
 
 function LandingPage() {
   const defaultOptions = {
@@ -10,12 +11,13 @@ function LandingPage() {
     autoplay: true,
     animationData: heroAnime,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
+      preserveAspectRatio: "xMidYMid slice",
+      className: `${styles.lottie}`
     }
   };
   return (
     <div>
-      <Navbar />
+      <MyNavbar />
       <div className={styles.containerr}>
         <div className={styles.text}>
           <h2><strong>Find a Job With<br />Your Interests and<br />Abilities</strong></h2>
@@ -27,12 +29,11 @@ function LandingPage() {
         <div id="image" >
           <Lottie
             options={defaultOptions}
-            height={600}
-            width={600}
             isClickToPauseDisabled={true}
           />
         </div>
       </div>
+      <MyFooter />
     </div>
   )
 }

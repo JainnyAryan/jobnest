@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
 
-function Navbar() {
+function MyNavbar() {
   return (
     <nav className={styles.navbar} style={{ width: "100%" }}>
       <Link to="/" className="navbar-brand mx-3">
@@ -27,4 +27,4 @@ const imageStyles = {
   // border: "2px solid ", // Add a border
 };
 
-export default Navbar;
+export default MyNavbar;

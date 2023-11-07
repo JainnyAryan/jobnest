@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles/LoginPage.module.css";
+import { ArrowBack } from "@mui/icons-material";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ const LoginPage = () => {
   };
 
   return (
-    <body
+    <div
       style={{
         backgroundImage:
           'url("/background1.jpg")',
@@ -36,27 +38,13 @@ const LoginPage = () => {
       }}
     >
       <div>
-        <div
-          style={{
-            borderRadius: "20px",
-            width: "70vw",
-            height: "80vh",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "#f8f9fa",
-            margin: "auto",
-            boxShadow: "3px 3px 10px",
-          }}
-        >
+        <div className={styles.box}>
+          <ArrowBack className={styles.backIcon} onClick={() => navigate("/")} fontSize="large" />
+
           <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+            className={styles.loginBox}
           >
-            <div>
+            <div className={styles.lottieDiv}>
               <Lottie
                 options={{
                   loop: true,
@@ -76,37 +64,20 @@ const LoginPage = () => {
                 }}
               />
             </div>
-
-
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                fontFamily: "Signika Negative, Arial, sans-serif",
-                paddingBottom: "5%",
-                height: "80vh",
-                backgroundColor:"#232423",
-                // background: "rgb(69,223,245)",
-                // background: "-moz-linear-gradient(42deg, rgba(69,223,245,1) 10%, rgba(106,227,242,1) 52%, rgba(163,239,249,1) 85%, rgba(194,246,252,1) 96%)",
-                // background: "-webkit-linear-gradient(42deg, rgba(69,223,245,1) 10%, rgba(106,227,242,1) 52%, rgba(163,239,249,1) 85%, rgba(194,246,252,1) 96%)",
-                // background: "linear-gradient(42deg, rgba(69,223,245,1) 10%, rgba(106,227,242,1) 52%, rgba(163,239,249,1) 85%, rgba(194,246,252,1) 96%)",
-                // boxShadow: "none",
-                borderTopRightRadius: "20px",
-                borderBottomRightRadius: "20px"
-              }}
+              className={styles.formBox}
             >
               <img
                 src="/LOGO_transparent.png"
                 alt="LOGO-transparent"
                 border="0"
                 width={"100%"}
-                style={{ borderTopRightRadius: "20px" }}
+                style={{ borderTopRightRadius: "20px", marginTop: "30px" }}
               ></img>
 
-              <div style={{ display: "flex", flexDirection: "column", height: "65%", padding: "10%" }}>
+              <div style={{ display: "flex", flexDirection: "column", padding: "15% 10%" }}>
                 <div className="form-group">
-                  <label htmlFor="username" style={{color:"#6CE4F3"}}>
+                  <label htmlFor="username" style={{ color: "#6CE4F3" }}>
                     Username
                   </label>
                   <input
@@ -123,7 +94,7 @@ const LoginPage = () => {
                 </div>
 
                 <div className="form-group mt-3">
-                  <label htmlFor="password" style={{color:"#6CE4F3"}}>
+                  <label htmlFor="password" style={{ color: "#6CE4F3" }}>
                     Password
                   </label>
                   <input
@@ -145,12 +116,16 @@ const LoginPage = () => {
                 >
                   Login
                 </button>
+                <p style={{ color: "#6CE4F3", marginTop: "2vh" }}>
+                  New to JobNest?
+                  <a href="" style={{ marginLeft: "5px", color: "#6CE4F3" }} onClick={() => navigate('/register')}>Register Now</a>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

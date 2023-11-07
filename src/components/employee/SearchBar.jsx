@@ -5,19 +5,19 @@ import { Input, TextField } from '@mui/material';
 export const SearchBar = () => {
   const [expanded, setExpanded] = useState(false);
   const divRef = useRef();
-  useEffect(() => {
-    // if (!divRef.current) return;
-    const handleScroll = () => {
-      // const rect = divRef.current.getBoundingClientRect();
-      if (window.scrollY > 0.000000000000) {
-        setExpanded(true);
-      } else {
-        setExpanded(false);
-      }
-    };
+  // useEffect(() => {
+  //   // if (!divRef.current) return;
+  //   const handleScroll = () => {
+  //     // const rect = divRef.current.getBoundingClientRect();
+  //     if (window.scrollY > 0.000000000000) {
+  //       setExpanded(true);
+  //     } else {
+  //       setExpanded(false);
+  //     }
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-  });
+  //   window.addEventListener('scroll', handleScroll);
+  // });
 
   const locations = ["Location", "Delhi", "Banglore", "Gurugram", "Hydrabad", "Mumbai", "Pune", "Calcutta", "Ahmedabad", "Chennai", "Noida", "Lucknow", "Srinagar", "Lahore", "Gaziabad", "Nagpur", "Nanded", "Aurangabad", "Raipur"];
   const industry = ["Industry", "Textile", "Pharmaceutical", "Real Estate", "Financial services", "IT", "Computer", "Iron and steel", "Aviation", "Civil", "Electronics",
@@ -49,7 +49,7 @@ export const SearchBar = () => {
 
 
   return (
-    <div className={!expanded ? styles.card : `${styles.card} ${styles.expanded}`} ref={divRef}>
+    <div className={`${styles.card} ${styles.expanded}`} ref={divRef}>
       <input placeholder="Search for Jobs" type="text" className={styles.input}/>
       <select name="industry">
         {industry.map((e) => {

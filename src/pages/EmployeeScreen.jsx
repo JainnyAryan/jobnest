@@ -3,8 +3,10 @@ import FilterBox from "../components/employee/FilterBox";
 import JobDescSidePanel from "../components/employee/JobDescSidePanel";
 import JobsList from "../components/employee/JobsList";
 import SearchBar from "../components/employee/SearchBar";
+import MyNav from "../components/employee/MyNav";
 
 import styles from "./styles/EmployeeScreen.module.css";
+
 
 const jobItems = [
   {
@@ -155,6 +157,7 @@ const EmployeeScreen = () => {
 
   return (
     <div className={styles.box}>
+      <MyNav />
       <SearchBar />
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
         <FilterBox />
