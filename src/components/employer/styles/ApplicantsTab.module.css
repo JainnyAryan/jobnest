@@ -1,0 +1,30 @@
+
+  .activeTab {
+    background-color: rgb(223, 221, 253); /* Change background color for the active tab */
+    color: black; /* Change text color for the active tab */
+    /* border: 0px; */
+    padding: 2vh;
+    width: 15vw;
+    border: 0;
+    border-top: 0.5px solid grey;
+
+    /* border-bottom: 0; */
+}
+
+.inactiveTab {
+    width: 15vw;
+    padding: 2vh;
+    background-color: white;
+    color: black;
+    /* border: 0; */
+    border-bottom: 0;
+    border-top: 0.5px solid grey;
+    border-right: 0.5px solid grey;
+    border-left: 0.5px solid grey;
+  }
+  
+  /* Add hover effect for better interactivity */
+  .allButton:hover {
+    background-color: #f0f0f0;
+  }
+  
