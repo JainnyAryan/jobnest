@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../pages/styles/EmployeeDetailsForm.module.css";
+import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useNavigate } from "react-router-dom";
 
 const EmployeeDetailsForm = () => {
@@ -9,7 +9,7 @@ const EmployeeDetailsForm = () => {
   }
 
   return (
-    <body
+    <div
       style={{
         backgroundImage: 'url("/blue_bg2.jpg")',
         backgroundSize: "cover",
@@ -20,17 +20,7 @@ const EmployeeDetailsForm = () => {
       }}
     >
       <div
-        className="card"
-        style={{
-          background: "#30343f",
-          width: "40%",
-          borderRadius: "5px",
-          margin: "4%",
-          borderColor: "",
-          boxShadow: "1px 1px 30px grey",
-          marginLeft: "30%",
-          color: "#6CE4F3",
-        }}
+        className={styles.formBox}
       >
         <div
           className="card-body"
@@ -53,7 +43,7 @@ const EmployeeDetailsForm = () => {
           >
             <strong>Please fill all the details before proceeding.</strong>
           </p >
-          <h5 style={{color: "white"}}>
+          <h5 style={{ color: "white" }}>
             <u>
               <strong>Personal Information: </strong>
             </u>
@@ -176,9 +166,9 @@ const EmployeeDetailsForm = () => {
                 }}
               ></textarea>
             </div>
-            <hr style={{color: "white"}}/>
+            <hr style={{ color: "white" }} />
 
-            <h5 style={{color: "white"}}>
+            <h5 style={{ color: "white" }}>
               <u>
                 <strong>Education Qualifications: </strong>
               </u>
@@ -285,9 +275,9 @@ const EmployeeDetailsForm = () => {
                 }}
               />
             </div>
-            <hr style={{color: "white"}}/>
+            <hr style={{ color: "white" }} />
 
-            <h5 style={{color: "white"}}>
+            <h5 style={{ color: "white" }}>
               <u>
                 <strong>Job Experience: </strong>
               </u>
@@ -363,8 +353,8 @@ const EmployeeDetailsForm = () => {
               ></textarea>
             </div>
 
-            <hr style={{color: "white"}} />
-            <h5 style={{color: "white"}}>
+            <hr style={{ color: "white" }} />
+            <h5 style={{ color: "white" }}>
               <u>
                 <strong>Awards & Cerifications: </strong>
               </u>
@@ -419,7 +409,7 @@ const EmployeeDetailsForm = () => {
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 
