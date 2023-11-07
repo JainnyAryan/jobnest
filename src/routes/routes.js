@@ -6,6 +6,7 @@ import EmployeeScreen from "../pages/EmployeeScreen";
 import EmployerScreen from "../pages/EmployerScreen";
 import SignupPage from "../pages/SignupPage";
 import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
+import AcceptRejectEmployerScreen from "../pages/AcceptRejectEmployerScreen";
 
 function AppRoutes() {
   return (
@@ -17,6 +18,9 @@ function AppRoutes() {
         <Route path="/employer" element={<EmployerScreen />} />
         <Route path="/employee" element={<EmployeeScreen/>} />     
         <Route path="/fill-employee-details" element={<EmployeeDetailsForm/>} />   
+        {/* <Route path="/employer" element={<AcceptRejectEmployerScreen/>} /> */}
+        <Route path="/employee" element={<EmployeeScreen/>} /> 
+        <Route path="/applicants" element={<AcceptRejectEmployerScreen/>}/>
       </Routes>
     </BrowserRouter>
   );

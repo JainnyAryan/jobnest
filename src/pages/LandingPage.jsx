@@ -24,7 +24,9 @@ function LandingPage() {
           <br />
           <h5>Find jobs that match your interests with us. Jabang provides a place to find your jobs</h5>
           <br />
-          <button className={`${styles.click} btn`}>Get Started</button>
+          <Link to="/register">
+            <button className={`${styles.click} btn`}>Get Started</button>
+          </Link>
         </div>
         <div id="image" >
           <Lottie
