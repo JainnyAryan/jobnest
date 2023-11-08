@@ -15,7 +15,7 @@ const jobItems = [
     company: "MS",
     location: "Cape Town",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
+    jobIcon: "https://assets.stickpng.com/images/58480fd7cef1014c0b5e4943.png",
     salary: "20000 a month",
     description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
@@ -24,7 +24,7 @@ const jobItems = [
     company: "Netflix",
     location: "WFH",
     locationType: "Remote",
-    jobIcon: "/logo192.png",
+    jobIcon: "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png",
     salary: "20000 a month",
     description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
@@ -33,7 +33,7 @@ const jobItems = [
     company: "VIT",
     location: "Vellore",
     locationType: "On-site",
-    jobIcon: "/logo192.png",
+    jobIcon: "https://findlogovector.com/wp-content/uploads/2022/05/vellore-institute-of-technology-vit-logo-vector-2022.png",
     salary: "20000 a month",
     description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
@@ -94,74 +94,27 @@ const jobItems = [
     jobIcon: "/logo192.png", salary: "20000 a month",
     description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
   },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
-  {
-    jobName: "CEO",
-    company: "Netflix",
-    location: "New York",
-    locationType: "On-site",
-    jobIcon: "/logo192.png", salary: "20000 a month",
-    description: "A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>A B C D<br>"
-  },
 ];
 
 
 const EmployeeScreen = () => {
   const [selectedJob, setSelectedJob] = useState(null);
+  const [filteredJobItems, setFilteredJobItems] = useState(jobItems);
+
+
+  const searchUpdates = (searchKey) => {
+    console.log("in employee screen : " + searchKey);
+    setFilteredJobItems(jobItems.filter((job) => job.jobName.toLowerCase().includes(searchKey)));
+    console.log(filteredJobItems);
+  }
+
 
   return (
     <div className={styles.box}>
-      <MyNavbar currentState={currentState}/>
+      <MyNavbar currentState={currentState} searchUpdates={(val) => searchUpdates(val)} />
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
         <FilterBox />
-        <JobsList jobItems={jobItems} selectedJob={selectedJob} onClick={(job) => { setSelectedJob(job) }} />
+        <JobsList jobItems={filteredJobItems} selectedJob={selectedJob} onClick={(job) => { setSelectedJob(job) }} />
         <JobDescSidePanel selectedJob={selectedJob} />
       </div>
     </div>

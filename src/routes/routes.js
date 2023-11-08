@@ -22,7 +22,7 @@ function AppRoutes() {
         <Route path="/fill-employer-details" element={<EmployerDetailsForm/>} />   
         <Route path="/employee" element={<EmployeeScreen/>} /> 
         <Route path="/applicants" element={<AcceptRejectEmployerScreen/>}/>
-        <Route path="employer-create-job" element={<CreateJobForm/>}/>
+        <Route path="/employer-create-job" element={<CreateJobForm/>}/>
 
         </Routes>
     </BrowserRouter>

@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
-import { MdLocationPin } from "react-icons/md";
-import { CurrencyRupee, LocationCity, LocationOn, LocationOnRounded } from "@mui/icons-material";
+import { CurrencyRupee, LocationOn } from "@mui/icons-material";
 
 const EmployeeDetailsForm = (props) => {
   const routeProps = useLocation().state;
@@ -13,7 +12,6 @@ const EmployeeDetailsForm = (props) => {
       <div className={styles.formBox}>
         <div
           className="card-body"
-          style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
         >
           {routeProps.isUserApplication &&
             <>
@@ -42,24 +40,26 @@ const EmployeeDetailsForm = (props) => {
               const jobDetails = routeProps.jobDetails;
               return (
                 <div className={styles.jobDetailsHeader}>
-                  <img src={jobDetails.jobIcon} alt="" />
-                  <div style={{ display: "flex", flexDirection: "column", padding:"0% 5%" }}>
+                  <img src={jobDetails.jobIcon} style={{ height: "100%", width: "min-content", maxWidth:"40%", objectFit: "contain", borderRadius:"10px" }} alt="" />
+                  <div style={{ display: "flex", flexDirection: "column", padding: "0% 7%" }}>
                     <h1>{jobDetails.jobName}</h1>
                     <h3>{jobDetails.company}</h3>
-                    <h5 style={{display:"flex", flexDirection:"row", alignItems:"center"}}><LocationOn style={{marginRight:"5px"}}/> {jobDetails.location}</h5>
-                    <h5 style={{display:"flex", flexDirection:"row", alignItems:"center"}}><CurrencyRupee style={{marginRight:"5px"}}/> {jobDetails.salary}</h5>
+                    <h5 style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><LocationOn style={{ marginRight: "5px" }} /> {jobDetails.location}</h5>
+                    <h5 style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><CurrencyRupee style={{ marginRight: "5px" }} /> {jobDetails.salary}</h5>
                   </div>
                 </div>
               )
             }
           })()
           }
+          {routeProps.isEmployeeSettings && (
+            <h1 style={{ marginBottom: "30px" }}>Update your details</h1>
+          )
+          }
 
-          <h5 className={styles.headingColor}>
-            <u>
-              <strong>Personal Information: </strong>
-            </u>
-          </h5>
+          <h3 className={styles.headingColor}>
+            <>Personal Information: </>
+          </h3>
           <div
             style={{
               display: "flex",
@@ -139,11 +139,11 @@ const EmployeeDetailsForm = (props) => {
             </div>
             <hr style={{ color: "white" }} />
 
-            <h5 className={styles.headingColor}>
-              <u>
-                <strong>Education Qualifications: </strong>
-              </u>
-            </h5>
+            <h3 className={styles.headingColor}>
+
+              <>Education Qualifications: </>
+
+            </h3>
 
             {/* User enters his/her college name. */}
             <div>
@@ -214,11 +214,11 @@ const EmployeeDetailsForm = (props) => {
             </div>
             <hr style={{ color: "white" }} />
 
-            <h5 className={styles.headingColor}>
-              <u>
-                <strong>Job Experience: </strong>
-              </u>
-            </h5>
+            <h3 className={styles.headingColor}>
+
+              <>Job Experience: </>
+
+            </h3>
             {/* User enters his/her first company name. */}
             <div className="form-group mt-1">
               <label htmlFor="company1">Organization</label>
@@ -266,11 +266,11 @@ const EmployeeDetailsForm = (props) => {
             </div>
 
             <hr style={{ color: "white" }} />
-            <h5 className={styles.headingColor}>
-              <u>
-                <strong>Awards & Cerifications: </strong>
-              </u>
-            </h5>
+            <h3 className={styles.headingColor}>
+
+              <>Awards & Cerifications: </>
+
+            </h3>
             {/* Awards Won by User */}
             <div>
               <label htmlFor="listawards">Awards</label>
@@ -298,7 +298,7 @@ const EmployeeDetailsForm = (props) => {
             <hr style={{ color: "white" }} />
 
             <div>
-              <h5 className={styles.headingColor}><u><strong>Upload Your Resume:</strong></u></h5>
+              <h3 className={styles.headingColor}><>Upload Your Resume:</></h3>
               <input type="file" name="emp_resume" id="emp_resume" />
             </div>
 
@@ -314,7 +314,7 @@ const EmployeeDetailsForm = (props) => {
               }}
               onClick={() => navigate("/employee")}
             >
-              {routeProps.isUserApplication ? "Save" : routeProps.isJobApplication ? "Apply" : ""}
+              {routeProps.isUserApplication ? "Save" : routeProps.isJobApplication ? "Apply" : routeProps.isEmployeeSettings ? "Update" : ""}
             </button>
           </div>
         </div>

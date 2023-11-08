@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   min-width: 35vw;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   margin-top: 20px;
 }
@@ -19,6 +19,28 @@
   border: 1px solid #5F909F;
   background-color: white;
   border-radius: 20px;
+}
+
+.listitementry{
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.listitementryactive{
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.listitemexit {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.listitemexitactive {
+  opacity: 0;
+  transform: translateX(-100%); /* Slide to the left, adjust as needed */
 }
 
 .selected {

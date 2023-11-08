@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles/MyNavbar.module.css";
 import MyNavbarState from "../../enums/MyNavbarState";
 import SearchBar from "../employee/SearchBar";
@@ -7,6 +7,8 @@ import { Add, Settings } from "@mui/icons-material";
 
 
 function MyNavbar(props) {
+  const navigate = useNavigate();
+
   return (
     <nav className={styles.navbar} style={{ width: "100%" }}>
       <Link to="/" className="navbar-brand mx-3">
@@ -29,10 +31,10 @@ function MyNavbar(props) {
         props.currentState == MyNavbarState.EMPLOYEE &&
         (
           <>
-            <SearchBar />
+            <SearchBar searchUpdates={(val) => props.searchUpdates(val)} />
             <div>
-            <button className={styles.registerButton}><Settings/></button>
-              <button className={styles.loginButton}>Sign Out</button>
+              <button className={styles.registerButton} onClick={() => navigate('/fill-employee-details', { state: { isEmployeeSettings: true } })}><Settings /></button>
+              <button className={styles.loginButton} onClick={() => navigate('/')}>Sign Out</button>
             </div>
           </>
         )
@@ -42,8 +44,8 @@ function MyNavbar(props) {
         (
           <>
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <button className={styles.registerButton} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}><Add /> Post a Job</button>
-              <button className={styles.loginButton}>Sign Out</button>
+              <button className={styles.registerButton} onClick={() => navigate("/employer-create-job")} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}><Add /> Post a Job</button>
+              <button className={styles.loginButton} onClick={() => navigate('/')}>Sign Out</button>
             </div>
           </>
         )
