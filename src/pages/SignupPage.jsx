@@ -39,7 +39,7 @@ const SignupPage = () => {
       }}
     >
       <div className={styles.box}>
-      <ArrowBack className={styles.backIcon} onClick={() => navigate("/")} fontSize="large" />
+        <ArrowBack className={styles.backIcon} onClick={() => navigate("/")} fontSize="large" />
 
         <div
           className={styles.registerBox}
@@ -72,7 +72,7 @@ const SignupPage = () => {
               alt="LOGO-transparent"
               border="0"
               width={"100%"}
-              style={{ borderTopRightRadius: "20px", marginTop:"30px", padding:"0 10%" }}
+              style={{ borderTopRightRadius: "20px", marginTop: "30px", padding: "0 10%" }}
             ></img>
 
             <div style={{ display: "flex", flexDirection: "column", padding: "0 10%", overflow: "auto" }}>
@@ -160,7 +160,7 @@ const SignupPage = () => {
               <button
                 className="btn mt-4"
                 style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
-                onClick={() => navigate('/fill-employee-details')}
+                onClick={() => navigate('/fill-employee-details', { state: { isUserApplication: true } })}
               >
                 Register
               </button>

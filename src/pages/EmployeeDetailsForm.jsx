@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./styles/EmployeeDetailsForm.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { MdLocationPin } from "react-icons/md";
+import { CurrencyRupee, LocationCity, LocationOn, LocationOnRounded } from "@mui/icons-material";
 
-const EmployeeDetailsForm = () => {
+const EmployeeDetailsForm = (props) => {
+  const routeProps = useLocation().state;
   const navigate = useNavigate();
-  function onClick() {
-    navigate("/employee");
-  }
 
   return (
     <div className={styles.background_image}>
@@ -15,24 +15,46 @@ const EmployeeDetailsForm = () => {
           className="card-body"
           style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
         >
-          <img
-            src="/LOGO_transparent.png"
-            alt="LOGO-transparent"
-            border="0"
-            width={"50%"}
-            style={{
-              borderTopRightRadius: "20px",
-              padding: "2%",
-              marginLeft: "25%",
-            }}
-          ></img>
-          <p
-            style={{
-              textAlign: "center",
-            }}
-          >
-            <strong>Please fill all the details before proceeding.</strong>
-          </p>
+          {routeProps.isUserApplication &&
+            <>
+              <img
+                src="/LOGO_transparent.png"
+                alt="LOGO-transparent"
+                border="0"
+                width={"50%"}
+                style={{
+                  borderTopRightRadius: "20px",
+                  padding: "2%",
+                  marginLeft: "25%",
+                }}
+              ></img>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <strong>Please fill all the details before proceeding.</strong>
+              </p>
+            </>
+          }
+          {(() => {
+            if (routeProps.isJobApplication) {
+              const jobDetails = routeProps.jobDetails;
+              return (
+                <div className={styles.jobDetailsHeader}>
+                  <img src={jobDetails.jobIcon} alt="" />
+                  <div style={{ display: "flex", flexDirection: "column", padding:"0% 5%" }}>
+                    <h1>{jobDetails.jobName}</h1>
+                    <h3>{jobDetails.company}</h3>
+                    <h5 style={{display:"flex", flexDirection:"row", alignItems:"center"}}><LocationOn style={{marginRight:"5px"}}/> {jobDetails.location}</h5>
+                    <h5 style={{display:"flex", flexDirection:"row", alignItems:"center"}}><CurrencyRupee style={{marginRight:"5px"}}/> {jobDetails.salary}</h5>
+                  </div>
+                </div>
+              )
+            }
+          })()
+          }
+
           <h5 className={styles.headingColor}>
             <u>
               <strong>Personal Information: </strong>
@@ -277,7 +299,7 @@ const EmployeeDetailsForm = () => {
 
             <div>
               <h5 className={styles.headingColor}><u><strong>Upload Your Resume:</strong></u></h5>
-              <input type="file" name="emp_resume" id="emp_resume"/>
+              <input type="file" name="emp_resume" id="emp_resume" />
             </div>
 
             <button
@@ -290,9 +312,9 @@ const EmployeeDetailsForm = () => {
                 margin: "auto",
                 width: "30%",
               }}
-              onClick={onClick}
+              onClick={() => navigate("/employee")}
             >
-              Save
+              {routeProps.isUserApplication ? "Save" : routeProps.isJobApplication ? "Apply" : ""}
             </button>
           </div>
         </div>
