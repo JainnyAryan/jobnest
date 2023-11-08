@@ -7,7 +7,7 @@ import EmployerScreen from "../pages/EmployerScreen";
 import SignupPage from "../pages/SignupPage";
 import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
 import AcceptRejectEmployerScreen from "../pages/AcceptRejectEmployerScreen";
-
+import CreateJobForm from "../pages/CreateJobForm";
 function AppRoutes() {
   return (
     <BrowserRouter>
@@ -20,7 +20,8 @@ function AppRoutes() {
         <Route path="/fill-employee-details" element={<EmployeeDetailsForm/>} />   
         <Route path="/employee" element={<EmployeeScreen/>} /> 
         <Route path="/applicants" element={<AcceptRejectEmployerScreen/>}/>
-      </Routes>
+        <Route path="employer-create-job" element={<CreateJobForm/>}/>
+        </Routes>
     </BrowserRouter>
   );
 }
