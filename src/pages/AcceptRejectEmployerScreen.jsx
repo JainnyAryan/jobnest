@@ -3,7 +3,6 @@ import Applicants from "../components/employer/Applicants";
 import ApplicantsTab from "../components/employer/ApplicantsTab";
 import { useState } from "react";
 
-
 const applicants = [
   {
     id: 1,

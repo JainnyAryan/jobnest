@@ -3,7 +3,7 @@
   border-radius: 10px;
   margin: 4%;
   margin: 2vh auto;
-  color: hsl(187, 85%, 69%);
+  color: white;
   padding: 2vw;
 }
 
@@ -14,7 +14,8 @@
   background-position: "center center";
   display: flex;
   margin: auto;
-  background-image: url("/public/blue_bg2.jpg");
+  /* background-image: url("/public/blue_bg2.jpg"); */
+  background-color: rgb(65, 64, 64);
 }
 
 .headingColor {
