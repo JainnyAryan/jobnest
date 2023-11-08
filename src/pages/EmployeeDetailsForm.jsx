@@ -15,6 +15,17 @@ const EmployeeDetailsForm = () => {
           className="card-body"
           style={{ fontFamily: "Signika Negative, Arial, sans-serif" }}
         >
+          <img
+            src="/LOGO_transparent.png"
+            alt="LOGO-transparent"
+            border="0"
+            width={"50%"}
+            style={{
+              borderTopRightRadius: "20px",
+              padding: "2%",
+              marginLeft: "25%",
+            }}
+          ></img>
           <p
             style={{
               textAlign: "center",
@@ -57,50 +68,34 @@ const EmployeeDetailsForm = () => {
             </div>
 
             {/* User enters his/her password for their account on jobnest. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="phoneno">Phone Number</label>
               <input
                 type="number"
                 id="phoneno"
                 placeholder="Enter the Phone Number"
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her confirmed password for their account on jobnest. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="password">Date of Birth</label>
               <input
                 type="date"
                 id="dob"
                 placeholder="Enter the Date of Birth"
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                  paddingLeft: "10%",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her description for their account on jobnest. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="gender">Gender</label>
               <select
                 name="gender"
                 id="gender"
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                }}
+                className={styles.inputDimensions}
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -109,7 +104,7 @@ const EmployeeDetailsForm = () => {
             </div>
 
             {/* User enters his/her description for their account on jobnest. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="description">Description</label>
               <br />
               <textarea
@@ -117,99 +112,74 @@ const EmployeeDetailsForm = () => {
                 id="description"
                 rows="5"
                 placeholder="Write about yourself in not more than 200 words."
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                  width: "100%",
-                }}
+                className={styles.inputDimensions}
               ></textarea>
             </div>
             <hr style={{ color: "white" }} />
 
-            <h5 style={{ color: "white" }}>
+            <h5 className={styles.headingColor}>
               <u>
                 <strong>Education Qualifications: </strong>
               </u>
             </h5>
 
             {/* User enters his/her college name. */}
-            <div className="form-group mt-1">
+            <div>
               <label htmlFor="collegename">College Name</label>
               <input
                 type="text"
                 id="collegename"
                 placeholder="Name of your college" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her Stream. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="collegestream">Stream</label>
               <input
                 type="text"
                 id="collegestream"
                 placeholder="Name of your stream" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her college cgpa. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="cgpa">College CGPA</label>
               <input
                 type="number"
                 id="name"
                 placeholder="Your CGPA in college" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her school name. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="schoolname">School Name</label>
               <input
                 type="text"
                 id="schoolname"
                 placeholder="Name of your school" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her college cgpa. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="highschoolpercent">High School Percentage</label>
               <input
                 type="number"
                 id="highschoolpercent"
                 placeholder="Your high school percentage" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her college cgpa. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="intermediatepercent">
                 Intermediate Percentage
               </label>
@@ -217,16 +187,12 @@ const EmployeeDetailsForm = () => {
                 type="number"
                 id="intermediatepercent"
                 placeholder="Your intermediate percentage" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
             <hr style={{ color: "white" }} />
 
-            <h5 style={{ color: "white" }}>
+            <h5 className={styles.headingColor}>
               <u>
                 <strong>Job Experience: </strong>
               </u>
@@ -238,11 +204,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="company1"
                 placeholder="Name of your organization " // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
@@ -253,11 +215,7 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="duration1"
                 placeholder="Duration" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
@@ -268,16 +226,12 @@ const EmployeeDetailsForm = () => {
                 type="text"
                 id="role"
                 placeholder="Your role in the oragnization" // Retrive from the backend
-                className={`form-control ${styles.input}`}
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                }}
+                className={styles.inputDimensions}
               />
             </div>
 
             {/* User enters his/her role description. */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="roledescription1">Role Description</label>
               <br />
               <textarea
@@ -285,23 +239,18 @@ const EmployeeDetailsForm = () => {
                 id="roledescription1"
                 rows="3"
                 placeholder="What was your role in the oraganization?"
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                  width: "100%",
-                }}
+                className={styles.inputDimensions}
               ></textarea>
             </div>
 
             <hr style={{ color: "white" }} />
-            <h5 style={{ color: "white" }}>
+            <h5 className={styles.headingColor}>
               <u>
                 <strong>Awards & Cerifications: </strong>
               </u>
             </h5>
             {/* Awards Won by User */}
-            <div className="form-group mt-3">
+            <div>
               <label htmlFor="listawards">Awards</label>
               <br />
               <textarea
@@ -309,35 +258,38 @@ const EmployeeDetailsForm = () => {
                 id="listawards"
                 rows="3"
                 placeholder="List down all your awards and achievements. "
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                  width: "100%",
-                }}
+                className={styles.inputDimensions}
               ></textarea>
             </div>
 
             {/* User enters his/her certificates */}
-            <div className="form-group mt-1">
+            <div>
               <label htmlFor="certificate">Certifications</label>
               <textarea
                 name="certificate"
                 id="certificate"
                 rows="3"
                 placeholder="List down all the certifications. "
-                style={{
-                  borderRadius: "8px",
-                  border: "2px solid grey",
-                  textAlign: "left",
-                  width: "100%",
-                }}
+                className={styles.inputDimensions}
               ></textarea>
+            </div>
+            <hr style={{ color: "white" }} />
+
+            <div>
+              <h5 className={styles.headingColor}><u><strong>Upload Your Resume:</strong></u></h5>
+              <input type="file" name="emp_resume" id="emp_resume"/>
             </div>
 
             <button
               className="btn btn-primary mt-4"
-              style={{ borderRadius: "10px", backgroundColor: "rgb(108,228,242)", color: "rgb(35,36,35)", border: "none", margin: "auto", width: "30%" }}
+              style={{
+                borderRadius: "10px",
+                backgroundColor: "rgb(108,228,242)",
+                color: "rgb(35,36,35)",
+                border: "none",
+                margin: "auto",
+                width: "30%",
+              }}
               onClick={onClick}
             >
               Save
