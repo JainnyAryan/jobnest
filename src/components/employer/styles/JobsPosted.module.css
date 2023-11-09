@@ -1,4 +1,87 @@
+/* Final */
+  .jobPosted {
+    border: 1px solid rgb(195, 193, 193);
+    padding: 7vh;
+    margin: 30px;
+    border-radius: 20px;
+    background: #EDFAFD;
+  }
+  
+  .allCards {
+    background-color: #ffe9d39e;
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .buttonAll {
+    background-color: black;
+    border: 0.5px solid rgb(200, 198, 198);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 1.2vh;
+    color: white;
+  }
+  
+  .buttonEdit {
+    background-color: rgb(73, 176, 73);
+    border: 0.5px solid rgb(200, 198, 198);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 1.2vh;
+    color: black;
+    margin-right: 5px;
+    margin-top: 20px;
+  }
+  
+  .buttonDelete {
+    background-color: rgb(235, 47, 47);
+    border: 0.5px solid rgb(200, 198, 198);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 1.2vh;
+    color: black;
+    margin-left: 5px;
+    margin-right:10px;
+    margin-top: 20px;
+  }
+  
+  .buttonAll:hover {
+    background-color: rgb(43, 43, 43);
+    color: white;
+    box-shadow: 5px 5px 10px #888888;
+    transition: 350ms;
+  }
+  .buttonEdit:hover {
+    background-color: rgb(73, 176, 73);
+    color: black;
+    box-shadow: 5px 5px 10px #888888;
+    transition: 350ms;
+  }
+  .buttonDelete:hover {
+    background-color: rgb(235, 47, 47);
+    color: black;
+    box-shadow: 5px 5px 10px #888888;
+    transition: 350ms;
+  }
+  
+  @media (min-width: 768px) {
+    .allCards {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    .buttonDelete{
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .allCards {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
 
+
+
+/* 
 .jobPosted {
     border: 1px solid rgb(195, 193, 193);
     padding: 7vh;
@@ -23,10 +106,32 @@
     padding: 1.2vh;
     color: white;
   }
+
+  .buttonEdit{
+    background-color: green;
+    border: 0.5px solid rgb(200, 198, 198);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 1.2vh;
+    color: white;
+    margin-right: 5px;
+    margin-top: 20px;
+  }
+
+  .buttonDelete{
+    background-color: red;
+    border: 0.5px solid rgb(200, 198, 198);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 1.2vh;
+    color: white;
+    margin-left: 5px;
+    margin-top: 20px;
+  }
   
   .buttonAll:hover{
     background-color: rgb(43, 43, 43);
     color: white;
     box-shadow: 5px 5px 10px #888888;
     transition: 350ms;
-  }
+  } */

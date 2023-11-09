@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles/JobsPosted.module.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import {
   FaStopwatch,
   FaMoneyBillAlt,
@@ -10,10 +11,10 @@ import {
 import { IconContext } from "react-icons";
 
 export default function JobsPosted() {
-
+  const [selectedJobIndex, setSelectedJobIndex] = useState(null);
   const navigate = useNavigate()
 
-  const jobs = [
+  const [jobs, setJobs] = useState([
     {
       role: "Web Developer",
       time: "Full Time",
@@ -63,13 +64,29 @@ export default function JobsPosted() {
       type: "Remote",
       salary: "20000",
     },
-  ];
+  ]);
+  if (selectedJobIndex !== null) {
+    const jobToDelete = jobs[selectedJobIndex];
+    const confirmDeletion = window.confirm(
+      `Are you sure you want to delete the job: ${jobToDelete.role}?`
+    );
+
+    if (confirmDeletion) {
+      const updatedJobs = jobs.filter((_, index) => index !== selectedJobIndex);
+      setJobs(updatedJobs);
+      setSelectedJobIndex(null);
+      // Handle job deletion here
+      // You can remove the job from the `jobs` array and update the state or make an API call
+    } else {
+      setSelectedJobIndex(null); // Reset the selected job index
+    }
+  }
 
   return (
     <center>
       <div className={styles.allCards}>
 
-        {jobs.map((e) => {
+        {jobs.map((e,index) => {
           return (
             <div className={styles.jobPosted}>
               <h3>{e.role}</h3>
@@ -123,9 +140,12 @@ export default function JobsPosted() {
                   </div>
                 </div>
               </center>
-
+              
+              <div>
+              <button className={styles.buttonEdit} onClick={()=> navigate('/employer-create-job')}>Edit Job</button>
+              <button className={styles.buttonDelete} onClick={() => setSelectedJobIndex(index)}>Delete Job</button>
               <button className={styles.buttonAll} onClick={()=> navigate('/applicants')}>View Applicants</button>
-
+              </div>
 
             </div>
 
