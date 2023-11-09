@@ -37,6 +37,10 @@
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+.checkbox {
+  width: 20px; /* Set the desired width */
+  height: 15px; /* Set the desired height */
+}
 
 @media only screen and (max-width: 768px) {
   .box {

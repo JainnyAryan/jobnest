@@ -13,6 +13,7 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isEmployer, setIsEmployer] = useState(false);
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -34,10 +35,13 @@ const SignupPage = () => {
     setConfirmPassword(event.target.value);
     console.log(event.target.value);
   };
+  const handleIsEmployerChange = () => {
+    setIsEmployer(!isEmployer);
+  };
 
   const handleSubmit = (event) =>{
-    navigate('/fill-employee-details', { state: { isUserApplication: true } })
-    return;
+    // navigate('/fill-employee-details', { state: { isUserApplication: true } })
+    // return;
     event.preventDefault();
     if(password===confirmPassword){
       Axios.post('http://localhost:3001/signup', {name ,username, email, password})
@@ -201,6 +205,19 @@ const SignupPage = () => {
                   onChange={handleConfirmPassword}
                 />
               </div>
+              <div className="form-group mt-3">
+              <input
+              type="checkbox"
+              name="isEmployer"
+              checked={isEmployer}
+              onChange={handleIsEmployerChange}
+              className={styles.checkbox}
+            />
+            <label htmlFor="isEmployer" style={{ color: "#6CE4F3",marginLeft:"10px"}}>
+              I am an Employer
+            </label>
+            
+          </div>
               <button
                 className="btn mt-4"
                 style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
