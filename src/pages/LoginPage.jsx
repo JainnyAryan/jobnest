@@ -2,25 +2,50 @@ import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
+import { Axios } from "axios";
 import styles from "./styles/LoginPage.module.css";
 import { ArrowBack } from "@mui/icons-material";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
-    console.log(event.target.value);
+    console.log(username);
   };
 
-  const onClick = () => {
-    if (username === "employer") {
-      navigate("/employer");
-    } else if (username === "employee") {
-      navigate("/employee");
-    }
-  };
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+    console.log(password);
+  }
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    Axios.post('http://localhost:3001/login', {username, password})
+    .then(
+      result=>{
+        console.log(result);
+        if (result.data==="Success"){
+          navigate("/employee");
+        }
+        else{
+          alert("Username or password incorrect");
+        }
+      }
+    ).catch(err=>{
+      console.log(err);
+    })
+  }
+
+  // const onClick = () => {
+  //   if (username === "employer") {
+  //     navigate("/employer");
+  //   } else if (username === "employee") {
+  //     navigate("/employee");
+  //   }
+  // };
 
   return (
     <div
@@ -107,12 +132,13 @@ const LoginPage = () => {
                       border: "1px solid #ccdce1",
                       textAlign: "left",
                     }}
+                    onChange={handlePassword}
                   />
                 </div>
                 <button
                   className="btn mt-4"
                   style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
-                  onClick={onClick}
+                  onClick={handleSubmit}
                 >
                   Login
                 </button>

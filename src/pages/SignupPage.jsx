@@ -2,26 +2,64 @@ import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
-
+import { Axios } from "axios";
 import styles from "./styles/SignupPage.module.css";
 import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
 
 const SignupPage = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
+  const handleName = (event) => {
+    setName(event.target.value);
+    console.log(event.target.value);
+  };
   const handleUsername = (event) => {
     setUsername(event.target.value);
     console.log(event.target.value);
   };
-
-  const onClick = () => {
-    if (username === "employer") {
-      navigate("/employer");
-    } else if (username === "employee") {
-      navigate("/employee");
-    }
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+    console.log(event.target.value);
   };
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+    console.log(event.target.value);
+  };
+  const handleConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    if(password===confirmPassword){
+      Axios.post('http://localhost:3001/signup', {name ,username, email, password})
+      .then(
+        result=>{
+          console.log(result);
+          navigate('/fill-employee-details', { state: { isUserApplication: true } })
+        }
+      ).catch(err=>{
+        console.log(err);
+      })
+    }
+    else{
+      alert("Password Mismatched");
+    }
+  }
+
+  // const onClick = () => {
+  //   if (username === "employer") {
+  //     navigate("/employer");
+  //   } else if (username === "employee") {
+  //     navigate("/employee");
+  //   }
+  // };
 
   return (
     <div
@@ -89,7 +127,7 @@ const SignupPage = () => {
                     borderRadius: "8px",
                     border: "1px solid #ccdce1",
                   }}
-                  onChange={handleUsername}
+                  onChange={handleName}
                 />
               </div>
 
@@ -107,6 +145,7 @@ const SignupPage = () => {
                     border: "1px solid #ccdce1",
                     textAlign: "left",
                   }}
+                  onChange={handleUsername}
                 />
               </div>
               <div className="form-group mt-3">
@@ -123,6 +162,7 @@ const SignupPage = () => {
                     border: "1px solid #ccdce1",
                     textAlign: "left",
                   }}
+                  onChange={handleEmail}
                 />
               </div>
               <div className="form-group mt-3">
@@ -139,6 +179,7 @@ const SignupPage = () => {
                     border: "1px solid #ccdce1",
                     textAlign: "left",
                   }}
+                  onChange={handlePassword}
                 />
               </div>
               <div className="form-group mt-3">
@@ -155,12 +196,13 @@ const SignupPage = () => {
                     border: "1px solid #ccdce1",
                     textAlign: "left",
                   }}
+                  onChange={handleConfirmPassword}
                 />
               </div>
               <button
                 className="btn mt-4"
                 style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
-                onClick={() => navigate('/fill-employee-details', { state: { isUserApplication: true } })}
+                onClick={handleSubmit}
               >
                 Register
               </button>
