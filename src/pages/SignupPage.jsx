@@ -36,6 +36,8 @@ const SignupPage = () => {
   };
 
   const handleSubmit = (event) =>{
+    navigate('/fill-employee-details', { state: { isUserApplication: true } })
+    return;
     event.preventDefault();
     if(password===confirmPassword){
       Axios.post('http://localhost:3001/signup', {name ,username, email, password})
@@ -153,7 +155,7 @@ const SignupPage = () => {
                   Email
                 </label>
                 <input
-                  type="password"
+                  type="text"
                   name="email"
                   placeholder="Enter the email"
                   className="form-control"
