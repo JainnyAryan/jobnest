@@ -11,12 +11,28 @@
   margin-right: 20px;
 }
 
+.company{
+  color:rgb(54, 61, 80);
+   font-weight:bold
+}
+
+.description{
+  text-align: left;
+  color:rgb(115,118,123);
+  width:70%;
+}
+
+.locationType{
+  color:rgb(115,118,123);
+  display:flex;
+
+}
 @media only screen and (max-width: 768px) {
-  .description {
+  /* .description {
     display: none;
-  }
+  } */
   .locationType {
-    display: none;
+    /* display: none; */
     text-align: right;
   }
   .jobName {
@@ -35,14 +51,14 @@
     margin-right: 5px;
   }
   .containerStyle {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     padding-left: 2px !important;
     padding-right: 2px !important;
     width: 100%;
   }
   .cardStyle {
-    display: flex;
+    /* display: flex; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     background-color: #f6f6f6d3;
@@ -51,9 +67,8 @@
     cursor: pointer;
     margin: 0 !important;
     width: 95vw !important;
-    padding: 0;
+    padding: 0 !important;
     margin-top: 30px !important;
-    /* width */
   }
 }
 
@@ -61,10 +76,10 @@
   align-items: center;
 }
 .cardStyle {
-  display: flex;
+  /* display: flex; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  background-color: #f6f6f6d3;
+  background-color: transparent;
   overflow: hidden;
   transition: box-shadow 0.3s;
   cursor: pointer;
@@ -79,6 +94,7 @@
 
 .containerStyle {
   display: flex;
+  /* flex-direction: column; */
   justify-content: space-between;
   /* border-bottom: 2px solid #ddd; */
   padding-right: 20px;
