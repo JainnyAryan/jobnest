@@ -9,10 +9,13 @@ import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
 import EmployerDetailsForm from "../pages/EmployerDetailsForm";
 import AcceptRejectEmployerScreen from "../pages/AcceptRejectEmployerScreen";
 import CreateJobForm from "../pages/CreateJobForm";
+import ViewJobApplications from "../pages/ViewJobApplications";
+
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignupPage />}/>
@@ -23,6 +26,7 @@ function AppRoutes() {
         <Route path="/employee" element={<EmployeeScreen/>} /> 
         <Route path="/applicants" element={<AcceptRejectEmployerScreen/>}/>
         <Route path="/employer-create-job" element={<CreateJobForm/>}/>
+        <Route path="/jobs-applied" element={<ViewJobApplications/>}/>
 
         </Routes>
     </BrowserRouter>

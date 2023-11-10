@@ -22,7 +22,7 @@ const JobDescSidePanel = (props) => {
             <div className={styles.jobLocation} ><MdCurrencyRupee style={{ paddingRight: "5px", fontSize: "calc(16px + 1vw)" }} />  {selectedJob.salary}</div>
           </div>
           <button className={styles.applyButton} onClick={() => navigate('/fill-employee-details', { state: { isJobApplication: true, jobDetails: selectedJob } })}>Apply</button>
-          <p dangerouslySetInnerHTML={{ __html: selectedJob.description }} />
+          {/* <p dangerouslySetInnerHTML={{ __html: selectedJob.description }} /> */}
         </div>
       }
     </div>
