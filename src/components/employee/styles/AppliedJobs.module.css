@@ -1,50 +1,45 @@
 .listStyle {
-    list-style: none;
-    padding: 0;
-    background-color: white;
-  }
-  
-  .image {
-    height: 25vh;
-    object-fit: contain;
-    aspect-ratio: 1/1;
-    margin-right: 20px;
-  }
-  
-  @media only screen and (max-width: 768px) {
-      .description{
-          display: none;
-      }
-      .locationType{
-          display: none;
-          text-align: right;
-      }
-      .location, .salary{
-          text-align: right;
-      }
-    .image {
-      height: 15vh;
-      margin-right: 10px;
-    }
-    .containerStyle {
-        display: flex;
-        justify-content: space-between;
-        padding: 0;
-        padding-left: 0;
-        padding-right: 0;
-      }
-      .cardStyle{
-        justify-content: space-around;
-        margin: 0px;
-        padding: 0;
-      }
-  }
+  list-style: none;
+  padding: 0;
+  background-color: white;
+}
 
-  @media only screen and (max-width: 768px) {
+.image {
+  height: 25vh;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .description {
+    display: none;
   }
-  
-  .locationType{
-    align-items:center;
+  .locationType {
+    display: none;
+    text-align: right;
+  }
+  .jobName {
+    font-size: 20px;
+    padding-right: 5px;
+  }
+  .salary {
+    font-size: 20px;
+  }
+  .location,
+  .salary {
+    text-align: right;
+  }
+  .image {
+    height: 12vh;
+    margin-right: 5px;
+  }
+  .containerStyle {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    width: 100%;
   }
   .cardStyle {
     display: flex;
@@ -54,43 +49,60 @@
     overflow: hidden;
     transition: box-shadow 0.3s;
     cursor: pointer;
-    margin: 30px;
-    width: 80vw;
-    padding: 20px;
+    margin: 0 !important;
+    width: 95vw !important;
+    padding: 0;
+    margin-top: 30px !important;
+    /* width */
   }
-  
-  .cardStyle:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .containerStyle {
-    display: flex;
-    justify-content: space-between;
-    /* border-bottom: 2px solid #ddd; */
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-bottom: 10px;
-  }
-  
+}
 
-  /* ... your existing styles ... */
+.locationType {
+  align-items: center;
+}
+.cardStyle {
+  display: flex;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f6f6f6d3;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  margin: 30px;
+  width: 80vw;
+  padding: 20px;
+}
+
+.cardStyle:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.containerStyle {
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 2px solid #ddd; */
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* ... your existing styles ... */
 
 .scrollToTopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #000000; /* Example background color */
-    color: #fff; /* Example text color */
-    border: none;
-    border-radius: 100px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .scrollToTopButton:hover {
-    background-color: #444444; /* Example hover background color */
-  }
-  
-  /* ... rest of your styles ... */
-  
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000000; /* Example background color */
+  color: #fff; /* Example text color */
+  border: none;
+  border-radius: 100px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scrollToTopButton:hover {
+  background-color: #444444; /* Example hover background color */
+}
+
+/* ... rest of your styles ... */

@@ -8,7 +8,7 @@ const AppliedJobs = (props) => {
     const handleScroll = () => {
         const scrollY = window.scrollY;
         setShowScrollButton(scrollY > 200); // Adjust the value based on when you want to show the button
-      };
+    };
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
     
@@ -16,10 +16,10 @@ const AppliedJobs = (props) => {
         return () => {
           window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
-      const scrollToTop = () => {
+    }, []);
+    const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
+    };
   const jobItems = props.jobItems;
 
   return (
