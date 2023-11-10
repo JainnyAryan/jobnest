@@ -3,15 +3,16 @@ import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "../context/userContext";
 import axios from "axios";
+import useAuth from "../context/useAuth";
 
 const EmployerDetailsForm = () => {
-  const location = useLocation();
+  const userProvider = useUser();
+  const user = useAuth();
   const navigate = useNavigate();
-  if (location.state == undefined) {
+  if (user.isEmployer) {
     navigate("/");
   }
 
-  const userProvider = useUser();
 
   const handleSubmit = (event) => {
     event.preventDefault();

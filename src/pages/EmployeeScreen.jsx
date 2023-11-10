@@ -9,40 +9,38 @@ import styles from "./styles/EmployeeScreen.module.css";
 import { useUser } from "../context/userContext";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../context/useAuth";
 
 const currentState = "EMPLOYEE";
 
 const EmployeeScreen = () => {
-  const location = useLocation();
+  const user = useAuth();
   const navigate = useNavigate();
-
-  if (location.state == undefined) {
+  if (user.isEmployer) {
     navigate("/");
   }
-
-
+  
   const [jobItems, setJobItems] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null);
   const [filteredJobItems, setFilteredJobItems] = useState(jobItems);
-  const userProvider = useUser();
-
-
+  
+  
   const searchUpdates = (searchKey) => {
     setFilteredJobItems(jobItems.filter((job) => job.role.toLowerCase().includes(searchKey.toLowerCase())));
   }
-
+  
   useEffect(() => {
-    axios.get("http://localhost:3001/get_jobs")
+    if (!filteredJobItems) {
+      axios.get("http://localhost:3001/get_jobs")
       .then((res) => {
         console.log("rebuilt");
-        if (!filteredJobItems) {
-          setJobItems(res.data);
-          setFilteredJobItems(res.data);
-        }
+        setJobItems(res.data);
+        setFilteredJobItems(res.data);
       })
       .catch((err) => console.log(err));
+    }
   }, [])
-
+  
 
   return (
     <div className={styles.box}>

@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CurrencyRupee, LocationOn } from "@mui/icons-material";
+import useAuth from "../context/useAuth";
 
 const EmployeeDetailsForm = (props) => {
   const routeProps = useLocation().state;
+  const user = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-  if (location.state == undefined) {
+  if (user.isEmployer) {
     navigate("/");
   }
 

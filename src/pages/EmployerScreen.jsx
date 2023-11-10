@@ -5,18 +5,19 @@ import JobsPosted from '../components/employer/JobsPosted';
 import MyNavbar from '../components/common/MyNavbar';
 import { useUser } from '../context/userContext';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../context/useAuth';
 
 
 const currentState = "EMPLOYER";
 
 
 export default function EmployerScreen() {
+  const userProvider = useUser();
+  const user = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-  if (location.state == undefined) {
+  if (user.isEmployer) {
     navigate("/");
   }
-  const userProvider = useUser();
   // useEffect(() => {
   //   axios.get("http://localhost:3001/get_jobs")
   //     .then((res) => {

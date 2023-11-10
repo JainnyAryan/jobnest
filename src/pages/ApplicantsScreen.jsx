@@ -2,6 +2,9 @@ import React from "react";
 import Applicants from "../components/employer/Applicants";
 import ApplicantsTab from "../components/employer/ApplicantsTab";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/userContext";
+import useAuth from "../context/useAuth";
 
 const applicants = [
   {
@@ -117,6 +120,11 @@ const applicants = [
 
 
 const ApplicantsScreen = () => {
+  const user = useAuth();
+  const navigate = useNavigate();
+  if (!user.isEmployer) {
+    navigate("/");
+  }
   const [selectedTab, setSelectedTab] = useState("ALL");
 
   const updateApplicant = (applicant, index) => {
@@ -126,7 +134,7 @@ const ApplicantsScreen = () => {
 
 
   return (
-    <div style={{ padding: "2vh", backgroundColor:"#87d2f86b"}}>
+    <div style={{ padding: "2vh", backgroundColor: "#87d2f86b" }}>
       <ApplicantsTab onClick={(tabValue) => setSelectedTab(tabValue)} />
       <Applicants applicants={applicants} selectedTab={selectedTab} updateApplicant={(applicant, index) => updateApplicant(applicant, index)} />
     </div>

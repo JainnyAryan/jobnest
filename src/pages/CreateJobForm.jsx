@@ -5,16 +5,17 @@ import { ArrowForward } from "@mui/icons-material";
 import { useFirebase } from "../context/firebaseContext";
 import axios from "axios";
 import { useUser } from "../context/userContext";
+import useAuth from "../context/useAuth";
 
 
 const CreateJobForm = () => {
+  const userProvider = useUser();
+  const user = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-  if (location.state == undefined) {
+  if (!user.isEmployer) {
     navigate("/");
   }
 
-  const userProvider = useUser();
   const { image, progress, imageUrl, firebaseImageUrl, handleChange, handleUpload } = useFirebase();
 
   const handleSubmit = async (event) => {
@@ -23,9 +24,9 @@ const CreateJobForm = () => {
     formData.delete('jobIcon');
     formData.append('iconUrl', firebaseImageUrl);
     formData.append('employer', JSON.stringify(userProvider.user));
-    for (let [key, value] of formData.entries()) {
-      console.log(key, " : val : ", value);
-    }
+    // for (let [key, value] of formData.entries()) {
+    //   console.log(key, " : val : ", value);
+    // }
 
     axios.post("http://localhost:3001/post_job", formData)
       .then((res) => {
@@ -95,7 +96,6 @@ const CreateJobForm = () => {
             display: "flex",
             justifyContent: "center"
           }}
-        // onClick={() => navigate('/employer')}
         >
           Post Job <ArrowForward style={{ marginLeft: "1vw" }} /></button>
       </form>

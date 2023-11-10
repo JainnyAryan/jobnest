@@ -28,6 +28,14 @@ function AppRoutes() {
   user = user ? JSON.parse(user) : null;
   console.log("routes.js");
   console.log(user);
+  useEffect(() => {
+    console.log("useEffect");
+    if (user) {
+      userProvider.setUserData(user);
+      console.log("user set");
+    }
+  }, []);
+  
   const homeElement = !user ? (
     <LandingPage />
   ) : user.isEmployer ? (
@@ -36,11 +44,6 @@ function AppRoutes() {
     <EmployeeScreen />
   );
 
-  useEffect(() => {
-    if (user) {
-      userProvider.setUserData(user);
-    }
-  }, []);
   return (
     <BrowserRouter>
       <Routes>
