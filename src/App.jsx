@@ -1,12 +1,15 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { UserProvider } from "./context/user/userContext";
 import AppRoutes from "./routes/routes";
 
 
 function App() {
   return (
     <div >
-    <AppRoutes />
+      <UserProvider>
+        <AppRoutes />
+      </UserProvider>
     </div>
   );
 }

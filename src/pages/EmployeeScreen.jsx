@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import FilterBox from "../components/employee/FilterBox";
 import JobDescSidePanel from "../components/employee/JobDescSidePanel";
@@ -6,6 +6,7 @@ import JobsList from "../components/employee/JobsList";
 import MyNavbar from "../components/common/MyNavbar";
 
 import styles from "./styles/EmployeeScreen.module.css";
+import { useUser } from "../context/userContext";
 
 const currentState = "EMPLOYEE";
 
@@ -100,6 +101,7 @@ const jobItems = [
 const EmployeeScreen = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   const [filteredJobItems, setFilteredJobItems] = useState(jobItems);
+  const userProvider = useUser();
 
 
   const searchUpdates = (searchKey) => {
@@ -107,6 +109,14 @@ const EmployeeScreen = () => {
     setFilteredJobItems(jobItems.filter((job) => job.jobName.toLowerCase().includes(searchKey)));
     console.log(filteredJobItems);
   }
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('userData');
+    console.log(storedUserData);
+    if (storedUserData) {
+      userProvider.setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
 
 
   return (

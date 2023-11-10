@@ -5,48 +5,41 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles/LoginPage.module.css";
 import { ArrowBack } from "@mui/icons-material";
+import { useUser } from "../context/userContext";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const userProvider = useUser();
   const [userInput, setuserInput] = useState("");
   const [password, setPassword] = useState("");
 
   const handleuserInput = (event) => {
     setuserInput(event.target.value);
-    // console.log(userInput);
   };
 
   const handlePassword = (event) => {
     setPassword(event.target.value);
-    // console.log(password);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(`${userInput} : ${password}`);
     axios.post('http://localhost:3001/login', { userInput, password })
       .then(
         result => {
-          // console.log(result);
-          if (result.data === "Success") {
+          const loginData = result.data;
+          if (loginData.status === true) {
+            localStorage.setItem('userData', JSON.stringify(loginData.data));
+            userProvider.setUserData(loginData.data);
             navigate("/employee");
           }
           else {
-            alert(result.data);
+            alert(loginData.message);
           }
         }
       ).catch(err => {
-        // console.log(err);
+        alert(err);
       })
   }
-
-  // const onClick = () => {
-  //   if (userInput === "employer") {
-  //     navigate("/employer");
-  //   } else if (userInput === "employee") {
-  //     navigate("/employee");
-  //   }
-  // };
 
   return (
     <div

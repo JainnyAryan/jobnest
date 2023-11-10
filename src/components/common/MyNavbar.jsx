@@ -3,11 +3,21 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles/MyNavbar.module.css";
 import MyNavbarState from "../../enums/MyNavbarState";
 import SearchBar from "../employee/SearchBar";
-import { Add, Settings } from "@mui/icons-material";
+import { Add, Article, EditRounded, Logout } from "@mui/icons-material";
+import { Menu, MenuItem, Skeleton } from "@mui/material";
+import { useUser } from "../../context/userContext";
 
 
 function MyNavbar(props) {
   const navigate = useNavigate();
+  const userProvider = useUser();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
   return (
     <nav className={styles.navbar} style={{ width: "100%" }}>
@@ -32,9 +42,31 @@ function MyNavbar(props) {
         (
           <>
             <SearchBar searchUpdates={(val) => props.searchUpdates(val)} />
-            <div>
-              <button className={styles.registerButton} onClick={() => navigate('/fill-employee-details', { state: { isEmployeeSettings: true } })}><Settings /></button>
-              <button className={styles.loginButton} onClick={() => navigate('/')}>Sign Out</button>
+            <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+              <span style={{ color: "white", margin: "0 10px", minWidth: "5vw" }}>{!userProvider.user ? "" : `Hello, ${userProvider.user.name}`}</span>
+              <button className={styles.loginButton} onClick={handleClick}>Profile</button>
+              <Menu
+                keepMounted
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                open={Boolean(anchorEl)}
+              >
+                <MenuItem onClick={() => {
+                  navigate('/fill-employee-details', { state: { isEmployeeSettings: true } });
+                  handleClose();
+                }}
+                ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>
+                <MenuItem onClick={() => {
+                  navigate('', { state: { isEmployeeSettings: true } });
+                  handleClose();
+                }}
+                ><Article style={{ margin: "10px" }} /> My Applications</MenuItem>
+                <MenuItem onClick={() => {
+                  navigate('/', { state: { isEmployeeSettings: true } });
+                  handleClose();
+                }}
+                ><Logout style={{ margin: "10px" }} /> Sign Out</MenuItem>
+              </Menu>
             </div>
           </>
         )
