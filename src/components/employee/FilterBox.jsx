@@ -19,38 +19,40 @@ const FilterBox = () => {
   ]
 
   return (
-    <div className={styles.box}>
-      <span><b>Filter</b></span>
-      <div className={styles.filters}>
-        {
-          filterData.map((filter) => {
-            return (
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "start"}}>
-                <span style={{ color: "grey", marginTop: "2.5vh", marginBottom: "1vh" }}>{filter.category}</span>
+    <>
+      <div className={styles.box}>
+        <span><b>Filter</b></span>
+        <div className={styles.filters}>
+          {
+            filterData.map((filter) => {
+              return (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-                  {
-                    filter.category === "Location"
-                      ?
-                      <select name="location" className={styles.dropdown}>
-                        {filter.filters.map((e) => {
-                          return <option value={e}>{e}</option>
-                        })}
-                      </select>
-                      :
-                      (filter.filters.map((e) => (
-                        <span style={{padding:"0.7vh 0vh"}}>
-                          <input type="checkbox" style={{marginRight:"5px"}} name={filter.category} value={e} /> 
-                          {e}
-                        </span>
-                      )))
-                  }
+                  <span style={{ color: "grey", marginTop: "2.5vh", marginBottom: "1vh" }}>{filter.category}</span>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+                    {
+                      filter.category === "Location"
+                        ?
+                        <select name="location" className={styles.dropdown}>
+                          {filter.filters.map((e) => {
+                            return <option value={e}>{e}</option>
+                          })}
+                        </select>
+                        :
+                        (filter.filters.map((e) => (
+                          <span style={{ padding: "0.7vh 0vh" }}>
+                            <input type="checkbox" style={{ marginRight: "5px" }} name={filter.category} value={e} />
+                            {e}
+                          </span>
+                        )))
+                    }
+                  </div>
                 </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

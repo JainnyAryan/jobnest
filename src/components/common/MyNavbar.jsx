@@ -18,71 +18,95 @@ function MyNavbar(props) {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  const signOut = () => {
+    userProvider.clearUserData();
+    localStorage.removeItem('userData');
+    navigate('/', { state: { isEmployeeSettings: true } });
+    handleClose();
+  }
 
   return (
-    <nav className={styles.navbar} style={{ width: "100%" }}>
-      <Link to="/" className="navbar-brand mx-3">
-        <img src="/LOGO_transparent.png" alt="Logo" style={imageStyles} />
-      </Link>
-      {
-        props.currentState == MyNavbarState.LANDING &&
-        (
-          <div>
-            <Link to="/login">
-              <button className={styles.loginButton}>Sign In</button>
-            </Link>
-            <Link to="/register">
-              <button className={styles.registerButton}>Sign Up</button>
-            </Link>
-          </div>
-        )
-      }
-      {
-        props.currentState == MyNavbarState.EMPLOYEE &&
-        (
-          <>
-            <SearchBar searchUpdates={(val) => props.searchUpdates(val)} />
-            <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-              <span style={{ color: "white", margin: "0 10px", minWidth: "5vw" }}>{!userProvider.user ? "" : `Hello, ${userProvider.user.name}`}</span>
-              <button className={styles.loginButton} onClick={handleClick}>Profile</button>
-              <Menu
-                keepMounted
-                anchorEl={anchorEl}
-                onClose={handleClose}
-                open={Boolean(anchorEl)}
-              >
-                <MenuItem onClick={() => {
-                  navigate('/fill-employee-details', { state: { isEmployeeSettings: true } });
-                  handleClose();
-                }}
-                ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>
-                <MenuItem onClick={() => {
-                  navigate('', { state: { isEmployeeSettings: true } });
-                  handleClose();
-                }}
-                ><Article style={{ margin: "10px" }} /> My Applications</MenuItem>
-                <MenuItem onClick={() => {
-                  navigate('/', { state: { isEmployeeSettings: true } });
-                  handleClose();
-                }}
-                ><Logout style={{ margin: "10px" }} /> Sign Out</MenuItem>
-              </Menu>
+    <>
+      <nav className={styles.navbar} style={{ width: "100%" }}>
+        <Link to="/" className="navbar-brand mx-3">
+          <img src="/LOGO_transparent.png" alt="Logo" style={imageStyles} />
+        </Link>
+        {
+          props.currentState == MyNavbarState.LANDING &&
+          (
+            <div>
+              <Link to="/login">
+                <button className={styles.loginButton}>Sign In</button>
+              </Link>
+              <Link to="/register">
+                <button className={styles.registerButton}>Sign Up</button>
+              </Link>
             </div>
-          </>
-        )
-      }
-      {
-        props.currentState == MyNavbarState.EMPLOYER &&
-        (
-          <>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <button className={styles.registerButton} onClick={() => navigate("/employer-create-job")} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}><Add /> Post a Job</button>
-              <button className={styles.loginButton} onClick={() => navigate('/')}>Sign Out</button>
-            </div>
-          </>
-        )
-      }
-    </nav>
+          )
+        }
+        {
+          props.currentState == MyNavbarState.EMPLOYEE &&
+          (
+            <>
+              <SearchBar searchUpdates={(val) => props.searchUpdates(val)} />
+              <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                <span style={{ color: "white", margin: "0 10px", minWidth: "5vw" }}>{!userProvider.user ? "" : `Hello, ${userProvider.user.name}`}</span>
+                <button className={styles.loginButton} onClick={handleClick}>Profile</button>
+                <Menu
+                  keepMounted
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  open={Boolean(anchorEl)}
+                >
+                  <MenuItem onClick={() => {
+                    navigate('/fill-employee-details', { state: { isEmployeeSettings: true } });
+                    handleClose();
+                  }}
+                  ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>
+                  <MenuItem onClick={() => {
+                    navigate('', { state: { isEmployeeSettings: true } });
+                    handleClose();
+                  }}
+                  ><Article style={{ margin: "10px" }} /> My Applications</MenuItem>
+                  <MenuItem onClick={() => {
+                    signOut()
+                  }}
+                  ><Logout style={{ margin: "10px" }} /> Sign Out</MenuItem>
+                </Menu>
+              </div>
+            </>
+          )
+        }
+        {
+          props.currentState == MyNavbarState.EMPLOYER &&
+          (
+            <>
+              <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                <span style={{ color: "white", margin: "0 10px", minWidth: "5vw" }}>{!userProvider.user ? "" : `Hello, ${userProvider.user.name}`}</span>
+                <button className={styles.registerButton} onClick={() => navigate("/employer-create-job")} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}><Add /> Post a Job</button>
+                <button className={styles.loginButton} onClick={handleClick}>Profile</button>
+                <Menu
+                  keepMounted
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  open={Boolean(anchorEl)}
+                >
+                  <MenuItem onClick={() => {
+                    navigate('/fill-employee-details', { state: { isEmployeeSettings: true } });
+                    handleClose();
+                  }}
+                  ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>
+                  <MenuItem onClick={() => {
+                    signOut()
+                  }}
+                  ><Logout style={{ margin: "10px" }} /> Sign Out</MenuItem>
+                </Menu>
+              </div>
+            </>
+          )
+        }
+      </nav>
+    </>
   );
 }
 

@@ -6,6 +6,10 @@ import { CurrencyRupee, LocationOn } from "@mui/icons-material";
 const EmployeeDetailsForm = (props) => {
   const routeProps = useLocation().state;
   const navigate = useNavigate();
+  const location = useLocation();
+  if (location.state == undefined) {
+    navigate("/");
+  }
 
   return (
     <div className={styles.background_image}>
@@ -13,7 +17,7 @@ const EmployeeDetailsForm = (props) => {
         <div
           className="card-body"
         >
-          {routeProps.isUserApplication &&
+          {routeProps && routeProps.isUserApplication &&
             <>
               <img
                 src="/LOGO_transparent.png"
@@ -36,11 +40,11 @@ const EmployeeDetailsForm = (props) => {
             </>
           }
           {(() => {
-            if (routeProps.isJobApplication) {
+            if (routeProps && routeProps.isJobApplication) {
               const jobDetails = routeProps.jobDetails;
               return (
                 <div className={styles.jobDetailsHeader}>
-                  <img src={jobDetails.iconUrl} style={{ height: "100%", width: "min-content", maxWidth:"40%", objectFit: "contain", borderRadius:"10px" }} alt="" />
+                  <img src={jobDetails.iconUrl} style={{ height: "100%", width: "min-content", maxWidth: "40%", objectFit: "contain", borderRadius: "10px" }} alt="" />
                   <div style={{ display: "flex", flexDirection: "column", padding: "0% 7%" }}>
                     <h1>{jobDetails.role}</h1>
                     <h3>{jobDetails.orgName}</h3>
@@ -52,7 +56,7 @@ const EmployeeDetailsForm = (props) => {
             }
           })()
           }
-          {routeProps.isEmployeeSettings && (
+          {routeProps && routeProps.isEmployeeSettings && (
             <h1 style={{ marginBottom: "30px" }}>Update your details</h1>
           )
           }
@@ -314,7 +318,7 @@ const EmployeeDetailsForm = (props) => {
               }}
               onClick={() => navigate("/employee")}
             >
-              {routeProps.isUserApplication ? "Save" : routeProps.isJobApplication ? "Apply" : routeProps.isEmployeeSettings ? "Update" : ""}
+              {routeProps && routeProps.isUserApplication ? "Save" : routeProps && routeProps.isJobApplication ? "Apply" : routeProps && routeProps.isEmployeeSettings ? "Update" : ""}
             </button>
           </div>
         </div>

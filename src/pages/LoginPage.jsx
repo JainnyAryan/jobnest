@@ -30,7 +30,7 @@ const LoginPage = () => {
           if (loginData.status === true) {
             localStorage.setItem('userData', JSON.stringify(loginData.data));
             userProvider.setUserData(loginData.data);
-            navigate("/employee");
+            navigate("/");
           }
           else {
             alert(loginData.message);

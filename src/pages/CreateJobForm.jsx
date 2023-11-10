@@ -4,10 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { ArrowForward } from "@mui/icons-material";
 import { useFirebase } from "../context/firebaseContext";
 import axios from "axios";
+import { useUser } from "../context/userContext";
 
 
 const CreateJobForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  if (location.state == undefined) {
+    navigate("/");
+  }
+
+  const userProvider = useUser();
   const { image, progress, imageUrl, firebaseImageUrl, handleChange, handleUpload } = useFirebase();
 
   const handleSubmit = async (event) => {
@@ -15,6 +22,7 @@ const CreateJobForm = () => {
     const formData = new FormData(event.currentTarget);
     formData.delete('jobIcon');
     formData.append('iconUrl', firebaseImageUrl);
+    formData.append('employer', JSON.stringify(userProvider.user));
     for (let [key, value] of formData.entries()) {
       console.log(key, " : val : ", value);
     }

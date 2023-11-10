@@ -116,7 +116,7 @@ const applicants = [
 
 
 
-const AcceptRejectEmployerScreen = () => {
+const ApplicantsScreen = () => {
   const [selectedTab, setSelectedTab] = useState("ALL");
 
   const updateApplicant = (applicant, index) => {
@@ -133,4 +133,4 @@ const AcceptRejectEmployerScreen = () => {
   );
 };
 
-export default AcceptRejectEmployerScreen;
+export default ApplicantsScreen;

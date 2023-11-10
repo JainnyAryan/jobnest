@@ -56,7 +56,7 @@ const SignupPage = () => {
         .then((result) => {
           localStorage.setItem("userData", JSON.stringify(result.data));
           userProvider.setUserData(result.data);
-          navigate("/fill-employee-details", {
+          navigate(isEmployer ? "/fill-employer-details" : "/fill-employee-details", {
             state: { isUserApplication: true },
           });
         })
@@ -68,13 +68,6 @@ const SignupPage = () => {
     }
   };
 
-  // const onClick = () => {
-  //   if (username === "employer") {
-  //     navigate("/employer");
-  //   } else if (username === "employee") {
-  //     navigate("/employee");
-  //   }
-  // };
 
   return (
     <div
