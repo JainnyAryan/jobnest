@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./styles/CreateJobForm.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowForward } from "@mui/icons-material";
 import { useFirebase } from "../context/firebaseContext";
 import axios from "axios";
