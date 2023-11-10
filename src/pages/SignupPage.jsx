@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles/SignupPage.module.css";
 import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
+import { useUser } from "../context/userContext";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -53,8 +54,8 @@ const SignupPage = () => {
           isEmployer,
         })
         .then((result) => {
-          localStorage.setItem("userData", JSON.stringify(loginData.data));
-          userProvider.setUserData(loginData.data);
+          localStorage.setItem("userData", JSON.stringify(result.data));
+          userProvider.setUserData(result.data);
           navigate("/fill-employee-details", {
             state: { isUserApplication: true },
           });
