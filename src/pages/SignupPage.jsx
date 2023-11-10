@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
-import { Axios } from "axios";
+import axios from "axios";
 import styles from "./styles/SignupPage.module.css";
 import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
 
@@ -35,26 +35,27 @@ const SignupPage = () => {
     setConfirmPassword(event.target.value);
     console.log(event.target.value);
   };
-  const handleIsEmployerChange = () => {
-    setIsEmployer(!isEmployer);
+  const handleIsEmployerChange = (event) => {
+    setIsEmployer(event.target.checked);
+    console.log(event.target.checked);
   };
 
-  const handleSubmit = (event) =>{
+  const handleSubmit = (event) => {
     // navigate('/fill-employee-details', { state: { isUserApplication: true } })
     // return;
     event.preventDefault();
-    if(password===confirmPassword){
-      Axios.post('http://localhost:3001/signup', {name ,username, email, password})
-      .then(
-        result=>{
-          console.log(result);
-          navigate('/fill-employee-details', { state: { isUserApplication: true } })
-        }
-      ).catch(err=>{
-        console.log(err);
-      })
+    if (password === confirmPassword) {
+      axios.post('http://localhost:3001/register', { name, username, email, password, isEmployer })
+        .then(
+          result => {
+            console.log(result);
+            navigate('/fill-employee-details', { state: { isUserApplication: true } })
+          }
+        ).catch(err => {
+          console.log(err);
+        })
     }
-    else{
+    else {
       alert("Password Mismatched");
     }
   }
@@ -206,18 +207,18 @@ const SignupPage = () => {
                 />
               </div>
               <div className="form-group mt-3">
-              <input
-              type="checkbox"
-              name="isEmployer"
-              checked={isEmployer}
-              onChange={handleIsEmployerChange}
-              className={styles.checkbox}
-            />
-            <label htmlFor="isEmployer" style={{ color: "#6CE4F3",marginLeft:"10px"}}>
-              I am an Employer
-            </label>
-            
-          </div>
+                <input
+                  type="checkbox"
+                  name="isEmployer"
+                  checked={isEmployer}
+                  onChange={handleIsEmployerChange}
+                  className={styles.checkbox}
+                />
+                <label htmlFor="isEmployer" style={{ color: "#6CE4F3", marginLeft: "10px" }}>
+                  I am an Employer
+                </label>
+
+              </div>
               <button
                 className="btn mt-4"
                 style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}

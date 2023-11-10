@@ -2,47 +2,48 @@ import React, { useState } from "react";
 import loginAnim from "../assets/anims/loginAnim.json";
 import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
-import { Axios } from "axios";
+import axios from "axios";
 import styles from "./styles/LoginPage.module.css";
 import { ArrowBack } from "@mui/icons-material";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [userInput, setuserInput] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUsername = (event) => {
-    setUsername(event.target.value);
-    console.log(username);
+  const handleuserInput = (event) => {
+    setuserInput(event.target.value);
+    // console.log(userInput);
   };
 
   const handlePassword = (event) => {
     setPassword(event.target.value);
-    console.log(password);
+    // console.log(password);
   }
 
-  const handleSubmit = (event) =>{
+  const handleSubmit = (event) => {
     event.preventDefault();
-    Axios.post('http://localhost:3001/login', {username, password})
-    .then(
-      result=>{
-        console.log(result);
-        if (result.data==="Success"){
-          navigate("/employee");
+    // console.log(`${userInput} : ${password}`);
+    axios.post('http://localhost:3001/login', { userInput, password })
+      .then(
+        result => {
+          // console.log(result);
+          if (result.data === "Success") {
+            navigate("/employee");
+          }
+          else {
+            alert(result.data);
+          }
         }
-        else{
-          alert("Username or password incorrect");
-        }
-      }
-    ).catch(err=>{
-      console.log(err);
-    })
+      ).catch(err => {
+        // console.log(err);
+      })
   }
 
   // const onClick = () => {
-  //   if (username === "employer") {
+  //   if (userInput === "employer") {
   //     navigate("/employer");
-  //   } else if (username === "employee") {
+  //   } else if (userInput === "employee") {
   //     navigate("/employee");
   //   }
   // };
@@ -97,24 +98,24 @@ const LoginPage = () => {
                 alt="LOGO-transparent"
                 border="0"
                 width={"100%"}
-                style={{ borderTopRightRadius: "20px", padding:"5%" }}
+                style={{ borderTopRightRadius: "20px", padding: "5%" }}
               ></img>
 
               <div style={{ display: "flex", flexDirection: "column", padding: "15% 10%" }}>
                 <div className="form-group">
-                  <label htmlFor="username" style={{ color: "#6CE4F3" }}>
-                    Username
+                  <label htmlFor="userInput" style={{ color: "#6CE4F3" }}>
+                    Email / Username
                   </label>
                   <input
                     type="text"
-                    id="username"
-                    placeholder="Enter the Username"
+                    id="userInput"
+                    placeholder="Enter username or email"
                     className="form-control"
                     style={{
                       borderRadius: "8px",
                       border: "1px solid #ccdce1",
                     }}
-                    onChange={handleUsername}
+                    onChange={handleuserInput}
                   />
                 </div>
 
