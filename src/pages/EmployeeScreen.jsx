@@ -19,9 +19,7 @@ const EmployeeScreen = () => {
 
 
   const searchUpdates = (searchKey) => {
-    console.log("in employee screen : " + searchKey);
-    setFilteredJobItems(jobItems.filter((job) => job.role.toLowerCase().includes(searchKey)));
-    console.log(filteredJobItems);
+    setFilteredJobItems(jobItems.filter((job) => job.role.toLowerCase().includes(searchKey.toLowerCase())));
   }
 
   useEffect(() => {

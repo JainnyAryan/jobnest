@@ -40,10 +40,10 @@ const EmployeeDetailsForm = (props) => {
               const jobDetails = routeProps.jobDetails;
               return (
                 <div className={styles.jobDetailsHeader}>
-                  <img src={jobDetails.jobIcon} style={{ height: "100%", width: "min-content", maxWidth:"40%", objectFit: "contain", borderRadius:"10px" }} alt="" />
+                  <img src={jobDetails.iconUrl} style={{ height: "100%", width: "min-content", maxWidth:"40%", objectFit: "contain", borderRadius:"10px" }} alt="" />
                   <div style={{ display: "flex", flexDirection: "column", padding: "0% 7%" }}>
-                    <h1>{jobDetails.jobName}</h1>
-                    <h3>{jobDetails.company}</h3>
+                    <h1>{jobDetails.role}</h1>
+                    <h3>{jobDetails.orgName}</h3>
                     <h5 style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><LocationOn style={{ marginRight: "5px" }} /> {jobDetails.location}</h5>
                     <h5 style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><CurrencyRupee style={{ marginRight: "5px" }} /> {jobDetails.salary}</h5>
                   </div>

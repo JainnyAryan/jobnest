@@ -52,7 +52,6 @@ export const FirebaseProvider = (props) => {
         async () => {
           const urlFromFirebase = await getDownloadURL(uploadTask.snapshot.ref);
           setFirebaseImageUrl(urlFromFirebase);
-          // alert(urlFromFirebase);
         }
       );
     }

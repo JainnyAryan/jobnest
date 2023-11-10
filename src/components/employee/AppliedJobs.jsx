@@ -1,7 +1,25 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles/AppliedJobs.module.css'
+import { ArrowUpward } from '@mui/icons-material';
 
 const AppliedJobs = (props) => {
+    const [showScrollButton, setShowScrollButton] = useState(false);
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+        setShowScrollButton(scrollY > 200); // Adjust the value based on when you want to show the button
+      };
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+    
+        // Clean up the event listener on component unmount
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+      const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
   const jobItems = props.jobItems;
 
   return (
@@ -13,23 +31,28 @@ const AppliedJobs = (props) => {
                 <div style={{display:"flex",alignItems:"center"}}>
                     <img src={e.jobIcon} alt="" className={styles.image}/>
                 </div>
-                <div>
+                <div style={{width:"100%"}}>
                     <div className={styles.containerStyle}>
-                        <h2 style={{color:"rgb(69,77,102)", fontWeight:"bolder", textAlign:"left"}}>{e.jobName}</h2>
-                        <h3 style={{color:"rgb(115,118,123)"}}>{e.salary}</h3>
+                        <h2 style={{color:"rgb(69,77,102)", fontWeight:"bolder", textAlign:"left"}} className={styles.jobName}>{e.jobName}</h2>
+                        <h3 style={{color:"rgb(115,118,123)"}} className={styles.salary}>{e.salary}</h3>
                     </div>
                     <div className={styles.containerStyle}>
-                        <h5 style={{color:"rgb(54, 61, 80)", fontWeight:"bold"}}>{e.company}</h5>
-                        <p style={{color:"rgb(115,118,123)"}}>{e.location}</p>
+                        <h5 style={{color:"rgb(54, 61, 80)", fontWeight:"bold"}} className={styles.company}>{e.company}</h5>
+                        <p style={{color:"rgb(115,118,123)"}} className={styles.location}>{e.location}</p>
                     </div>
                     <div className={styles.containerStyle}>
                         <p style={{textAlign:"left", width:"70%", color:"rgb(115,118,123)"}} className={styles.description}>{e.description}</p>
-                        <h5 style={{display:"flex",alignItems:"center", color:"rgb(115,118,123)"}}>{e.locationType}</h5>
+                        <h5 style={{display:"flex", color:"rgb(115,118,123)"}} className={styles.locationType}>{e.locationType}</h5>
                     </div>
                 </div>
             </div>
         ))}
         </div>
+        {showScrollButton && (
+        <button className={styles.scrollToTopButton} onClick={scrollToTop}>
+          <ArrowUpward/>
+        </button>
+      )}
 
     </div>
   );

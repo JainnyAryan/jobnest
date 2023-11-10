@@ -10,7 +10,7 @@
 .containerr {
   display: flex;
   flex-direction: row;
-  background-color: rgb(41, 208, 238);
+  background-color: rgb(175,242,253);
   box-sizing: content-box;
 }
 .click {

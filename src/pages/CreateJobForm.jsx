@@ -20,7 +20,11 @@ const CreateJobForm = () => {
     }
 
     axios.post("http://localhost:3001/post_job", formData)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        navigate("/employer");
+        alert("Job created!");
+      })
       .catch((err) => console.log(err));
 
   }
@@ -38,8 +42,8 @@ const CreateJobForm = () => {
           <label htmlFor="jobIcon" className={styles.headingColor}>Job/Organiztion Icon:</label>
           <input type="file" name="jobIcon" onChange={handleChange} />
           <span>
-            {imageUrl && <button onClick={handleUpload} style={{ width: "min-content", margin: "5px", padding: "5px 10px", borderRadius: "10px", backgroundColor: "rgb(108,228,242)", color: "rgb(35,36,35)", border: "none" }}>{firebaseImageUrl ? "Uploaded" : "Upload"}</button>}
-            {progress != 0 && <progress value={progress} max="100" />}
+            {imageUrl && <button type="button" onClick={handleUpload} style={{ width: "min-content", margin: "5px", padding: "5px 10px", borderRadius: "10px", backgroundColor: "rgb(108,228,242)", color: "rgb(35,36,35)", border: "none" }}>{firebaseImageUrl ? "Uploaded" : "Upload"}</button>}
+            {progress !== 0 && <progress value={progress} max="100" />}
           </span>
           {imageUrl && <img src={imageUrl} style={{ objectFit: "contain", maxWidth: "20%" }} alt="Uploaded" />}
         </div>

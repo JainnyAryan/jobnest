@@ -11,28 +11,41 @@
     margin-right: 20px;
   }
   
-  @media screen and (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
+      .description{
+          display: none;
+      }
+      .locationType{
+          display: none;
+          text-align: right;
+      }
+      .location, .salary{
+          text-align: right;
+      }
     .image {
       height: 15vh;
       margin-right: 10px;
     }
     .containerStyle {
-
         display: flex;
-        justify-content: space-around;
-        /* text-align: right; */
-        /* flex-direction: row; */
+        justify-content: space-between;
+        padding: 0;
+        padding-left: 0;
+        padding-right: 0;
       }
-    
-    .description{
-        display: none;
-    }
+      .cardStyle{
+        justify-content: space-around;
+        margin: 0px;
+        padding: 0;
+      }
+  }
 
-
-    
+  @media only screen and (max-width: 768px) {
   }
   
-
+  .locationType{
+    align-items:center;
+  }
   .cardStyle {
     display: flex;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -58,4 +71,26 @@
     padding-left: 20px;
     margin-bottom: 10px;
   }
+  
+
+  /* ... your existing styles ... */
+
+.scrollToTopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000; /* Example background color */
+    color: #fff; /* Example text color */
+    border: none;
+    border-radius: 100px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .scrollToTopButton:hover {
+    background-color: #444444; /* Example hover background color */
+  }
+  
+  /* ... rest of your styles ... */
   

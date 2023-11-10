@@ -8,6 +8,7 @@ import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
 
 const SignupPage = () => {
   const navigate = useNavigate();
+  const userProvider = useUser();
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -41,24 +42,30 @@ const SignupPage = () => {
   };
 
   const handleSubmit = (event) => {
-    // navigate('/fill-employee-details', { state: { isUserApplication: true } })
-    // return;
     event.preventDefault();
     if (password === confirmPassword) {
-      axios.post('http://localhost:3001/register', { name, username, email, password, isEmployer })
-        .then(
-          result => {
-            console.log(result);
-            navigate('/fill-employee-details', { state: { isUserApplication: true } })
-          }
-        ).catch(err => {
-          console.log(err);
+      axios
+        .post("http://localhost:3001/register", {
+          name,
+          username,
+          email,
+          password,
+          isEmployer,
         })
-    }
-    else {
+        .then((result) => {
+          localStorage.setItem("userData", JSON.stringify(loginData.data));
+          userProvider.setUserData(loginData.data);
+          navigate("/fill-employee-details", {
+            state: { isUserApplication: true },
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
       alert("Password Mismatched");
     }
-  }
+  };
 
   // const onClick = () => {
   //   if (username === "employer") {
@@ -71,8 +78,7 @@ const SignupPage = () => {
   return (
     <div
       style={{
-        backgroundImage:
-          'url("/background1.jpg")',
+        backgroundImage: 'url("/background1.jpg")',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -84,11 +90,13 @@ const SignupPage = () => {
       }}
     >
       <div className={styles.box}>
-        <ArrowBack className={styles.backIcon} onClick={() => navigate("/")} fontSize="large" />
+        <ArrowBack
+          className={styles.backIcon}
+          onClick={() => navigate("/")}
+          fontSize="large"
+        />
 
-        <div
-          className={styles.registerBox}
-        >
+        <div className={styles.registerBox}>
           <div className={styles.lottieDiv}>
             <Lottie
               options={{
@@ -109,18 +117,27 @@ const SignupPage = () => {
               }}
             />
           </div>
-          <div
-            className={styles.formBox}
-          >
+          <div className={styles.formBox}>
             <img
               src="/LOGO_transparent.png"
               alt="LOGO-transparent"
               border="0"
               width={"100%"}
-              style={{ borderTopRightRadius: "20px", marginTop: "30px", padding: "0 10%" }}
+              style={{
+                borderTopRightRadius: "20px",
+                marginTop: "30px",
+                padding: "0 10%",
+              }}
             ></img>
 
-            <div style={{ display: "flex", flexDirection: "column", padding: "0 10%", overflow: "auto" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "0 10%",
+                overflow: "auto",
+              }}
+            >
               <div className="form-group">
                 <label htmlFor="name" style={{ color: "#6CE4F3" }}>
                   Name
@@ -214,21 +231,33 @@ const SignupPage = () => {
                   onChange={handleIsEmployerChange}
                   className={styles.checkbox}
                 />
-                <label htmlFor="isEmployer" style={{ color: "#6CE4F3", marginLeft: "10px" }}>
+                <label
+                  htmlFor="isEmployer"
+                  style={{ color: "#6CE4F3", marginLeft: "10px" }}
+                >
                   I am an Employer
                 </label>
-
               </div>
               <button
                 className="btn mt-4"
-                style={{ borderRadius: "10px", backgroundColor: "#6CE4F3", color: "#232423" }}
+                style={{
+                  borderRadius: "10px",
+                  backgroundColor: "#6CE4F3",
+                  color: "#232423",
+                }}
                 onClick={handleSubmit}
               >
                 Register
               </button>
               <p style={{ color: "#6CE4F3", marginTop: "2vh" }}>
                 Already have an account?
-                <a href="" style={{ marginLeft: "5px", color: "#6CE4F3" }} onClick={() => navigate('/login')}>Login</a>
+                <a
+                  href=""
+                  style={{ marginLeft: "5px", color: "#6CE4F3" }}
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </a>
               </p>
             </div>
           </div>
