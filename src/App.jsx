@@ -1,6 +1,6 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { UserProvider } from "./context/user/userContext";
+import { UserProvider } from "./context/userContext";
 import AppRoutes from "./routes/routes";
 
 
