@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/ViewJobApplications.module.css';
 import AppliedJobs from '../components/employee/AppliedJobs';
-
+import MyNavbar from '../components/common/MyNavbar'
 const ViewJobApplications = () => {
 
     const jobItems = [
@@ -10,7 +10,7 @@ const ViewJobApplications = () => {
           company: "MS",
           location: "Cape Town",
           locationType: "On-site",
-          jobIcon: "https://assets.stickpng.com/images/58480fd7cef1014c0b5e4943.png",
+          jobIcon: "https://www.freepnglogos.com/uploads/microsoft-logo-png-transparent-background-1.png",
           salary: "20000 $",
           description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
         },
@@ -95,9 +95,10 @@ const ViewJobApplications = () => {
 
 
   return (
-    <div>
+    <div  style={{backgroundColor:"white"}}>
+        <MyNavbar />
       <center>
-      <h1>Applied Jobs</h1>
+      <h1 style={{margin:"20px"}}>Applied Jobs</h1>
       <AppliedJobs jobItems={jobItems} />
       </center>
     </div>

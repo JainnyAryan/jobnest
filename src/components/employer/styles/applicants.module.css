@@ -10,9 +10,11 @@
   }
   
 
-.tableRows:nth-child(odd) { 
-    background-color: rgb(250, 243, 234); 
+.tableRows:nth-child(even) { 
+    background-color: rgb(248, 246, 243); 
 }
+
+
 
 .popupcard {
   position: fixed;

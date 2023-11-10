@@ -1,57 +1,39 @@
 import React from 'react';
+import styles from './styles/AppliedJobs.module.css'
 
 const AppliedJobs = (props) => {
   const jobItems = props.jobItems;
 
   return (
-    <ul style={listStyle}>
-      {jobItems.map((e, index) => (
-        <li key={index} style={cardStyle}>
-          <div style={containerStyle}>
-            <h3>{e.jobName}</h3>
-            <h4>{e.salary}</h4>
-          </div>
-          <div style={containerStyle}>
-            <h6>{e.company}</h6>
-            <p>{e.location}</p>
-          </div>
-          <div style={containerStyle}>
-            <p>{e.description}</p>
-            <h5>{e.locationType}</h5>
-          </div>
-        </li>
-      ))}
-    </ul>
+
+    <div>
+        <div className={styles.listStyle}>
+        {jobItems.map((e, index) => (
+            <div key={index} className={styles.cardStyle} >
+                <div style={{display:"flex",alignItems:"center"}}>
+                    <img src={e.jobIcon} alt="" className={styles.image}/>
+                </div>
+                <div>
+                    <div className={styles.containerStyle}>
+                        <h2 style={{color:"rgb(69,77,102)", fontWeight:"bolder", textAlign:"left"}}>{e.jobName}</h2>
+                        <h3 style={{color:"rgb(115,118,123)"}}>{e.salary}</h3>
+                    </div>
+                    <div className={styles.containerStyle}>
+                        <h5 style={{color:"rgb(54, 61, 80)", fontWeight:"bold"}}>{e.company}</h5>
+                        <p style={{color:"rgb(115,118,123)"}}>{e.location}</p>
+                    </div>
+                    <div className={styles.containerStyle}>
+                        <p style={{textAlign:"left", width:"70%", color:"rgb(115,118,123)"}} className={styles.description}>{e.description}</p>
+                        <h5 style={{display:"flex",alignItems:"center", color:"rgb(115,118,123)"}}>{e.locationType}</h5>
+                    </div>
+                </div>
+            </div>
+        ))}
+        </div>
+
+    </div>
   );
 };
 
-const listStyle = {
-  listStyle: "none",
-  padding: 0,
-  backgroundColor: "#F6F8F7",
-};
 
-const cardStyle = {
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  borderRadius: "8px",
-  backgroundColor: "#FFFFFF",
-  overflow: "hidden",
-  transition: "box-shadow 0.3s",
-  cursor: "pointer",
-  marginTop: "25px",
-  marginBottom: "25px",
-  width: "60vw",
-  ':hover': {
-    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-  }
-};
-
-const containerStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  borderBottom: "2px solid #ddd",
-  padding: "15px",
-  marginBottom: "10px",
-};
-  
 export default AppliedJobs;

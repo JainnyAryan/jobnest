@@ -126,7 +126,7 @@ const AcceptRejectEmployerScreen = () => {
 
 
   return (
-    <div style={{ padding: "2vh" }}>
+    <div style={{ padding: "2vh", backgroundColor:"#87d2f86b"}}>
       <ApplicantsTab onClick={(tabValue) => setSelectedTab(tabValue)} />
       <Applicants applicants={applicants} selectedTab={selectedTab} updateApplicant={(applicant, index) => updateApplicant(applicant, index)} />
     </div>

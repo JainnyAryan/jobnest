@@ -1,6 +1,6 @@
-body {
-  background-color: rgb(220, 246, 251);
-}
+/* body {
+  background-color: rgb(2,129,173);
+} */
 
 .text {
   width: 50%;
@@ -10,7 +10,7 @@ body {
 .containerr {
   display: flex;
   flex-direction: row;
-  background-color: rgb(220, 246, 251);
+  background-color: rgb(41, 208, 238);
   box-sizing: content-box;
 }
 .click {
