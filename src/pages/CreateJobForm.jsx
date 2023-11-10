@@ -13,7 +13,12 @@ const CreateJobForm = () => {
         <div>
           <h1>Create a Job</h1>
           <br />
+          
           <div>
+            <div className="mb-1"> Image <span className="font-css top">*</span>
+            <div> <input type="file" name="IconUpload"/></div>
+          </div>
+
             <label htmlFor="company_name" className={styles.headingColor}>
               Organization Name:
             </label>
