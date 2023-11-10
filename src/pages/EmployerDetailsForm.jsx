@@ -9,7 +9,7 @@ const EmployerDetailsForm = () => {
   const userProvider = useUser();
   const user = useAuth();
   const navigate = useNavigate();
-  if (user.isEmployer) {
+  if (!user.isEmployer) {
     navigate("/");
   }
 

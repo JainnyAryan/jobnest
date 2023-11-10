@@ -15,9 +15,10 @@ export default function EmployerScreen() {
   const userProvider = useUser();
   const user = useAuth();
   const navigate = useNavigate();
-  if (user.isEmployer) {
+  if (!user.isEmployer) {
     navigate("/");
   }
+  
   // useEffect(() => {
   //   axios.get("http://localhost:3001/get_jobs")
   //     .then((res) => {

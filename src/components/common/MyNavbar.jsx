@@ -64,7 +64,7 @@ function MyNavbar(props) {
                   }}
                   ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>
                   <MenuItem onClick={() => {
-                    navigate('', { state: { isEmployeeSettings: true } });
+                    navigate('/jobs-applied', { state: { isEmployeeSettings: true } });
                     handleClose();
                   }}
                   ><Article style={{ margin: "10px" }} /> My Applications</MenuItem>
