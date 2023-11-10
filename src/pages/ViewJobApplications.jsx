@@ -96,11 +96,12 @@ const ViewJobApplications = () => {
 
   return (
     <div>
-
+      <center>
       <h1>Applied Jobs</h1>
       <AppliedJobs jobItems={jobItems} />
-      
+      </center>
     </div>
+  
   )
 }
 

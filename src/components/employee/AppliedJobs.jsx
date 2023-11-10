@@ -28,17 +28,18 @@ const AppliedJobs = (props) => {
 const listStyle = {
   listStyle: "none",
   padding: 0,
-  backgroundColor: "rgb(246, 248, 247)"
+  backgroundColor: "#F6F8F7",
 };
 
 const cardStyle = {
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   borderRadius: "8px",
-  backgroundColor: "#F7F8F7",
+  backgroundColor: "#FFFFFF",
   overflow: "hidden",
   transition: "box-shadow 0.3s",
   cursor: "pointer",
-  margin: "10px",
+  marginTop: "25px",
+  marginBottom: "25px",
   width: "60vw",
   ':hover': {
     boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
@@ -46,11 +47,11 @@ const cardStyle = {
 };
 
 const containerStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    borderBottom: "2px solid #ddd",
-    padding: "10px",
-    marginBottom: "10px",
-  };
+  display: "flex",
+  justifyContent: "space-between",
+  borderBottom: "2px solid #ddd",
+  padding: "15px",
+  marginBottom: "10px",
+};
   
 export default AppliedJobs;
