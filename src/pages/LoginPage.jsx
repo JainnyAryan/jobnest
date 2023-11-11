@@ -92,7 +92,7 @@ const LoginPage = () => {
                 alt="LOGO-transparent"
                 border="0"
                 width={"100%"}
-                style={{ borderTopRightRadius: "20px", padding: "5%" }}
+                style={{ borderTopRightRadius: "20px", padding: "10% 5%" }}
               ></img>
 
               <div style={{ display: "flex", flexDirection: "column", padding: "15% 10%" }}>

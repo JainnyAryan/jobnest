@@ -157,7 +157,7 @@ const SignupPage = () => {
                 <input
                   type="text"
                   name="username"
-                  placeholder="Enter the Password"
+                  placeholder="Enter the Username"
                   className="form-control"
                   style={{
                     borderRadius: "8px",
@@ -208,7 +208,7 @@ const SignupPage = () => {
                 <input
                   type="password"
                   name="confirmpassword"
-                  placeholder="Enter the Password"
+                  placeholder="Enter the Password again"
                   className="form-control"
                   style={{
                     borderRadius: "8px",

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "../context/userContext";
 import axios from "axios";
 import useAuth from "../context/useAuth";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, LinearProgress } from "@mui/material";
 
 const EmployerDetailsForm = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -60,8 +60,8 @@ const EmployerDetailsForm = () => {
     formData.append('userId', userProvider.user._id);
 
     if (routeProps && routeProps.isUserDetails) {
-      for (let [key, value] of formData.entries())
-        console.log(key, " : val : ", value);
+      // for (let [key, value] of formData.entries())
+      //   console.log(key, " : val : ", value);
 
       axios.post("http://localhost:3001/post_employer_details", formData)
         .then((res) => {
@@ -90,7 +90,7 @@ const EmployerDetailsForm = () => {
 
   return (
     <div className={styles.background_image}>
-      {!isLoaded && <center><CircularProgress /></center>}
+      {!isLoaded && <center><LinearProgress /></center>}
       <form onSubmit={handleSubmit} style={{ visibility: isLoaded ? "visible" : "hidden" }} className={styles.formBox} id="employerDetailsForm">
         {routeProps && routeProps.isUserDetails &&
           <>

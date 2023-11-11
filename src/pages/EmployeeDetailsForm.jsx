@@ -1,29 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CurrencyRupee, LocationOn } from "@mui/icons-material";
 import useAuth from "../context/useAuth";
 import axios from "axios";
+import { UserProvider, useUser } from "../context/userContext";
+import { LinearProgress } from "@mui/material";
 
 const EmployeeDetailsForm = (props) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const routeProps = useLocation().state;
   const navigate = useNavigate();
+
   const user = useAuth();
+  const userProvider = useUser();
   if (user.isEmployer) {
     navigate("/");
   }
-
   var jobDetails = null;
   if (routeProps && routeProps.isJobApplication) {
     jobDetails = routeProps.jobDetails;
   }
 
+
+  useEffect(() => {
+    console.log("use effect emp");
+    const userFromStorage = JSON.parse(localStorage.getItem('userData'));
+    if (!user) {
+      userProvider.setUser(userFromStorage);
+    }
+    const fetchData = async () => {
+      console.log(userFromStorage._id);
+      axios.get("http://localhost:3001/get_employee_details", { params: { userId: userFromStorage._id } })
+        .then((res) => res.data)
+        .then((data) => {
+          // console.log(data);
+          if (data.status == false) {
+            setIsLoaded(true);
+            alert(data.message);
+          }
+          else {
+            const employerData = data.data;
+            const form = document.getElementById('employeeDetailsForm');
+            // console.log(form.elements);
+            form.elements["name"].value = userFromStorage.name;
+            form.elements["email"].value = userFromStorage.email;
+            for (const inputName in employerData) {
+              if (employerData.hasOwnProperty(inputName)) {
+                const input = form.elements[inputName];
+                if (input) {
+                  input.value = employerData[inputName];
+                }
+              }
+            }
+            setIsLoaded(true);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+
+    fetchData();
+  }, []);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-
-    if (routeProps && routeProps.isJobApplication) {
+    if (routeProps && routeProps.isUserDetails) {
+      formData.append("userId", userProvider.user._id);
+      axios.post("http://localhost:3001/post_employee_details", formData)
+        .then((res) => {
+          console.log(res);
+          navigate("/employee");
+          alert("Details saved");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
+    }
+    else if (routeProps && routeProps.isJobApplication) {
       formData.append("jobDetails", JSON.stringify(jobDetails));
+      formData.append("applicantId", userProvider.user._id);
+      formData.append("jobId", jobDetails._id);
+      formData.append("applicantDetails", JSON.stringify(userProvider.user));
+      formData.append("status", "");
       axios.post("http://localhost:3001/create_employee_job_application", formData)
         .then((res) => {
           console.log(res);
@@ -40,8 +102,8 @@ const EmployeeDetailsForm = (props) => {
   return (
     <div className={styles.background_image}>
       <div className={styles.formBox}>
-        <form onSubmit={handleSubmit}
-        >
+        {!isLoaded && <LinearProgress />}
+        <form onSubmit={handleSubmit} id="employeeDetailsForm">
           {routeProps && routeProps.isUserDetails &&
             <>
               <img
@@ -80,13 +142,14 @@ const EmployeeDetailsForm = (props) => {
             }
           })()
           }
-          {routeProps && routeProps.isSettings && (
-            <h1 style={{ marginBottom: "30px" }}>Update your details</h1>
-          )
+          {routeProps && routeProps.isSettings &&
+            (
+              <h1 style={{ marginBottom: "30px" }}>Update your details</h1>
+            )
           }
 
           <h3 className={styles.headingColor}>
-            <>Personal Information: </>
+            Personal Information:
           </h3>
           <div
             style={{
@@ -95,27 +158,31 @@ const EmployeeDetailsForm = (props) => {
               textAlign: "left",
             }}
           >
-            {/* User enters his/her official name. */}
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="User's Official Name" // Retrive from the backend
-                className={styles.inputDimensions}
-              />
-            </div>
+            {routeProps && routeProps.isJobApplication &&
+              <>
+                {/* User enters his/her official name. */}
+                <div>
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="User's Official Name" // Retrive from the backend
+                    className={styles.inputDimensions}
+                  />
+                </div>
 
-            {/* User enters his/her email address */}
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="text"
-                name="email"
-                placeholder="User's Official Email ID" // Retrive from the backend
-                className={styles.inputDimensions}
-              />
-            </div>
+                {/* User enters his/her email address */}
+                <div>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="User's Official Email ID" // Retrive from the backend
+                    className={styles.inputDimensions}
+                  />
+                </div>
+              </>
+            }
 
             {/* User enters his/her password for their account on jobnest. */}
             <div>
@@ -345,8 +412,8 @@ const EmployeeDetailsForm = (props) => {
             </button>
           </div>
         </form>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

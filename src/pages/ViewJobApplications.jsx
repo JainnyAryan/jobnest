@@ -1,112 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles/ViewJobApplications.module.css';
 import AppliedJobs from '../components/employee/AppliedJobs';
 import MyNavbar from '../components/common/MyNavbar'
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../context/useAuth';
+import axios from 'axios';
+import { CircularProgress } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
 const ViewJobApplications = () => {
   const user = useAuth();
   const navigate = useNavigate();
+  const [isLoaded, setIsLoaded] = useState(false);
   if (user.isEmployer) {
     navigate("/");
   }
 
-  const jobItems = [
-    {
-      jobName: "Junior Web Dev",
-      company: "MS",
-      location: "Cape Town",
-      locationType: "On-site",
-      jobIcon: "https://www.freepnglogos.com/uploads/microsoft-logo-png-transparent-background-1.png",
-      salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "Senior Web Dev",
-      company: "Netflix",
-      location: "WFH",
-      locationType: "Remote",
-      jobIcon: "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png",
-      salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "Intern",
-      company: "VIT",
-      location: "Vellore",
-      locationType: "On-site",
-      jobIcon: "https://findlogovector.com/wp-content/uploads/2022/05/vellore-institute-of-technology-vit-logo-vector-2022.png",
-      salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png",
-      salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png", salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png", salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png", salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png", salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png", salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-    {
-      jobName: "CEO",
-      company: "Netflix",
-      location: "New York",
-      locationType: "On-site",
-      jobIcon: "/logo192.png", salary: "20000 $",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur possimus ab neque corporis aliquam? Ab harum blanditiis quae, voluptatibus iusto reiciendis exercitationem, ducimus reprehenderit quos repellat, delectus neque amet quia."
-    },
-  ];
+  const [jobItems, setJobItems] = useState(null);
 
+  useEffect(() => {
+    const setAppliedJobs = () => {
+      const stored = localStorage.getItem('userData');
+      const userData = JSON.parse(stored);
+      axios.get("http://localhost:3001/get_employee_job_applications", { params: { applicantId: userData._id } })
+        .then((res) => {
+          console.log(res.data);
+          setJobItems(res.data);
+        })
+        .then((_) => setIsLoaded(true))
+        .catch((err) => {
+          console.log(err);
+          setIsLoaded(true);
+        });
+    }
 
+    setIsLoaded(false);
+    setAppliedJobs();
 
+  }, []);
 
   return (
     <div style={{ backgroundColor: "white" }}>
       <MyNavbar />
+        <ArrowBack
+          className={styles.backIcon}
+          onClick={() => navigate(-1)}
+          fontSize="large"
+        />
       <center>
-        <h1 style={{ margin: "20px" }}>Applied Jobs</h1>
-        <AppliedJobs jobItems={jobItems} />
+        {!isLoaded ? <CircularProgress /> :
+          <>
+            <h1 style={{ margin: "20px" }}>Applied Jobs</h1>
+            <AppliedJobs jobItems={jobItems} />
+          </>
+        }
       </center>
     </div>
 

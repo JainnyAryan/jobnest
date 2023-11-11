@@ -22,8 +22,18 @@
   overflow-y: auto;
 }
 
+.loadingSpinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2vh 3vw;
+  transition: 300ms;
+}
+
 .panel {
-  padding: 3vw;
+  padding: 2vw 3vw;
+  transition: 300ms;
 }
 
 .jobDetails {
@@ -63,6 +73,11 @@
   font-size: calc(16px + 0.5vw);
   outline: none;
   margin: 10px 0;
+}
+
+.applyButton:disabled{
+  background-color: gray;
+  color: white;
 }
 
 .jobDesc {

@@ -6,7 +6,7 @@ import { CircularProgress } from "@mui/material";
 
 const JobsList = (props) => {
   const jobItems = props.jobItems;
-  console.log(jobItems);
+  // console.log(jobItems);
   
 
   return (
