@@ -3,22 +3,46 @@ import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CurrencyRupee, LocationOn } from "@mui/icons-material";
 import useAuth from "../context/useAuth";
+import axios from "axios";
 
 const EmployeeDetailsForm = (props) => {
   const routeProps = useLocation().state;
-  const user = useAuth();
   const navigate = useNavigate();
+  const user = useAuth();
   if (user.isEmployer) {
     navigate("/");
+  }
+
+  var jobDetails = null;
+  if (routeProps && routeProps.isJobApplication) {
+    jobDetails = routeProps.jobDetails;
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    if (routeProps && routeProps.isJobApplication) {
+      formData.append("jobDetails", JSON.stringify(jobDetails));
+      axios.post("http://localhost:3001/create_employee_job_application", formData)
+        .then((res) => {
+          console.log(res);
+          navigate(-1);
+          alert(`Application sent for ${jobDetails.role} at ${jobDetails.orgName}`)
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err)
+        });
+    }
   }
 
   return (
     <div className={styles.background_image}>
       <div className={styles.formBox}>
-        <div
-          className="card-body"
+        <form onSubmit={handleSubmit}
         >
-          {routeProps && routeProps.isUserApplication &&
+          {routeProps && routeProps.isUserDetails &&
             <>
               <img
                 src="/LOGO_transparent.png"
@@ -42,7 +66,6 @@ const EmployeeDetailsForm = (props) => {
           }
           {(() => {
             if (routeProps && routeProps.isJobApplication) {
-              const jobDetails = routeProps.jobDetails;
               return (
                 <div className={styles.jobDetailsHeader}>
                   <img src={jobDetails.iconUrl} style={{ height: "100%", width: "min-content", maxWidth: "40%", objectFit: "contain", borderRadius: "10px" }} alt="" />
@@ -57,7 +80,7 @@ const EmployeeDetailsForm = (props) => {
             }
           })()
           }
-          {routeProps && routeProps.isEmployeeSettings && (
+          {routeProps && routeProps.isSettings && (
             <h1 style={{ marginBottom: "30px" }}>Update your details</h1>
           )
           }
@@ -77,7 +100,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="name">Name</label>
               <input
                 type="text"
-                id="name"
+                name="name"
                 placeholder="User's Official Name" // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -88,7 +111,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="email">Email</label>
               <input
                 type="text"
-                id="email"
+                name="email"
                 placeholder="User's Official Email ID" // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -98,8 +121,8 @@ const EmployeeDetailsForm = (props) => {
             <div>
               <label htmlFor="phoneno">Phone Number</label>
               <input
-                type="number"
-                id="phoneno"
+                type="text"
+                name="phone"
                 placeholder="Enter the Phone Number"
                 className={styles.inputDimensions}
               />
@@ -110,7 +133,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="password">Date of Birth</label>
               <input
                 type="date"
-                id="dob"
+                name="dob"
                 placeholder="Enter the Date of Birth"
                 className={styles.inputDimensions}
               />
@@ -155,7 +178,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="collegename">College Name</label>
               <input
                 type="text"
-                id="collegename"
+                name="collegeName"
                 placeholder="Name of your college" // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -166,7 +189,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="collegestream">Stream</label>
               <input
                 type="text"
-                id="collegestream"
+                name="collegeStream"
                 placeholder="Name of your stream" // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -177,7 +200,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="cgpa">College CGPA</label>
               <input
                 type="number"
-                id="name"
+                name="cgpa"
                 placeholder="Your CGPA in college" // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -185,38 +208,39 @@ const EmployeeDetailsForm = (props) => {
 
             {/* User enters his/her school name. */}
             <div>
-              <label htmlFor="schoolname">School Name</label>
+              <label htmlFor="schoolName">School Name (class 12th)</label>
               <input
                 type="text"
-                id="schoolname"
+                name="schoolName"
                 placeholder="Name of your school" // Retrive from the backend
                 className={styles.inputDimensions}
               />
             </div>
 
-            {/* User enters his/her college cgpa. */}
-            <div>
-              <label htmlFor="highschoolpercent">High School Percentage</label>
-              <input
-                type="number"
-                id="highschoolpercent"
-                placeholder="Your high school percentage" // Retrive from the backend
-                className={styles.inputDimensions}
-              />
-            </div>
-
-            {/* User enters his/her college cgpa. */}
+            {/* User enters his/her class 12th %. */}
             <div>
               <label htmlFor="intermediatepercent">
                 Intermediate Percentage
               </label>
               <input
                 type="number"
-                id="intermediatepercent"
+                name="intermediateSchoolPercentage"
                 placeholder="Your intermediate percentage" // Retrive from the backend
                 className={styles.inputDimensions}
               />
             </div>
+
+            {/* User enters his/her class 10th %. */}
+            <div>
+              <label htmlFor="highschoolpercent">High School Percentage</label>
+              <input
+                type="number"
+                name="highSchoolPercentage"
+                placeholder="Your high school percentage" // Retrive from the backend
+                className={styles.inputDimensions}
+              />
+            </div>
+
             <hr style={{ color: "white" }} />
 
             <h3 className={styles.headingColor}>
@@ -229,7 +253,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="company1">Organization</label>
               <input
                 type="text"
-                id="company1"
+                name="organisation"
                 placeholder="Name of your organization " // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -237,11 +261,11 @@ const EmployeeDetailsForm = (props) => {
 
             {/* User enters his/her first company work duration. */}
             <div className="form-group mt-1">
-              <label htmlFor="duration1">Duration</label>
+              <label htmlFor="duration1">Work Duration (in months)</label>
               <input
-                type="text"
-                id="duration1"
-                placeholder="Duration" // Retrive from the backend
+                type="number"
+                name="workDuration"
+                placeholder="Work Duration (in months)" // Retrive from the backend
                 className={styles.inputDimensions}
               />
             </div>
@@ -251,7 +275,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="role1">Role</label>
               <input
                 type="text"
-                id="role"
+                name="role"
                 placeholder="Your role in the oragnization" // Retrive from the backend
                 className={styles.inputDimensions}
               />
@@ -262,8 +286,7 @@ const EmployeeDetailsForm = (props) => {
               <label htmlFor="roledescription1">Role Description</label>
               <br />
               <textarea
-                name="roledescription1"
-                id="roledescription1"
+                name="roleDescription"
                 rows="3"
                 placeholder="What was your role in the oraganization?"
                 className={styles.inputDimensions}
@@ -272,17 +295,14 @@ const EmployeeDetailsForm = (props) => {
 
             <hr style={{ color: "white" }} />
             <h3 className={styles.headingColor}>
-
-              <>Awards & Cerifications: </>
-
+              Awards & Cerifications:
             </h3>
             {/* Awards Won by User */}
             <div>
               <label htmlFor="listawards">Awards</label>
               <br />
               <textarea
-                name="listawards"
-                id="listawards"
+                name="awards"
                 rows="3"
                 placeholder="List down all your awards and achievements. "
                 className={styles.inputDimensions}
@@ -293,8 +313,7 @@ const EmployeeDetailsForm = (props) => {
             <div>
               <label htmlFor="certificate">Certifications</label>
               <textarea
-                name="certificate"
-                id="certificate"
+                name="certifications"
                 rows="3"
                 placeholder="List down all the certifications. "
                 className={styles.inputDimensions}
@@ -302,13 +321,17 @@ const EmployeeDetailsForm = (props) => {
             </div>
             <hr style={{ color: "white" }} />
 
-            <div>
-              <h3 className={styles.headingColor}><>Upload Your Resume:</></h3>
-              <input type="file" name="emp_resume" id="emp_resume" />
-            </div>
+            {routeProps && routeProps.isJobApplication &&
+              <div>
+                <h3 className={styles.headingColor}><>Resume :</></h3>
+                <label htmlFor="resumeLink">Resume Link (public link)</label>
+                <input type="text" name="resumeLink" id="emp_resume" className={styles.inputDimensions} placeholder="Accessible resume link" />
+              </div>
+            }
 
             <button
               className="btn btn-primary mt-4"
+              type="submit"
               style={{
                 borderRadius: "10px",
                 backgroundColor: "rgb(108,228,242)",
@@ -317,12 +340,11 @@ const EmployeeDetailsForm = (props) => {
                 margin: "auto",
                 width: "30%",
               }}
-              onClick={() => navigate("/employee")}
             >
-              {routeProps && routeProps.isUserApplication ? "Save" : routeProps && routeProps.isJobApplication ? "Apply" : routeProps && routeProps.isEmployeeSettings ? "Update" : ""}
+              {routeProps && routeProps.isUserDetails ? "Save" : routeProps && routeProps.isJobApplication ? "Apply" : routeProps && routeProps.isSettings ? "Update" : ""}
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

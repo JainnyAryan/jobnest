@@ -26,13 +26,9 @@ function AppRoutes() {
   const userProvider = useUser();
   var user = localStorage.getItem("userData");
   user = user ? JSON.parse(user) : null;
-  console.log("routes.js");
-  console.log(user);
   useEffect(() => {
-    console.log("useEffect");
     if (user) {
       userProvider.setUserData(user);
-      console.log("user set");
     }
   }, []);
   

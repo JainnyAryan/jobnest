@@ -28,6 +28,7 @@ const LoginPage = () => {
         result => {
           const loginData = result.data;
           if (loginData.status === true) {
+            delete loginData.data.password;
             localStorage.setItem('userData', JSON.stringify(loginData.data));
             userProvider.setUserData(loginData.data);
             navigate("/");

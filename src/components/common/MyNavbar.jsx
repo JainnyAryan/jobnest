@@ -18,6 +18,8 @@ function MyNavbar(props) {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+
   const signOut = () => {
     userProvider.clearUserData();
     localStorage.removeItem('userData');
@@ -59,12 +61,12 @@ function MyNavbar(props) {
                   open={Boolean(anchorEl)}
                 >
                   <MenuItem onClick={() => {
-                    navigate('/fill-employee-details', { state: { isEmployeeSettings: true } });
+                    navigate('/fill-employee-details', { state: { isSettings: true } });
                     handleClose();
                   }}
                   ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>
                   <MenuItem onClick={() => {
-                    navigate('/jobs-applied', { state: { isEmployeeSettings: true } });
+                    navigate('/jobs-applied');
                     handleClose();
                   }}
                   ><Article style={{ margin: "10px" }} /> My Applications</MenuItem>
@@ -92,7 +94,7 @@ function MyNavbar(props) {
                   open={Boolean(anchorEl)}
                 >
                   <MenuItem onClick={() => {
-                    navigate('/fill-employee-details', { state: { isEmployeeSettings: true } });
+                    navigate('/fill-employer-details', { state: { isSettings: true } });
                     handleClose();
                   }}
                   ><EditRounded style={{ margin: "10px" }} /> Edit Profile</MenuItem>

@@ -54,10 +54,11 @@ const SignupPage = () => {
           isEmployer,
         })
         .then((result) => {
+          delete result.data.password;
           localStorage.setItem("userData", JSON.stringify(result.data));
           userProvider.setUserData(result.data);
           navigate(isEmployer ? "/fill-employer-details" : "/fill-employee-details", {
-            state: { isUserApplication: true },
+            state: { isUserDetails: true },
           });
         })
         .catch((err) => {

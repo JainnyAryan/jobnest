@@ -16,13 +16,15 @@ const CreateJobForm = () => {
     navigate("/");
   }
 
+  const DEFAULT_IMG = "/LOGO.jpeg";
+
   const { image, progress, imageUrl, firebaseImageUrl, handleChange, handleUpload } = useFirebase();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     formData.delete('jobIcon');
-    formData.append('iconUrl', firebaseImageUrl);
+    formData.append('iconUrl', firebaseImageUrl ? firebaseImageUrl : DEFAULT_IMG);
     formData.append('employer', JSON.stringify(userProvider.user));
     // for (let [key, value] of formData.entries()) {
     //   console.log(key, " : val : ", value);
@@ -34,7 +36,10 @@ const CreateJobForm = () => {
         navigate("/employer");
         alert("Job created!");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
 
   }
 

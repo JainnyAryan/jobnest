@@ -1,52 +1,118 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import styles from "./styles/EmployeeDetailsForm.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "../context/userContext";
 import axios from "axios";
 import useAuth from "../context/useAuth";
+import { CircularProgress } from "@mui/material";
 
 const EmployerDetailsForm = () => {
-  const userProvider = useUser();
-  const user = useAuth();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const routeProps = useLocation().state;
   const navigate = useNavigate();
+  const user = useAuth();
+  const userProvider = useUser();
+
   if (!user.isEmployer) {
     navigate("/");
   }
 
+  useEffect(() => {
+    console.log("use effect emp");
+    const userFromStorage = JSON.parse(localStorage.getItem('userData'));
+    if (!user) {
+      userProvider.setUser(userFromStorage);
+    }
+    const fetchData = async () => {
+      console.log(userFromStorage._id);
+      axios.get("http://localhost:3001/get_employer_details", { params: { userId: userFromStorage._id } })
+        .then((res) => res.data)
+        .then((data) => {
+          // console.log(data);
+          if (data.status == false) {
+            setIsLoaded(true);
+            alert(data.message);
+          }
+          else {
+            const employerData = data.data;
+            const form = document.getElementById('employerDetailsForm');
+            // console.log(form.elements);
+            for (const inputName in employerData) {
+              if (employerData.hasOwnProperty(inputName)) {
+                const input = form.elements[inputName];
+                if (input) {
+                  input.value = employerData[inputName];
+                }
+              }
+            }
+            setIsLoaded(true);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+
+    fetchData();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     formData.append('userId', userProvider.user._id);
-    for (let [key, value] of formData.entries()) {
-      console.log(key, " : val : ", value);
+
+    if (routeProps && routeProps.isUserDetails) {
+      for (let [key, value] of formData.entries())
+        console.log(key, " : val : ", value);
+
+      axios.post("http://localhost:3001/post_employer_details", formData)
+        .then((res) => {
+          console.log(res);
+          navigate("/employer");
+          alert("Details saved");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
     }
-    axios.post("http://localhost:3001/post_employer_details", formData)
-      .then((res) => {
-        console.log(res);
-        navigate("/employer");
-        alert("Details saved");
-      })
-      .catch((err) => console.log(err));
+    else if (routeProps && routeProps.isSettings) {
+      axios.put("http://localhost:3001/update_employer_details", formData)
+        .then((res) => {
+          navigate(-1);
+          alert("Details updated!");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
+    }
   }
+
 
   return (
     <div className={styles.background_image}>
-      <form onSubmit={handleSubmit} className={styles.formBox}>
-        <img
-          src="/LOGO_transparent.png"
-          alt="LOGO-transparent"
-          border="0"
-          width={"50%"}
-          style={{
-            borderTopRightRadius: "20px",
-            padding: "2%",
-            marginLeft: "25%",
-          }}
-        ></img>
-        <p style={{ textAlign: "center" }}>
-          <strong>Please fill all the details before proceeding.</strong>
-        </p>
+      {!isLoaded && <center><CircularProgress /></center>}
+      <form onSubmit={handleSubmit} style={{ visibility: isLoaded ? "visible" : "hidden" }} className={styles.formBox} id="employerDetailsForm">
+        {routeProps && routeProps.isUserDetails &&
+          <>
+            <img
+              src="/LOGO_transparent.png"
+              alt="LOGO-transparent"
+              border="0"
+              width={"50%"}
+              style={{
+                borderTopRightRadius: "20px",
+                padding: "2%",
+                marginLeft: "25%",
+              }}
+            ></img>
+            <p style={{ textAlign: "center" }}>
+              <strong>Please fill all the details before proceeding.</strong>
+            </p>
+          </>}
+        {routeProps && routeProps.isSettings && (
+          <h1 style={{ marginBottom: "30px" }}>Update your details</h1>
+        )
+        }
         <h5 className={styles.headingColor}>
           <u>
             <strong>Personal Information: </strong>
@@ -178,7 +244,7 @@ const EmployerDetailsForm = () => {
           Save
         </button>
       </form>
-    </div>
+    </div >
   );
 }
 
