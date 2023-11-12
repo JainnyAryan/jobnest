@@ -8,7 +8,7 @@ const AppliedJobs = (props) => {
   const [showScrollButton, setShowScrollButton] = useState(false);
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    setShowScrollButton(scrollY > 200); // Adjust the value based on when you want to show the button
+    setShowScrollButton(scrollY > 100); // Adjust the value based on when you want to show the button
   };
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -30,6 +30,7 @@ const AppliedJobs = (props) => {
       <div className={styles.listStyle}>
         {jobItems.map((application, index) => {
           const e = JSON.parse(application.jobDetails);
+          const f = JSON.parse(application.applicantDetails);
           return (
             <Accordion className={styles.cardStyle} style={{ padding: "0px 0px" }}>
               <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>
@@ -60,7 +61,9 @@ const AppliedJobs = (props) => {
                 </div>
               </AccordionSummary>
               <AccordionDetails>
-                <p className={styles.description}>
+              <Accordion className={styles.cardStyle2} style={{ padding: "0px 0px", margin:"0px 0px" }}>
+              <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>
+              <p className={styles.description}>
                   {e.roleDescription.split('\n').map((line) => (
                     <React.Fragment>
                       {line}
@@ -68,6 +71,40 @@ const AppliedJobs = (props) => {
                     </React.Fragment>
                   ))}
                 </p>
+              </AccordionSummary>
+              <AccordionDetails>
+                <div className={styles.containerStyle2} style={{justifyContent:"space-around"}}>
+                  <div style={{textAlign:"left"}}>
+                    <div>
+                    Name: 
+                    <span>
+                      {application.name}
+                    </span>
+                    </div>
+                    <div>
+                      Email:
+                      <span>
+                        {application.email}
+                      </span>
+                    </div>
+                    </div>
+                  <div style={{textAlign:"left"}}>
+                    <div>
+                      Phone No:
+                      <span>
+                        {application.phone}
+                      </span>
+                    </div>
+                    <div>
+                      Gender:
+                      <span>
+                        {application.gender}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </AccordionDetails>
+              </Accordion>
               </AccordionDetails>
             </Accordion>
           )
