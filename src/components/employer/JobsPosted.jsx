@@ -90,7 +90,7 @@ export default function JobsPosted() {
                           <FaMapMarkerAlt />
                         </div>
                       </IconContext.Provider>
-                      {e.time}
+                      {e.location}
                     </div>
 
 
@@ -101,7 +101,7 @@ export default function JobsPosted() {
                           <FaLaptop />
                         </div>
                       </IconContext.Provider>
-                      {e.type}
+                      {e.locationType}
                     </div>
                   </div>
                 </div>
