@@ -36,7 +36,7 @@ const EmployeeDetailsForm = (props) => {
       axios.get("http://localhost:3001/get_employee_details", { params: { userId: userFromStorage._id } })
         .then((res) => res.data)
         .then((data) => {
-          // console.log(data);
+          console.log(data);
           if (data.status == false) {
             setIsLoaded(true);
             alert(data.message);
@@ -70,6 +70,7 @@ const EmployeeDetailsForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+
     if (routeProps && routeProps.isUserDetails) {
       formData.append("userId", userProvider.user._id);
       axios.post("http://localhost:3001/post_employee_details", formData)
@@ -77,6 +78,18 @@ const EmployeeDetailsForm = (props) => {
           console.log(res);
           navigate("/employee");
           alert("Details saved");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
+    }
+    else if (routeProps && routeProps.isSettings) {
+      formData.append('userId', userProvider.user._id);
+      axios.put("http://localhost:3001/update_employee_details", formData)
+        .then((res) => {
+          navigate(-1);
+          alert("Details updated!");
         })
         .catch((err) => {
           console.log(err);
