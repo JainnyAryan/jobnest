@@ -6,6 +6,7 @@ import styles from "./styles/JobDescSidePanel.module.css";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { useUser } from "../../context/userContext";
+import secureLocalStorage from "react-secure-storage";
 
 const JobDescSidePanel = (props) => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const JobDescSidePanel = (props) => {
 
   useEffect(() => {
     const checkIfApplied = () => {
-      const stored = localStorage.getItem('userData');
+      const stored = secureLocalStorage.getItem('userData');
       const userData = JSON.parse(stored);
       axios.get("http://localhost:3001/check_job_applied", { params: { userId: userData._id, jobId: selectedJob._id } })
         .then((res) => {

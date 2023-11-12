@@ -6,6 +6,7 @@ import useAuth from "../context/useAuth";
 import axios from "axios";
 import { UserProvider, useUser } from "../context/userContext";
 import { LinearProgress } from "@mui/material";
+import secureLocalStorage from "react-secure-storage";
 
 const EmployeeDetailsForm = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,7 +27,7 @@ const EmployeeDetailsForm = (props) => {
 
   useEffect(() => {
     console.log("use effect emp");
-    const userFromStorage = JSON.parse(localStorage.getItem('userData'));
+    const userFromStorage = JSON.parse(secureLocalStorage.getItem('userData'));
     if (!user) {
       userProvider.setUser(userFromStorage);
     }
@@ -44,8 +45,10 @@ const EmployeeDetailsForm = (props) => {
             const employerData = data.data;
             const form = document.getElementById('employeeDetailsForm');
             // console.log(form.elements);
-            form.elements["name"].value = userFromStorage.name;
-            form.elements["email"].value = userFromStorage.email;
+            if (routeProps && routeProps.isJobApplication) {
+              form.elements["name"].value = userFromStorage.name;
+              form.elements["email"].value = userFromStorage.email;
+            }
             for (const inputName in employerData) {
               if (employerData.hasOwnProperty(inputName)) {
                 const input = form.elements[inputName];

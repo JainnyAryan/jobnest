@@ -10,7 +10,7 @@
 .containerr {
   display: flex;
   flex-direction: row;
-  background-color: rgb(175,242,253);
+  background-color: rgb(200, 246, 253);
   box-sizing: content-box;
 }
 .click {
@@ -29,7 +29,7 @@
   .containerr {
     display: flex;
     flex-direction: column;
-    background-color: rgb(220, 246, 251);
+    background-color: rgb(200, 246, 253);
     box-sizing: content-box;
   }
   .lottie {

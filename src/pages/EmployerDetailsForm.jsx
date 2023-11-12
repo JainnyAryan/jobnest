@@ -5,6 +5,7 @@ import { useUser } from "../context/userContext";
 import axios from "axios";
 import useAuth from "../context/useAuth";
 import { CircularProgress, LinearProgress } from "@mui/material";
+import secureLocalStorage from "react-secure-storage";
 
 const EmployerDetailsForm = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,7 +20,7 @@ const EmployerDetailsForm = () => {
 
   useEffect(() => {
     console.log("use effect emp");
-    const userFromStorage = JSON.parse(localStorage.getItem('userData'));
+    const userFromStorage = JSON.parse(secureLocalStorage.getItem('userData'));
     if (!user) {
       userProvider.setUser(userFromStorage);
     }

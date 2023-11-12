@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "./styles/LoginPage.module.css";
 import { ArrowBack } from "@mui/icons-material";
 import { useUser } from "../context/userContext";
+import secureLocalStorage from "react-secure-storage";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const LoginPage = () => {
           const loginData = result.data;
           if (loginData.status === true) {
             delete loginData.data.password;
-            localStorage.setItem('userData', JSON.stringify(loginData.data));
+            secureLocalStorage.setItem('userData', JSON.stringify(loginData.data));
             userProvider.setUserData(loginData.data);
             navigate("/");
           }

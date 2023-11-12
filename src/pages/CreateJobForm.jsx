@@ -25,6 +25,7 @@ const CreateJobForm = () => {
     const formData = new FormData(event.currentTarget);
     formData.delete('jobIcon');
     formData.append('iconUrl', firebaseImageUrl ? firebaseImageUrl : DEFAULT_IMG);
+    formData.append('employerId', userProvider.user._id);
     formData.append('employer', JSON.stringify(userProvider.user));
     // for (let [key, value] of formData.entries()) {
     //   console.log(key, " : val : ", value);

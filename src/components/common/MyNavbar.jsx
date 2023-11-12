@@ -6,6 +6,7 @@ import SearchBar from "../employee/SearchBar";
 import { Add, Article, EditRounded, Logout } from "@mui/icons-material";
 import { Menu, MenuItem, Skeleton } from "@mui/material";
 import { useUser } from "../../context/userContext";
+import secureLocalStorage from "react-secure-storage";
 
 
 function MyNavbar(props) {
@@ -22,7 +23,7 @@ function MyNavbar(props) {
 
   const signOut = () => {
     userProvider.clearUserData();
-    localStorage.removeItem('userData');
+    secureLocalStorage.removeItem('userData');
     navigate('/', { state: { isEmployeeSettings: true } });
     handleClose();
   }

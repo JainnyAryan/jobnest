@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "./styles/SignupPage.module.css";
 import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
 import { useUser } from "../context/userContext";
+import secureLocalStorage from "react-secure-storage";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ const SignupPage = () => {
         })
         .then((result) => {
           delete result.data.password;
-          localStorage.setItem("userData", JSON.stringify(result.data));
+          secureLocalStorage.setItem("userData", JSON.stringify(result.data));
           userProvider.setUserData(result.data);
           navigate(isEmployer ? "/fill-employer-details" : "/fill-employee-details", {
             state: { isUserDetails: true },

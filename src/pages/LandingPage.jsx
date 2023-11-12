@@ -29,7 +29,7 @@ function LandingPage() {
         <div className={styles.text}>
           <h2><strong>Find a Job With<br />Your Interests and<br />Abilities</strong></h2>
           <br />
-          <h5>Find jobs that match your interests with us. Jabang provides a place to find your jobs</h5>
+          <h5>Find jobs that match your interests with us. JobNest provides a place to find your jobs</h5>
           <br />
           <button className={`${styles.click} btn`} onClick={() => navigate("/register")}>Get Started</button>
         </div>

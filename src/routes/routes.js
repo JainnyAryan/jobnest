@@ -21,17 +21,18 @@ import EmployerDetailsForm from "../pages/EmployerDetailsForm";
 import CreateJobForm from "../pages/CreateJobForm";
 import ViewJobApplications from "../pages/ViewJobApplications";
 import ApplicantsScreen from "../pages/ApplicantsScreen";
+import secureLocalStorage from "react-secure-storage";
 
 function AppRoutes() {
   const userProvider = useUser();
-  var user = localStorage.getItem("userData");
+  var user = secureLocalStorage.getItem("userData");
   user = user ? JSON.parse(user) : null;
   useEffect(() => {
     if (user) {
       userProvider.setUserData(user);
     }
   }, []);
-  
+
   const homeElement = !user ? (
     <LandingPage />
   ) : user.isEmployer ? (
