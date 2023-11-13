@@ -40,7 +40,7 @@ const ViewJobApplications = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div className={styles.box}>
       <MyNavbar />
       <ArrowBack
         className={styles.backIcon}
@@ -50,7 +50,7 @@ const ViewJobApplications = () => {
       <center>
         {!isLoaded ? <CircularProgress /> :
           <>
-            <h1 style={{ margin: "20px" }}>Applied Jobs</h1>
+            <h1>Applied Jobs</h1>
             <AppliedJobs jobItems={jobItems} />
           </>
         }

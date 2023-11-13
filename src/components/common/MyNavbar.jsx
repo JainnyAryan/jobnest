@@ -41,9 +41,9 @@ function MyNavbar(props) {
               <Link to="/login">
                 <button className={styles.loginButton}>Sign In</button>
               </Link>
-              <Link to="/register">
+              {/* <Link to="/register">
                 <button className={styles.registerButton}>Sign Up</button>
-              </Link>
+              </Link> */}
             </div>
           )
         }

@@ -32,7 +32,7 @@ const AppliedJobs = (props) => {
           const e = JSON.parse(application.jobDetails);
           const f = JSON.parse(application.applicantDetails);
           return (
-            <Accordion className={styles.cardStyle} style={{ padding: "0px 0px" }}>
+            <Accordion className={styles.cardStyle}>
               <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <img src={e.iconUrl} alt="" className={styles.image} />
@@ -61,50 +61,59 @@ const AppliedJobs = (props) => {
                 </div>
               </AccordionSummary>
               <AccordionDetails>
-              <Accordion className={styles.cardStyle2} style={{ padding: "0px 0px", margin:"0px 0px" }}>
-              <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>
-              <p className={styles.description}>
-                  {e.roleDescription.split('\n').map((line) => (
-                    <React.Fragment>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <div className={styles.containerStyle2} style={{justifyContent:"space-around"}}>
-                  <div style={{textAlign:"left"}}>
-                    <div>
-                    Name: 
-                    <span>
-                      {application.name}
-                    </span>
+                <Accordion className={styles.cardStyle2} style={{ width: "100%", padding: "0px 0px", margin: "0px 0px" }}>
+                  <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>
+                    Description
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <p className={styles.description}>
+                      {e.roleDescription.split('\n').map((line) => (
+                        <React.Fragment>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                    </p>
+                  </AccordionDetails>
+                </Accordion>
+                <br />
+                <Accordion>
+                  <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>
+                    Application
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <div className={styles.containerStyle2} style={{ justifyContent: "space-around" }}>
+                      <div style={{ textAlign: "left" }}>
+                        <div>
+                          Name:
+                          <span>
+                            {application.name}
+                          </span>
+                        </div>
+                        <div>
+                          Email:
+                          <span>
+                            {application.email}
+                          </span>
+                        </div>
+                      </div>
+                      <div style={{ textAlign: "left" }}>
+                        <div>
+                          Phone No:
+                          <span>
+                            {application.phone}
+                          </span>
+                        </div>
+                        <div>
+                          Gender:
+                          <span>
+                            {application.gender}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      Email:
-                      <span>
-                        {application.email}
-                      </span>
-                    </div>
-                    </div>
-                  <div style={{textAlign:"left"}}>
-                    <div>
-                      Phone No:
-                      <span>
-                        {application.phone}
-                      </span>
-                    </div>
-                    <div>
-                      Gender:
-                      <span>
-                        {application.gender}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </AccordionDetails>
-              </Accordion>
+                  </AccordionDetails>
+                </Accordion>
               </AccordionDetails>
             </Accordion>
           )
