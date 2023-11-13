@@ -74,9 +74,9 @@ const CreateJobForm = () => {
         <label htmlFor="locationType" className={styles.headingColor}>Location Type</label>
         <select name="locationType" className={styles.inputDimensions}>
           <option value="" disabled selected hidden>Choose the location type</option>
-          <option value="on_site">On Site</option>
-          <option value="wfh">Work From Home</option>
-          <option value="hybrid">Hybrid</option>
+          <option value="On Site">On Site</option>
+          <option value="Work From Home">Work From Home</option>
+          <option value="Hybrid">Hybrid</option>
         </select>
 
         <label htmlFor="location" className={styles.headingColor}>Job Location</label>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NoOfJobs from "../components/employer/NoOfJobs";
 import JobsPosted from "../components/employer/JobsPosted";
 import MyNavbar from "../components/common/MyNavbar";
 import { useUser } from "../context/userContext";
@@ -7,6 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../context/useAuth";
 import secureLocalStorage from "react-secure-storage";
 import axios from "axios";
+
+import styles from "./styles/EmployerScreen.module.css";
 
 const currentState = "EMPLOYER";
 
@@ -41,7 +42,7 @@ export default function EmployerScreen() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.box}>
       <MyNavbar currentState={currentState} />
       <JobsPosted jobs={jobs} />
     </div>

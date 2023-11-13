@@ -6,100 +6,50 @@
 }
 
 .button23 {
-  background-color: #ffffff;
-  border: 1px solid #969696;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #ffffff;
+  border: none;
   cursor: pointer;
-  display: inline-block;
-  /* font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif; */
   font-size: 16px;
   font-weight: 600;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
   padding: 7px 23px;
-  position: relative;
   text-align: center;
-  text-decoration: none;
-  touch-action: manipulation;
   transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
     transform 0.1s;
-  user-select: none;
-  -webkit-user-select: none;
-  width: auto;
-  background-color: rgb(47, 126, 236);
+  color: rgb(47, 126, 236);
+  width: 100%;
 }
 .button24 {
-  background-color: #ffffff;
-  border: 1px solid #969696;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #ffffff;
+  border: none;
   cursor: pointer;
-  display: inline-block;
   font-size: 16px;
   font-weight: 600;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
   padding: 7px 23px;
-  position: relative;
   text-align: center;
-  text-decoration: none;
-  touch-action: manipulation;
   transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
     transform 0.1s;
-  user-select: none;
-  -webkit-user-select: none;
-  width: auto;
-  background-color: rgb(5, 177, 100);
+  color: rgb(16, 179, 59);
+  width: 100%;
 }
+
+
+
 .button25 {
-  background-color: #ffffff;
-  border: 1px solid #969696;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #ffffff;
+  border: none;
   cursor: pointer;
-  display: inline-block;
-  /* font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif; */
   font-size: 16px;
   font-weight: 600;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
   padding: 7px 23px;
-  position: relative;
   text-align: center;
-  text-decoration: none;
-  touch-action: manipulation;
   transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
     transform 0.1s;
-  user-select: none;
-  -webkit-user-select: none;
-  width: auto;
-  background-color: rgb(244, 35, 87);
+  color: rgb(244, 35, 35);
+  width: 100%;
 }
 
-.button23:focus-visible {
-  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
-  transition: box-shadow 0.2s;
+.buttonSelected{
+  transition: 300ms;
+  border-bottom: 5px solid;
 }
 
-.button23:active {
-  background-color: #f7f7f7;
-  border-color: #000000;
-  transform: scale(0.96);
-}
-
-.button23:disabled {
-  border-color: #dddddd;
-  color: #dddddd;
-  cursor: not-allowed;
-  opacity: 1;
-}
 
 .table {
   width: 100%;

@@ -12,6 +12,7 @@ const ApplicantsAccordion = (props) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [jobApplicants, setJobApplicants] = useState(null);
     const [filteredJobApplicants, setFilteredJobApplicants] = useState(jobApplicants);
+    const [selectedTab, setSelectedTab] = useState("ALL");
 
     const closePopup = () => {
         setPopupVisible(false);
@@ -19,12 +20,15 @@ const ApplicantsAccordion = (props) => {
 
     const renderAll = () => {
         setFilteredJobApplicants(jobApplicants);
+        setSelectedTab("ALL");
     };
     const renderAccepted = () => {
         setFilteredJobApplicants(jobApplicants.filter((applicant) => applicant.status === "A"));
+        setSelectedTab("ACCEPTED");
     };
     const renderRejected = () => {
         setFilteredJobApplicants(jobApplicants.filter((applicant) => applicant.status === "R"));
+        setSelectedTab("REJECTED");
     };
 
     useEffect(() => {
@@ -59,26 +63,26 @@ const ApplicantsAccordion = (props) => {
                                 style={{
                                     display: "flex",
                                     flexDirection: "row",
-                                    justifyContent: "space-evenly",
+                                    justifyContent: "center",
                                     marginBottom: "10px",
                                 }}
                             >
                                 <button
-                                    className={styles.button23}
+                                    className={styles.button23 + " " + (selectedTab === "ALL" ? styles.buttonSelected : "")}
                                     role="button"
                                     onClick={renderAll}
                                 >
                                     All
                                 </button>
                                 <button
-                                    className={styles.button24}
+                                    className={styles.button24 + " " + (selectedTab === "ACCEPTED" ? styles.buttonSelected : "")}
                                     role="button"
                                     onClick={renderAccepted}
                                 >
                                     Accepted
                                 </button>
                                 <button
-                                    className={styles.button25}
+                                    className={styles.button25 + " " + (selectedTab === "REJECTED" ? styles.buttonSelected : "")}
                                     role="button"
                                     onClick={renderRejected}
                                 >
@@ -107,21 +111,21 @@ const ApplicantsAccordion = (props) => {
                                         filteredJobApplicants.map((e, ind) => {
                                             console.log(e);
                                             return (
-                                                <>
 
-                                                    <tr className={styles.tableRows}>
-                                                        <td>{e.name}</td>
-                                                        <td>{e.location}</td>
-                                                        <td>{e.date}</td>
-                                                        <td>{e.resumeLink}</td>
-                                                        {/* <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
+
+                                                <tr className={styles.tableRows}>
+                                                    <td>{e.name}</td>
+                                                    <td>{e.location}</td>
+                                                    <td>{e.date}</td>
+                                                    <td>{e.resumeLink}</td>
+                                                    {/* <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
                                             <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td> */}
-                                                    </tr>
+                                                </tr>
 
 
 
 
-                                                </>
+
                                             );
                                         })}
                                 </table>
