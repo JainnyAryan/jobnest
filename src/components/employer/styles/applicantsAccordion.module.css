@@ -12,8 +12,6 @@
   font-weight: 600;
   padding: 7px 23px;
   text-align: center;
-  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
-    transform 0.1s;
   color: rgb(47, 126, 236);
   width: 100%;
 }
@@ -24,12 +22,9 @@
   font-weight: 600;
   padding: 7px 23px;
   text-align: center;
-  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
-    transform 0.1s;
   color: rgb(16, 179, 59);
   width: 100%;
 }
-
 
 
 .button25 {
@@ -39,8 +34,6 @@
   font-weight: 600;
   padding: 7px 23px;
   text-align: center;
-  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
-    transform 0.1s;
   color: rgb(244, 35, 35);
   width: 100%;
 }
