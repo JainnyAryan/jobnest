@@ -10,7 +10,6 @@ import {
 import { useUser } from "../context/userContext";
 
 import ProtectedRoute from "./ProtectedRoute";
-
 import LandingPage from "../pages/LandingPage";
 import LoginPage from "../pages/LoginPage";
 import EmployeeScreen from "../pages/EmployeeScreen";
@@ -20,7 +19,6 @@ import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
 import EmployerDetailsForm from "../pages/EmployerDetailsForm";
 import CreateJobForm from "../pages/CreateJobForm";
 import ViewJobApplications from "../pages/ViewJobApplications";
-import ApplicantsScreen from "../pages/ApplicantsScreen";
 import secureLocalStorage from "react-secure-storage";
 
 function AppRoutes() {
@@ -79,14 +77,7 @@ function AppRoutes() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/applicants"
-          element={
-            <ProtectedRoute>
-              <ApplicantsScreen />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path="/employer-create-job"
           element={
@@ -103,6 +94,7 @@ function AppRoutes() {
             </ProtectedRoute>
           }
         />
+
       </Routes>
     </BrowserRouter>
   );

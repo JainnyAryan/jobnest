@@ -30,7 +30,6 @@ const AppliedJobs = (props) => {
       <div className={styles.listStyle}>
         {jobItems.map((application, index) => {
           const e = JSON.parse(application.jobDetails);
-          const f = JSON.parse(application.applicantDetails);
           return (
             <Accordion className={styles.cardStyle}>
               <AccordionSummary expandIcon={<ExpandMore fontSize='large' />}>

@@ -1,0 +1,240 @@
+.listStyle {
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+    height: 100%;
+    position: sticky;
+  }
+  
+  .centerContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .containerStyle2 {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(115, 118, 123);
+    /* border-bottom: 2px solid #ddd; */
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .image {
+    height: 15vh;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    margin-right: 20px;
+  }
+  
+  .company {
+    color: rgb(54, 61, 80);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .description {
+    text-align: left;
+    display: flex;
+    justify-content: start;
+    color: rgb(115, 118, 123);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .locationType {
+    color: rgb(115, 118, 123);
+    display: flex;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .underReview {
+    color: gray;
+    border: 1px solid gray;
+  }
+  
+  .accepted {
+    color: rgb(15, 174, 15);
+    border: 1px solid rgb(15, 174, 15);
+  }
+  
+  .rejected {
+    color: rgb(215, 3, 3);
+    border: 1px solid rgb(215, 3, 3);
+  }
+  @media only screen and (max-width: 768px) {
+    /* .description {
+      display: none;
+    } */
+    .locationType {
+      /* display: none; */
+      text-align: right;
+    }
+    .jobName {
+      font-size: 17px;
+      padding-right: 5px;
+      width: 65%;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+    }
+    .company {
+      font-size: 15px;
+    }
+    .salary {
+      font-size: 15px;
+    }
+    .location,
+    .salary {
+      text-align: right;
+    }
+    .locationType {
+      font-size: 15px;
+    }
+    .status {
+      font-size: 14px;
+    }
+    .image {
+      height: 8vh;
+      margin-right: 3vw;
+    }
+    .containerStyle {
+      /* display: flex; */
+      justify-content: space-between;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+      width: 100%;
+    }
+    .cardStyle {
+      /* display: flex; */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      background-color: #f6f6f6d3;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+      cursor: pointer;
+      margin: 0 !important;
+      width: 95vw !important;
+      padding: 0 !important;
+      margin-top: 30px !important;
+    }
+  }
+  
+  .locationType {
+    align-items: center;
+  }
+  .cardStyle {
+    /* display: flex; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    margin: 30px;
+    width: 80vw;
+    /* padding: 20px; */
+  }
+  
+  .cardStyle2 {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); */
+    background-color: transparent;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    margin: 30px;
+    width: 70vw;
+    padding: 20px;
+    border: none;
+  }
+  
+  .cardStyle:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    transition: 300ms;
+  }
+  
+  .containerStyle {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom: 2px solid #ddd; */
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  /* ... your existing styles ... */
+  
+  .scrollToTopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000; /* Example background color */
+    color: #fff; /* Example text color */
+    border: none;
+    border-radius: 100px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .scrollToTopButton:hover {
+    background-color: #444444; /* Example hover background color */
+  }
+  
+  /* ... rest of your styles ... */
+  
+  .button23 {
+    background-color: #FFFFFF;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222222;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    padding: 13px 23px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+    user-select: none;
+    -webkit-user-select: none;
+    width: auto;
+  }
+  
+  .button23:focus-visible {
+    box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+    transition: box-shadow .2s;
+  }
+  
+  .button23:active {
+    background-color: #F7F7F7;
+    border-color: #000000;
+    transform: scale(.96);
+  }
+  
+  .button23:disabled {
+    border-color: #DDDDDD;
+    color: #DDDDDD;
+    cursor: not-allowed;
+    opacity: 1;
+  }

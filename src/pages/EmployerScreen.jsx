@@ -1,37 +1,49 @@
-import React, { useEffect } from 'react'
-import NoOfJobs from '../components/employer/NoOfJobs';
-import JobsPosted from '../components/employer/JobsPosted';
-import MyNavbar from '../components/common/MyNavbar';
-import { useUser } from '../context/userContext';
-import { useLocation, useNavigate } from 'react-router-dom';
-import useAuth from '../context/useAuth';
-
+import React, { useState, useEffect } from "react";
+import NoOfJobs from "../components/employer/NoOfJobs";
+import JobsPosted from "../components/employer/JobsPosted";
+import MyNavbar from "../components/common/MyNavbar";
+import { useUser } from "../context/userContext";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../context/useAuth";
+import secureLocalStorage from "react-secure-storage";
+import axios from "axios";
 
 const currentState = "EMPLOYER";
-
 
 export default function EmployerScreen() {
   const userProvider = useUser();
   const user = useAuth();
   const navigate = useNavigate();
+  const [jobs, setJobs] = useState([]);
+
   if (!user.isEmployer) {
     navigate("/");
   }
-  
-  // useEffect(() => {
-  //   axios.get("http://localhost:3001/get_jobs")
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setJobItems(res.data);
-  //       setFilteredJobItems(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [])
+
+  useEffect(() => {
+    const userFromStorage = JSON.parse(secureLocalStorage.getItem("userData"));
+    console.log(userFromStorage);
+    axios
+      .get("http://localhost:3001/get_jobs", {
+        params: {
+          createdBySomeEmployer: true,
+          employerId: userFromStorage._id,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setJobs(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Some error occured!");
+      });
+  }, []);
+
   return (
-    <div >
+    <div>
       <MyNavbar currentState={currentState} />
-      <NoOfJobs />
-      <JobsPosted />
+      <JobsPosted jobs={jobs} />
     </div>
   );
 }

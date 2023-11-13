@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './styles/applicants.module.css'
+
 import { useState, useEffect } from 'react';
 
-const Applicants = (props) => {
+const ApplicantsTable = (props) => {
     const selectedTab = props.selectedTab;
 
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -12,19 +13,10 @@ const Applicants = (props) => {
         setPopupVisible(false);
     };
 
-    const handleAcceptClick = (applicant, ind) => {
-        applicant.isAcknowledged = true;
-        props.updateApplicant(applicant, ind);
-        setPopupMessage('Accepted');
-        setPopupVisible(true);
-    };
+    useEffect(()=>{
+        console.log("ApplicantsTable Render");
+    },[])
 
-    const handleRejectClick = (applicant, ind) => {
-        applicant.isAcknowledged = true;
-        props.updateApplicant(applicant, ind);
-        setPopupMessage("Rejected");
-        setPopupVisible(true);
-    };
     return (
         <div className={styles.list}>
             <table className={styles.table}>
@@ -39,8 +31,8 @@ const Applicants = (props) => {
                     <th>Location</th>
                     <th>Applied Date</th>
                     <th>View</th>
-                    <th>Accept</th>
-                    <th>Reject</th>
+                    {/* <th>Accept</th>
+                    <th>Reject</th> */}
                 </tr>
                 <tr>
                     <td colSpan={7}>
@@ -54,37 +46,39 @@ const Applicants = (props) => {
                                 {selectedTab === 'ALL' && !e.isAcknowledged &&
                                     (
                                         <tr className={styles.tableRows}>
-                                            <td>{e.id}</td>
+                                            <td>{e.applicantId}</td>
                                             <td>{e.name}</td>
                                             <td>{e.location}</td>
                                             <td>{e.date}</td>
-                                            <td>{e.resume}</td>
-                                            <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
-                                            <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td>
+                                            <td>{e.resumeLink}</td>
+                                            {/* <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
+                                            <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td> */}
                                         </tr>
                                     )
                                 }
 
-                                {selectedTab === 'ACCEPTED' && e.isAccepted && (<tr className={styles.tableRows}>
-                                    <td>{e.id}</td>
+                                {selectedTab === 'ACCEPTED' && e.isAccepted && (
+                                <tr className={styles.tableRows}>
+                                    <td>{e.applicantId}</td>
                                     <td>{e.name}</td>
                                     <td>{e.location}</td>
                                     <td>{e.date}</td>
-                                    <td>{e.resume}</td>
-                                    <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
-                                    <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td>
+                                    <td>{e.resumeLink}</td>
+                                    {/* <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
+                                    <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td> */}
                                 </tr>
                                 )}
-                                {selectedTab === 'REJECTED' && !e.isAccepted && (<tr className={styles.tableRows}>
-                                    <td>{e.id}</td>
+                                {selectedTab === 'REJECTED' && !e.isAccepted &&( <tr className={styles.tableRows}>
+                                    <td>{e.applicantId}</td>
                                     <td>{e.name}</td>
                                     <td>{e.location}</td>
                                     <td>{e.date}</td>
-                                    <td>{e.resume}</td>
-                                    <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
-                                    <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td>
-                                </tr>
-                                )}
+                                    <td>{e.resumeLink}</td>
+                                    {/* <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
+                                    <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td> */}
+                                </tr>)
+                                }
+                                
 
                             </>
                         );
@@ -103,5 +97,10 @@ const Applicants = (props) => {
             )}
         </div>
     )
+
+    // return(
+    //     <>
+    //     </>
+    // )
 }
-export default Applicants
+export default ApplicantsTable;

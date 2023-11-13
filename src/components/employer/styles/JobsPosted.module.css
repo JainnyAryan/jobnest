@@ -1,137 +1,290 @@
-/* Final */
-  .jobPosted {
-    border: 1px solid rgb(195, 193, 193);
-    padding: 7vh;
-    margin: 30px;
-    border-radius: 20px;
-    background: #EDFAFD;
-  }
-  
-  .allCards {
-    background-color: #ffe9d39e;
-    margin-top: 5vh;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .buttonAll {
-    background-color: black;
-    border: 0.5px solid rgb(200, 198, 198);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 1.2vh;
-    color: white;
-  }
-  
-  .buttonEdit {
-    background-color: rgb(73, 176, 73);
-    border: 0.5px solid rgb(200, 198, 198);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 1.2vh;
-    color: black;
-    margin-right: 5px;
-    margin-top: 20px;
-  }
-  
-  .buttonDelete {
-    background-color: rgb(235, 47, 47);
-    border: 0.5px solid rgb(200, 198, 198);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 1.2vh;
-    color: black;
-    margin-left: 5px;
-    margin-right:10px;
-    margin-top: 20px;
-  }
-  
-  .buttonAll:hover {
-    background-color: rgb(43, 43, 43);
-    color: white;
-    box-shadow: 5px 5px 10px #888888;
-    transition: 350ms;
-  }
-  .buttonEdit:hover {
-    background-color: rgb(73, 176, 73);
-    color: black;
-    box-shadow: 5px 5px 10px #888888;
-    transition: 350ms;
-  }
-  .buttonDelete:hover {
-    background-color: rgb(235, 47, 47);
-    color: black;
-    box-shadow: 5px 5px 10px #888888;
-    transition: 350ms;
-  }
-  
-  @media (min-width: 768px) {
-    .allCards {
-      grid-template-columns: repeat(2, 1fr); 
-    }
-    .buttonDelete{
-      margin-top: 10px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .allCards {
-      grid-template-columns: repeat(3, 1fr);
-  }
+.listStyle {
+  list-style: none;
+  padding: 0;
+  background-color: transparent;
+  height: 100%;
+  position: sticky;
 }
 
-
-
-/* 
-.jobPosted {
-    border: 1px solid rgb(195, 193, 193);
-    padding: 7vh;
-    margin: 30px;
-    border-radius: 20px;
-    background: #EDFAFD;
+.centerContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-  
-  .allCards {
-    background-color: #ffe9d39e;
-    margin-top: 5vh;
-    display: grid;
-    flex-direction: row;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .buttonAll{
-    background-color: black;
-    border: 0.5px solid rgb(200, 198, 198);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 1.2vh;
-    color: white;
-  }
 
-  .buttonEdit{
-    background-color: green;
-    border: 0.5px solid rgb(200, 198, 198);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 1.2vh;
-    color: white;
-    margin-right: 5px;
-    margin-top: 20px;
-  }
+.containerStyle2 {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(115, 118, 123);
+  /* border-bottom: 2px solid #ddd; */
+  padding-right: 20px;
+  padding-left: 20px;
+}
 
-  .buttonDelete{
-    background-color: red;
-    border: 0.5px solid rgb(200, 198, 198);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 1.2vh;
-    color: white;
-    margin-left: 5px;
-    margin-top: 20px;
-  }
-  
-  .buttonAll:hover{
-    background-color: rgb(43, 43, 43);
-    color: white;
-    box-shadow: 5px 5px 10px #888888;
-    transition: 350ms;
+.image {
+  height: 15vh;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  margin-right: 20px;
+}
+
+.company {
+  color: rgb(54, 61, 80);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  text-align: left;
+  display: flex;
+  justify-content: start;
+  color: rgb(115, 118, 123);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.locationType {
+  color: rgb(115, 118, 123);
+  display: flex;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.underReview {
+  color: gray;
+  border: 1px solid gray;
+}
+
+.accepted {
+  color: rgb(15, 174, 15);
+  border: 1px solid rgb(15, 174, 15);
+}
+
+.rejected {
+  color: rgb(215, 3, 3);
+  border: 1px solid rgb(215, 3, 3);
+}
+@media only screen and (max-width: 768px) {
+  /* .description {
+    display: none;
   } */
+  .locationType {
+    /* display: none; */
+    text-align: right;
+  }
+  .jobName {
+    font-size: 17px;
+    padding-right: 5px;
+    width: 65%;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .company {
+    font-size: 15px;
+  }
+  .salary {
+    font-size: 15px;
+  }
+  .location,
+  .salary {
+    text-align: right;
+  }
+  .locationType {
+    font-size: 15px;
+  }
+  .status {
+    font-size: 14px;
+  }
+  .image {
+    height: 8vh;
+    margin-right: 3vw;
+  }
+  .containerStyle {
+    /* display: flex; */
+    justify-content: space-between;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    width: 100%;
+  }
+  .cardStyle {
+    /* display: flex; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    background-color: #f6f6f6d3;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    margin: 0 !important;
+    width: 95vw !important;
+    padding: 0 !important;
+    margin-top: 30px !important;
+  }
+}
+
+.locationType {
+  align-items: center;
+}
+.cardStyle {
+  /* display: flex; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: white;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  margin: 30px;
+  width: 80vw;
+  /* padding: 20px; */
+}
+
+.cardStyle2 {
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); */
+  background-color: transparent;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  margin: 30px;
+  width: 70vw;
+  padding: 20px;
+  border: none;
+}
+
+.cardStyle:hover {
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  transition: 300ms;
+}
+
+.containerStyle {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 2px solid #ddd; */
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* ... your existing styles ... */
+
+.scrollToTopButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000000; /* Example background color */
+  color: #fff; /* Example text color */
+  border: none;
+  border-radius: 100px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scrollToTopButton:hover {
+  background-color: #444444; /* Example hover background color */
+}
+
+/* ... rest of your styles ... */
+
+.button23 {
+  background-color: #FFFFFF;
+  border: 1px solid #969696;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  /* font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif; */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 7px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  background-color: rgb(47,126,236);
+}
+.button24 {
+  background-color: #FFFFFF;
+  border: 1px solid #969696;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 7px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  background-color: rgb(5,177,100);
+}
+.button25 {
+  background-color: #FFFFFF;
+  border: 1px solid #969696;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  /* font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif; */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 7px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  background-color: rgb(244,35,87);
+}
+
+.button23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.button23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
