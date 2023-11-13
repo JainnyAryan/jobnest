@@ -31,7 +31,7 @@ export default function EmployerScreen() {
         },
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setJobs(res.data);
       })
       .catch((err) => {
