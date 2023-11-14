@@ -1,7 +1,7 @@
 // import React from 'react';
 import React, { useState, useEffect } from 'react';
 import styles from './styles/AppliedJobs.module.css'
-import { ArrowUpward, Cancel, CheckCircle, CurrencyRupee, ExpandMore, HourglassBottom, LocationOn, RampRight, Stop, WrongLocation } from '@mui/icons-material';
+import { ArrowUpward, Cancel, CheckCircle, CurrencyRupee, ExpandMore, Feed, HourglassBottom, LocationOn, RampRight, Stop, WrongLocation } from '@mui/icons-material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
 const AppliedJobs = (props) => {
@@ -82,129 +82,6 @@ const AppliedJobs = (props) => {
                   </AccordionSummary>
                   <AccordionDetails>
                     <div className={styles.containerStyle2} style={{ justifyContent: "space-around" }}>
-                    <div className={styles.applicationDetails}>
-        <hr/>
-        <h2>Personal Information</h2>
-            <div>
-              <div className={styles.titles}>Name</div>
-              <div>{e.name}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Email</div>
-              <div>{e.email}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Phone</div>
-              <div>{e.phone}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Date of Birth</div>
-              <div>{e.dob}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Gender</div>
-              <div>{e.gender}</div>
-            </div>
-
-            <div>
-              <div className={styles.titles}>Description</div>
-              <div>
-                {e.description.split('\n').map((line) => (
-                <React.Fragment>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-              </div>
-            </div>
-
-            <hr />
-        
-        <h2> Education Details</h2>
-            <div>
-              <div className={styles.titles}>College Name</div>
-              <div>{e.collegeName}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>College Stream</div>
-              <div>{e.collegeStream}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>CGPA</div>
-              <div>{e.cgpa}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>School Name</div>
-              <div>{e.schoolName}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Intermediate School Percentage</div>
-              <div>{e.intermediateSchoolPercentage}</div>
-            </div>
-
-            <div>
-              <div className={styles.titles}>High School Percentage</div>
-              <div>{e.highSchoolPercentage}</div>
-            </div>
-            <hr />
-       <h2>Work Experience</h2>
-
-          <div>
-              <div className={styles.titles}>Organisation</div>
-              <div>{e.organisation}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Work Duration</div>
-              <div>{e.workDuration}</div>
-            </div>
-            <div>
-              <div className={styles.titles}>Role</div>
-              <div>{e.role}</div>
-            </div>
-
-            <div>
-              <div className={styles.titles}>Role Description</div>
-              <div>
-                {e.roleDescription.split('\n').map((line) => (
-                <React.Fragment>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-              </div>
-            </div>
-            <hr/>
-        <h2>Acheivements</h2>
-       
-            <div>
-              <div className={styles.titles}>Awards</div>
-              <div>
-                {e.awards.split('\n').map((line) => (
-                <React.Fragment>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-              </div>
-            </div>
-            <div>
-              <div className={styles.titles}>Certifications</div>
-              <div>
-                {e.certifications.split('\n').map((line) => (
-                <React.Fragment>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-              </div>
-            </div>
-            <hr/>
-            <h2>Resume</h2>
-              <div>
-                <div><a href={e.resumeLink}><Feed/>View Resume</a></div>
-              </div>
-              <hr />
-      </div>
                     </div>
                   </AccordionDetails>
                 </Accordion>
