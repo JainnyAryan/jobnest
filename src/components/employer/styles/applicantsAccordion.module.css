@@ -48,6 +48,10 @@
   width: 100%;
 }
 
+hr{
+  width: 100%;
+}
+
 .tableRows:nth-child(even) {
   background-color: rgb(248, 246, 243);
 }

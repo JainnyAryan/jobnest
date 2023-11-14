@@ -5,19 +5,7 @@ import { Input, TextField } from '@mui/material';
 export const SearchBar = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const divRef = useRef();
-  // useEffect(() => {
-  //   // if (!divRef.current) return;
-  //   const handleScroll = () => {
-  //     // const rect = divRef.current.getBoundingClientRect();
-  //     if (window.scrollY > 0.000000000000) {
-  //       setExpanded(true);
-  //     } else {
-  //       setExpanded(false);
-  //     }
-  //   };
 
-  //   window.addEventListener('scroll', handleScroll);
-  // });
 
 
   return (
