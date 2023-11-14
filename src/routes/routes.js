@@ -18,8 +18,9 @@ import SignupPage from "../pages/SignupPage";
 import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
 import EmployerDetailsForm from "../pages/EmployerDetailsForm";
 import CreateJobForm from "../pages/CreateJobForm";
-import ViewJobApplications from "../pages/ViewJobApplications";
 import secureLocalStorage from "react-secure-storage";
+import JobsAppliedByEmployee from "../pages/JobsAppliedByEmployee";
+import { EmployerViewApplication } from "../pages/EmployerViewApplication";
 
 function AppRoutes() {
   const userProvider = useUser();
@@ -90,11 +91,19 @@ function AppRoutes() {
           path="/jobs-applied"
           element={
             <ProtectedRoute>
-              <ViewJobApplications />
+              <JobsAppliedByEmployee />
             </ProtectedRoute>
           }
         />
 
+        <Route
+          path="/applications-in-a-job"
+          element={
+            <ProtectedRoute>
+              <EmployerViewApplication />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

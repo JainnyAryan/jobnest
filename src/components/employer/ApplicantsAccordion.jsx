@@ -1,12 +1,13 @@
 import React from 'react'
-import styles from './styles/applicantsAccordion.module.css'
+import styles from './styles/ApplicantsAccordion.module.css'
 import { useState, useEffect } from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, LinearProgress } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ApplicantsAccordion = (props) => {
-
+    const navigate = useNavigate();
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
     const [isExpanded, setIsExpanded] = useState(false);
@@ -98,7 +99,6 @@ const ApplicantsAccordion = (props) => {
                                     </tr>
                                     <tr>
                                         <th>Applicants Name</th>
-                                        <th>Location</th>
                                         <th>Applied Date</th>
                                         <th>View</th>
                                     </tr>
@@ -111,21 +111,25 @@ const ApplicantsAccordion = (props) => {
                                         filteredJobApplicants.map((e, ind) => {
                                             console.log(e);
                                             return (
-
-
-                                                <tr className={styles.tableRows}>
+                                                // <a href="" className={styles.applicationLink}>
+                                                <tr className={styles.tableRows} >
                                                     <td>{e.name}</td>
-                                                    <td>{e.location}</td>
-                                                    <td>{e.date}</td>
-                                                    <td>{e.resumeLink}</td>
-                                                    {/* <td><button className='btn' style={{backgroundColor:"rgb(5, 177, 100)", color: "white"}} name="AcceptReject" onClick={() => handleAcceptClick(e, ind)}>Accept</button></td>
-                                            <td><button className='btn' style={{backgroundColor:"rgb(243, 35, 87)", color: "white"}} name="AcceptReject" onClick={() => handleRejectClick(e, ind)}>Reject</button></td> */}
+                                                    <td>{e.applicationDateTime}</td>
+                                                    <td>
+                                                        <ul style={{margin:"10px 0"}}>
+                                                            <li>
+                                                                <a href={e.resumeLink}>Resume</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href=""
+                                                                    onClick={() => navigate("/applications-in-a-job", { state: { application: e } })}>
+                                                                    Application
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
                                                 </tr>
-
-
-
-
-
+                                                // </a>
                                             );
                                         })}
                                 </table>

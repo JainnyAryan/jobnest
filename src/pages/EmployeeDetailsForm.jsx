@@ -97,10 +97,12 @@ const EmployeeDetailsForm = (props) => {
         });
     }
     else if (routeProps && routeProps.isJobApplication) {
+      var currentdatetime = new Date().toLocaleString();
       formData.append("jobDetails", JSON.stringify(jobDetails));
       formData.append("applicantId", userProvider.user._id);
       formData.append("jobId", jobDetails._id);
       formData.append("applicantDetails", JSON.stringify(userProvider.user));
+      formData.append("applicationDateTime", currentdatetime);
       formData.append("status", "");
       axios.post("http://localhost:3001/create_employee_job_application", formData)
         .then((res) => {

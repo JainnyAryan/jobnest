@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './styles/ViewJobApplications.module.css';
+import styles from './styles/JobsAppliedByEmployee.module.css';
 import AppliedJobs from '../components/employee/AppliedJobs';
 import MyNavbar from '../components/common/MyNavbar'
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import secureLocalStorage from 'react-secure-storage';
-const ViewJobApplications = () => {
+const JobsAppliedByEmployee = () => {
   const user = useAuth();
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -60,4 +60,4 @@ const ViewJobApplications = () => {
   )
 }
 
-export default ViewJobApplications
+export default JobsAppliedByEmployee

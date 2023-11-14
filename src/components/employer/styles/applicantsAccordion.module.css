@@ -26,7 +26,6 @@
   width: 100%;
 }
 
-
 .button25 {
   border: none;
   cursor: pointer;
@@ -36,13 +35,14 @@
   text-align: center;
   color: rgb(244, 35, 35);
   width: 100%;
+  padding-bottom: 5px;
 }
 
-.buttonSelected{
+.buttonSelected {
   transition: 300ms;
   border-bottom: 5px solid;
+  padding-bottom: 0;
 }
-
 
 .table {
   width: 100%;
@@ -52,6 +52,13 @@
   background-color: rgb(248, 246, 243);
 }
 
+.tableRows:hover,
+.tableRows:nth-child(even):hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 200ms;
+}
+
+
 .containerStyle2 {
   display: flex;
   /* flex-direction: column; */
@@ -59,8 +66,6 @@
   align-items: center;
   color: rgb(115, 118, 123);
   /* border-bottom: 2px solid #ddd; */
-  padding-right: 20px;
-  padding-left: 20px;
 }
 
 .popupcard {
