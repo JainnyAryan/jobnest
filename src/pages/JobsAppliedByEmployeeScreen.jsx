@@ -8,7 +8,7 @@ import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import secureLocalStorage from 'react-secure-storage';
-const JobsAppliedByEmployee = () => {
+const JobsAppliedByEmployeeScreen = () => {
   const user = useAuth();
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -60,4 +60,4 @@ const JobsAppliedByEmployee = () => {
   )
 }
 
-export default JobsAppliedByEmployee
+export default JobsAppliedByEmployeeScreen;

@@ -1,6 +1,7 @@
 // import React from 'react';
 import React, { useState, useEffect } from 'react';
 import styles from './styles/AppliedJobs.module.css'
+import styles2 from '../../pages/styles/EmployerViewApplication.module.css'
 import { ArrowUpward, Cancel, CheckCircle, CurrencyRupee, ExpandMore, Feed, HourglassBottom, LocationOn, RampRight, Stop, WrongLocation } from '@mui/icons-material';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
@@ -82,6 +83,137 @@ const AppliedJobs = (props) => {
                   </AccordionSummary>
                   <AccordionDetails>
                     <div className={styles.containerStyle2} style={{ justifyContent: "space-around" }}>
+                      <div className={styles2.applicationDetails} style={{ marginLeft: "0px", textAlign: "left" }}>
+                        <h2>Personal Information</h2>
+                        <div>
+                          <div className={styles2.titles}>Name</div>
+                          <div>{application.name}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Email</div>
+                          <div>{application.email}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Phone</div>
+                          <div>{application.phone}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Date of Birth</div>
+                          <div>{application.dob}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Gender</div>
+                          <div>{application.gender}</div>
+                        </div>
+
+                        <div>
+                          <div className={styles2.titles}>Description</div>
+                          <div>
+                            {application.description.split('\n').map((line) => (
+                              <React.Fragment>
+                                {line}
+                                <br />
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+
+                        <hr />
+
+                        <h2> Education Details</h2>
+                        <div>
+                          <div className={styles2.titles}>College Name</div>
+                          <div>{application.collegeName}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>College Stream</div>
+                          <div>{application.collegeStream}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>CGPA</div>
+                          <div>{application.cgpa}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>School Name</div>
+                          <div>{application.schoolName}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Intermediate School Percentage</div>
+                          <div>{application.intermediateSchoolPercentage}</div>
+                        </div>
+
+                        <div>
+                          <div className={styles2.titles}>High School Percentage</div>
+                          <div>{application.highSchoolPercentage}</div>
+                        </div>
+                        <hr />
+                        <h2>Work Experience</h2>
+
+                        <div>
+                          <div className={styles2.titles}>Organisation</div>
+                          <div>{application.organisation}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Work Duration</div>
+                          <div>{application.workDuration}</div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Role</div>
+                          <div>{application.role}</div>
+                        </div>
+
+                        <div>
+                          <div className={styles2.titles}>Role Description</div>
+                          <div>
+                            {application.roleDescription.split('\n').map((line) => (
+                              <React.Fragment>
+                                {line}
+                                <br />
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+                        <hr />
+                        <h2>Acheivements</h2>
+
+                        <div>
+                          <div className={styles2.titles}>Awards</div>
+                          <div>
+                            {application.awards.split('\n').map((line) => (
+                              <React.Fragment>
+                                {line}
+                                <br />
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <div className={styles2.titles}>Certifications</div>
+                          <div>
+                            {application.certifications.split('\n').map((line) => (
+                              <React.Fragment>
+                                {line}
+                                <br />
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+                        <hr />
+                        <h2>Resume</h2>
+                        <div>
+                          <div><a href={application.resumeLink}><Feed />View Resume</a></div>
+                        </div>
+                        <hr />
+                      </div>
+
+
+
+
+
+
+
+
+
                     </div>
                   </AccordionDetails>
                 </Accordion>

@@ -19,7 +19,7 @@ import EmployeeDetailsForm from "../pages/EmployeeDetailsForm";
 import EmployerDetailsForm from "../pages/EmployerDetailsForm";
 import CreateJobForm from "../pages/CreateJobForm";
 import secureLocalStorage from "react-secure-storage";
-import JobsAppliedByEmployee from "../pages/JobsAppliedByEmployee";
+import JobsAppliedByEmployeeScreen from "../pages/JobsAppliedByEmployeeScreen";
 import { EmployerViewApplication } from "../pages/EmployerViewApplication";
 
 function AppRoutes() {
@@ -91,7 +91,7 @@ function AppRoutes() {
           path="/jobs-applied"
           element={
             <ProtectedRoute>
-              <JobsAppliedByEmployee />
+              <JobsAppliedByEmployeeScreen />
             </ProtectedRoute>
           }
         />
