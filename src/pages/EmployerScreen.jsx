@@ -8,6 +8,7 @@ import secureLocalStorage from "react-secure-storage";
 import axios from "axios";
 
 import styles from "./styles/EmployerScreen.module.css";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const currentState = "EMPLOYER";
 
@@ -16,6 +17,7 @@ export default function EmployerScreen() {
   const user = useAuth();
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
+  const [isSending, setIsSending] = useState(false);
 
   if (!user.isEmployer) {
     navigate("/");
@@ -39,12 +41,12 @@ export default function EmployerScreen() {
         console.log(err);
         alert("Some error occured!");
       });
-  }, []);
+  }, [isSending]);
 
   return (
     <div className={styles.box}>
       <MyNavbar currentState={currentState} />
-      <JobsPosted jobs={jobs} />
+      <JobsPosted jobs={jobs} isSending={isSending} setIsSending={setIsSending} />
     </div>
   );
 }

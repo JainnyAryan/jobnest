@@ -50,6 +50,22 @@
   font-size: 15px;
 }
 
+.button11 {
+  background-color: #f42323;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  outline: none;
+  width: 12%;
+  padding: 5px 0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.375);
+}
+
+.button11:hover {
+  transition: 200ms;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.615);
+}
+
 .underReview {
   color: gray;
   border: 1px solid gray;

@@ -7,6 +7,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   LinearProgress,
+  Button,
 } from "@mui/material";
 import {
   ArrowUpward,
@@ -15,6 +16,7 @@ import {
   LocationOn,
 } from "@mui/icons-material";
 import ApplicantsAccordion from "./ApplicantsAccordion";
+import axios from "axios";
 
 
 
@@ -35,20 +37,31 @@ export default function JobsPosted(props) {
   };
 
 
-  if (selectedJobIndex !== null) {
-    const jobToDelete = jobs[selectedJobIndex];
+  const handleDeleteJob = (job, event) => {
+    event.stopPropagation();
+    console.log("to be deleted");
+    console.log(job._id);
     const confirmDeletion = window.confirm(
-      `Are you sure you want to delete the job: ${jobToDelete.role}?`
+      `Are you sure you want to delete the job: ${job.role}?`
     );
-
     if (confirmDeletion) {
-      const updatedJobs = jobs.filter((_, index) => index !== selectedJobIndex);
-      setJobs(updatedJobs);
-      setSelectedJobIndex(null);
-    } else {
-      setSelectedJobIndex(null); // Reset the selected job index
+      axios.delete("http://localhost:3001/delete_job", { params: { jobId: job._id } })
+        .then((response) => {
+          console.log(response);
+          props.setIsSending(!(props.isSending));
+        })
+        .then((_) => {
+          alert(`${job.role} of ${job.orgName} deleted successfully!`);
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
+      // const updatedJobs = jobs.filter((j) => j._id !== job._id);
+      // setJobs(updatedJobs);
     }
   }
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -102,6 +115,7 @@ export default function JobsPosted(props) {
                     </div>
                     <div className={styles.containerStyle}>
                       <h5 className={styles.company}>{job.orgName}</h5>
+                      <button className={styles.button11} onClick={(event) => handleDeleteJob(job, event)}>Delete Job</button>
                     </div>
                     <div className={styles.containerStyle}>
                       <h5 className={styles.locationType}>
