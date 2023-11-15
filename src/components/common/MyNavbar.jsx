@@ -20,7 +20,6 @@ function MyNavbar(props) {
     setAnchorEl(event.currentTarget);
   };
 
-
   const signOut = () => {
     userProvider.clearUserData();
     secureLocalStorage.removeItem('userData');
@@ -108,6 +107,7 @@ function MyNavbar(props) {
             </>
           )
         }
+
       </nav>
     </>
   );
