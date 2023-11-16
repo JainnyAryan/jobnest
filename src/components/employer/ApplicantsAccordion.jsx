@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles/ApplicantsAccordion.module.css'
+import styles from './styles/applicantsAccordion.module.css'
 import { useState, useEffect } from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, LinearProgress } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
