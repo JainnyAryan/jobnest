@@ -35,7 +35,7 @@ const EmployeeScreen = () => {
 
   useEffect(() => {
     if (!filteredJobItems) {
-      axios.get("http://localhost:3001/get_jobs")
+      axios.get("https://jobnest-backend.vercel.app/get_jobs")
         .then((res) => {
           console.log("rebuilt");
           setJobItems(res.data);
@@ -67,7 +67,7 @@ const EmployeeScreen = () => {
           {!isMobileScreen && <JobDescSidePanel selectedJob={selectedJob} />}
         </div>
       </div>
-      <MyFooter/>
+      <MyFooter />
     </>
   )
 }

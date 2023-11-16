@@ -44,7 +44,7 @@ export default function JobsPosted(props) {
       `Are you sure you want to delete the job: ${job.role}?`
     );
     if (confirmDeletion) {
-      axios.delete("http://localhost:3001/delete_job", { params: { jobId: job._id } })
+      axios.delete("https://jobnest-backend.vercel.app/delete_job", { params: { jobId: job._id } })
         .then((response) => {
           console.log(response);
           props.setIsSending(!(props.isSending));

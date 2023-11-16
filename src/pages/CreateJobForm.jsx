@@ -31,7 +31,7 @@ const CreateJobForm = () => {
     //   console.log(key, " : val : ", value);
     // }
 
-    axios.post("http://localhost:3001/post_job", formData)
+    axios.post("https://jobnest-backend.vercel.app/post_job", formData)
       .then((res) => {
         console.log(res);
         navigate("/employer");

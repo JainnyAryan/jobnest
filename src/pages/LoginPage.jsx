@@ -24,7 +24,7 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3001/login', { userInput, password })
+    axios.post('https://jobnest-backend.vercel.app/login', { userInput, password })
       .then(
         result => {
           const loginData = result.data;

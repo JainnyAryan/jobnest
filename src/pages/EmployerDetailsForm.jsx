@@ -26,7 +26,7 @@ const EmployerDetailsForm = () => {
     }
     const fetchData = async () => {
       console.log(userFromStorage._id);
-      axios.get("http://localhost:3001/get_employer_details", { params: { userId: userFromStorage._id } })
+      axios.get("https://jobnest-backend.vercel.app/get_employer_details", { params: { userId: userFromStorage._id } })
         .then((res) => res.data)
         .then((data) => {
           // console.log(data);
@@ -64,7 +64,7 @@ const EmployerDetailsForm = () => {
       // for (let [key, value] of formData.entries())
       //   console.log(key, " : val : ", value);
 
-      axios.post("http://localhost:3001/post_employer_details", formData)
+      axios.post("https://jobnest-backend.vercel.app/post_employer_details", formData)
         .then((res) => {
           console.log(res);
           navigate("/employer");
@@ -76,7 +76,7 @@ const EmployerDetailsForm = () => {
         });
     }
     else if (routeProps && routeProps.isSettings) {
-      axios.put("http://localhost:3001/update_employer_details", formData)
+      axios.put("https://jobnest-backend.vercel.app/update_employer_details", formData)
         .then((res) => {
           navigate(-1);
           alert("Details updated!");

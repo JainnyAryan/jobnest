@@ -28,7 +28,7 @@ export default function EmployerScreen() {
     const userFromStorage = JSON.parse(secureLocalStorage.getItem("userData"));
     console.log(userFromStorage);
     axios
-      .get("http://localhost:3001/get_jobs", {
+      .get("https://jobnest-backend.vercel.app/get_jobs", {
         params: {
           createdBySomeEmployer: true,
           employerId: userFromStorage._id,
@@ -50,7 +50,7 @@ export default function EmployerScreen() {
         <MyNavbar currentState={currentState} />
         <JobsPosted jobs={jobs} isSending={isSending} setIsSending={setIsSending} />
       </div>
-      <MyFooter/>
+      <MyFooter />
     </>
   );
 }

@@ -35,7 +35,7 @@ const ApplicantsAccordion = (props) => {
     useEffect(() => {
         if (isExpanded && !filteredJobApplicants) {
             console.log("axios works")
-            axios.get("http://localhost:3001/get_employee_job_applications", { params: { ofPatricularJob: true, jobId: props.jobId } })
+            axios.get("https://jobnest-backend.vercel.app/get_employee_job_applications", { params: { ofPatricularJob: true, jobId: props.jobId } })
                 .then((res) => {
                     console.log(res)
                     setJobApplicants(res.data);
@@ -116,7 +116,7 @@ const ApplicantsAccordion = (props) => {
                                                     <td>{e.name}</td>
                                                     <td>{e.applicationDateTime}</td>
                                                     <td>
-                                                        <ul style={{margin:"10px 0"}}>
+                                                        <ul style={{ margin: "10px 0" }}>
                                                             <li>
                                                                 <a href={e.resumeLink}>Resume</a>
                                                             </li>

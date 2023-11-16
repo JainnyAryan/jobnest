@@ -47,7 +47,7 @@ const SignupPage = () => {
     event.preventDefault();
     if (password === confirmPassword) {
       axios
-        .post("http://localhost:3001/register", {
+        .post("https://jobnest-backend.vercel.app/register", {
           name,
           username,
           email,

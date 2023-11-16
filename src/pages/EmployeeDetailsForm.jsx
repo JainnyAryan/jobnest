@@ -33,7 +33,7 @@ const EmployeeDetailsForm = (props) => {
     }
     const fetchData = async () => {
       console.log(userFromStorage._id);
-      axios.get("http://localhost:3001/get_employee_details", { params: { userId: userFromStorage._id } })
+      axios.get("https://jobnest-backend.vercel.app/get_employee_details", { params: { userId: userFromStorage._id } })
         .then((res) => res.data)
         .then((data) => {
           console.log(data);
@@ -73,7 +73,7 @@ const EmployeeDetailsForm = (props) => {
 
     if (routeProps && routeProps.isUserDetails) {
       formData.append("userId", userProvider.user._id);
-      axios.post("http://localhost:3001/post_employee_details", formData)
+      axios.post("https://jobnest-backend.vercel.app/post_employee_details", formData)
         .then((res) => {
           console.log(res);
           navigate("/employee");
@@ -86,7 +86,7 @@ const EmployeeDetailsForm = (props) => {
     }
     else if (routeProps && routeProps.isSettings) {
       formData.append('userId', userProvider.user._id);
-      axios.put("http://localhost:3001/update_employee_details", formData)
+      axios.put("https://jobnest-backend.vercel.app/update_employee_details", formData)
         .then((res) => {
           navigate(-1);
           alert("Details updated!");
@@ -104,7 +104,7 @@ const EmployeeDetailsForm = (props) => {
       formData.append("applicantDetails", JSON.stringify(userProvider.user));
       formData.append("applicationDateTime", currentdatetime);
       formData.append("status", "");
-      axios.post("http://localhost:3001/create_employee_job_application", formData)
+      axios.post("https://jobnest-backend.vercel.app/create_employee_job_application", formData)
         .then((res) => {
           console.log(res);
           navigate(-1);

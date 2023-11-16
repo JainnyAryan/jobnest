@@ -22,7 +22,7 @@ const JobsAppliedByEmployeeScreen = () => {
     const setAppliedJobs = () => {
       const stored = secureLocalStorage.getItem('userData');
       const userData = JSON.parse(stored);
-      axios.get("http://localhost:3001/get_employee_job_applications", { params: { applicantId: userData._id } })
+      axios.get("https://jobnest-backend.vercel.app/get_employee_job_applications", { params: { applicantId: userData._id } })
         .then((res) => {
           console.log(res.data);
           setJobItems(res.data);

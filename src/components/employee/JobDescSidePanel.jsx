@@ -23,7 +23,7 @@ const JobDescSidePanel = (props) => {
     const checkIfApplied = () => {
       const stored = secureLocalStorage.getItem('userData');
       const userData = JSON.parse(stored);
-      axios.get("http://localhost:3001/check_job_applied", { params: { userId: userData._id, jobId: selectedJob._id } })
+      axios.get("https://jobnest-backend.vercel.app/check_job_applied", { params: { userId: userData._id, jobId: selectedJob._id } })
         .then((res) => {
           console.log(res.data);
           setIsApplied(res.data.jobApplied);
@@ -45,7 +45,7 @@ const JobDescSidePanel = (props) => {
     const checkIfApplied = () => {
       const stored = secureLocalStorage.getItem('userData');
       const userData = JSON.parse(stored);
-      axios.get("http://localhost:3001/check_job_applied", { params: { userId: userData._id, jobId: selectedJob._id } })
+      axios.get("https://jobnest-backend.vercel.app/check_job_applied", { params: { userId: userData._id, jobId: selectedJob._id } })
         .then((res) => {
           console.log(res.data);
           setIsApplied(res.data.jobApplied);
