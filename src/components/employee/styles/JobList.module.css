@@ -50,11 +50,12 @@
   }
 
   .accordion {
+    display: block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     background-color: white;
-    overflow: hidden;
     transition: box-shadow 0.3s;
+    text-overflow: ellipsis;
     cursor: pointer;
     margin: 10px;
     width: 90vw;
