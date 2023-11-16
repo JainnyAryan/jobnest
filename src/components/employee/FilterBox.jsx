@@ -2,19 +2,15 @@ import React from "react";
 import styles from "./styles/FilterBox.module.css";
 
 
-const FilterBox = () => {
+const FilterBox = (props) => {
   const filterData = [
     {
       category: "Location",
       filters: ["Choose", "Delhi", "Banglore", "Gurugram", "Hydrabad", "Mumbai", "Pune", "Calcutta", "Ahmedabad", "Chennai", "Noida"]
     },
     {
-      category: "Employment",
-      filters: ["Full-time", "Remote"],
-    },
-    {
-      category: "Special Skills",
-      filters: ["React", "Angular"]
+      category: "Location Type",
+      filters: ["Choose Filter", "On Site", "Hybrid", "Work from Home"],
     },
   ]
 
@@ -32,18 +28,13 @@ const FilterBox = () => {
                     {
                       filter.category === "Location"
                         ?
-                        <select name="location" className={styles.dropdown}>
-                          {filter.filters.map((e) => {
-                            return <option value={e}>{e}</option>
-                          })}
-                        </select>
+                        <input name="location" placeholder="Filter Location" className={styles.locationFilter} onChange={(event) => props.locationFilterUpdates(event.target.value)} />
                         :
-                        (filter.filters.map((e) => (
-                          <span style={{ padding: "0.7vh 0vh" }}>
-                            <input type="checkbox" style={{ marginRight: "5px" }} name={filter.category} value={e} />
-                            {e}
-                          </span>
-                        )))
+                        <select name="locationType" className={styles.locationTypeFilter} onChange={(event) => props.locationTypeFilterUpdates(event.target.value)}>
+                          {filter.filters.map((e) => (
+                            <option value={e == "Choose Filter" ? "" : e}> {e} </option >
+                          ))}
+                        </select>
                     }
                   </div>
                 </div>

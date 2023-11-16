@@ -113,7 +113,7 @@ function MyNavbar(props) {
                         }
                       }}
                     >
-                      <FilterBox />
+                      <FilterBox locationTypeFilterUpdates={(val) => props.locationTypeFilterUpdates(val)} locationFilterUpdates={(val) => props.locationFilterUpdates(val)} />
                     </Menu>
                   </>
                 )

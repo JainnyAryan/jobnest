@@ -74,7 +74,7 @@ const JobDescSidePanel = (props) => {
           <div className={styles.jobDetails}>
             <div className={styles.jobTitle}>{selectedJob.role}</div>
             <div className={styles.jobCompany}><u>{selectedJob.orgName}</u></div>
-            <div className={styles.jobLocation}><MdLocationOn style={{ paddingRight: "5px", fontSize: "calc(16px + 1vw)" }} />  {selectedJob.location}</div>
+            <div className={styles.jobLocation}><MdLocationOn style={{ paddingRight: "5px", fontSize: "calc(16px + 1vw)" }} />  {selectedJob.location} ({selectedJob.locationType})</div>
             <div className={styles.jobLocation} ><MdCurrencyRupee style={{ paddingRight: "5px", fontSize: "calc(16px + 1vw)" }} />  {selectedJob.salary}</div>
           </div>
           <button className={styles.applyButton} disabled={isApplied} onClick={onSelectJob}>{isApplied ? "Applied" : "Apply"}</button>
