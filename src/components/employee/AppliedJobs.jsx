@@ -25,9 +25,7 @@ const AppliedJobs = (props) => {
   const jobItems = props.jobItems;
 
   return (
-
     <>
-
       <div className={styles.listStyle}>
         {jobItems.map((application, index) => {
           const e = JSON.parse(application.jobDetails);

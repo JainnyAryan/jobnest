@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles/MyNavbar.module.css";
 import MyNavbarState from "../../enums/MyNavbarState";
 import SearchBar from "../employee/SearchBar";
-import { Add, Article, EditRounded, Logout } from "@mui/icons-material";
-import { Menu, MenuItem, Skeleton } from "@mui/material";
+import { Add, Article, EditRounded, FilterList, Logout } from "@mui/icons-material";
+import { Avatar, Menu, MenuItem, Skeleton } from "@mui/material";
 import { useUser } from "../../context/userContext";
 import secureLocalStorage from "react-secure-storage";
+import FilterBox from "../employee/FilterBox";
 
 
 function MyNavbar(props) {
   const navigate = useNavigate();
   const userProvider = useUser();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [filterAnchorEl, setFilterAnchorEl] = useState(null);
+  const isMobileScreen = props.isMobileScreen;
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleFilterClose = () => {
+    setFilterAnchorEl(null);
+  };
+
+  const handleFilterClick = (event) => {
+    setFilterAnchorEl(event.currentTarget);
   };
 
   const signOut = () => {
@@ -26,6 +39,7 @@ function MyNavbar(props) {
     navigate('/', { state: { isEmployeeSettings: true } });
     handleClose();
   }
+
 
   return (
     <>
@@ -51,7 +65,7 @@ function MyNavbar(props) {
           (
             <>
               <SearchBar searchUpdates={(val) => props.searchUpdates(val)} />
-              <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+              <div style={{ display: "flex", flexDirection: "row", alignItems: "center", marginTop: isMobileScreen ? "10px" : "0" }}>
                 <span style={{ color: "white", margin: "0 10px", minWidth: "5vw" }}>{!userProvider.user ? "" : `Hello, ${userProvider.user.name}`}</span>
                 <button className={styles.loginButton} onClick={handleClick}>Profile</button>
                 <Menu
@@ -76,6 +90,34 @@ function MyNavbar(props) {
                   ><Logout style={{ margin: "10px" }} /> Sign Out</MenuItem>
                 </Menu>
               </div>
+              {
+                isMobileScreen && (
+                  <>
+                    <button className={styles.filterButton} onClick={handleFilterClick}>Filter <FilterList /></button>
+                    <Menu
+                      keepMounted
+                      anchorEl={filterAnchorEl}
+                      onClose={handleFilterClose}
+                      open={Boolean(filterAnchorEl)}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                      slotProps={{
+                        paper: {
+                          style: {
+                            width: "70%",
+                            background: "transparent",
+                            boxShadow: "none"
+                          }
+                        }
+                      }}
+                    >
+                      <FilterBox />
+                    </Menu>
+                  </>
+                )
+              }
             </>
           )
         }

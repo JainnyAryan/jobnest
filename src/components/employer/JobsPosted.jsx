@@ -23,7 +23,6 @@ import axios from "axios";
 
 export default function JobsPosted(props) {
   const [jobs, setJobs] = useState(null);
-  const [selectedJobIndex, setSelectedJobIndex] = useState(null);
   const [showScrollButton, setShowScrollButton] = useState(false);
   const navigate = useNavigate();
 

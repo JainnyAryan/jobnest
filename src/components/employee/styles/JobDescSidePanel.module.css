@@ -83,3 +83,13 @@
 .jobDesc {
   font-size: calc(16px + 0.3vw);
 }
+
+@media only screen and (max-width:768px) {
+  .box{
+    border: none;
+    margin: 0 0;
+  }
+  .applyButton{
+    width: 100%;
+  }
+}

@@ -9,6 +9,7 @@ import axios from "axios";
 
 import styles from "./styles/EmployerScreen.module.css";
 import { faL } from "@fortawesome/free-solid-svg-icons";
+import MyFooter from "../components/common/MyFooter";
 
 const currentState = "EMPLOYER";
 
@@ -44,9 +45,12 @@ export default function EmployerScreen() {
   }, [isSending]);
 
   return (
-    <div className={styles.box}>
-      <MyNavbar currentState={currentState} />
-      <JobsPosted jobs={jobs} isSending={isSending} setIsSending={setIsSending} />
-    </div>
+    <>
+      <div className={styles.box}>
+        <MyNavbar currentState={currentState} />
+        <JobsPosted jobs={jobs} isSending={isSending} setIsSending={setIsSending} />
+      </div>
+      <MyFooter/>
+    </>
   );
 }

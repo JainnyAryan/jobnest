@@ -21,7 +21,7 @@ const FilterBox = () => {
   return (
     <>
       <div className={styles.box}>
-        <span><b>Filter</b></span>
+        <span className={styles.boxTitle}><b>Filter</b></span>
         <div className={styles.filters}>
           {
             filterData.map((filter) => {

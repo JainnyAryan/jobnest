@@ -38,4 +38,16 @@
   .JobButton {
     width: 100%;
   }
+
+  .filterButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    color: #232423 !important;
+    background-color: white;
+  }
 }

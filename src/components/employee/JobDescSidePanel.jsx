@@ -10,7 +10,8 @@ import secureLocalStorage from "react-secure-storage";
 
 const JobDescSidePanel = (props) => {
   const navigate = useNavigate();
-  const selectedJob = props.selectedJob;
+  const isMobileScreen = props.isMobileScreen;
+  const selectedJob = !isMobileScreen ? props.selectedJob : props.expandedJob;
   const [isLoaded, setIsLoaded] = useState(false);
   const [isApplied, setIsApplied] = useState(false);
 
@@ -33,22 +34,42 @@ const JobDescSidePanel = (props) => {
           setIsLoaded(true);
         });
     }
-    if (selectedJob) {
+    if (selectedJob && !isMobileScreen) {
       setIsLoaded(false);
       console.log("...checking if applied");
       checkIfApplied();
     }
   }, [selectedJob]);
 
+  useEffect(() => {
+    const checkIfApplied = () => {
+      const stored = secureLocalStorage.getItem('userData');
+      const userData = JSON.parse(stored);
+      axios.get("http://localhost:3001/check_job_applied", { params: { userId: userData._id, jobId: selectedJob._id } })
+        .then((res) => {
+          console.log(res.data);
+          setIsApplied(res.data.jobApplied);
+        })
+        .then((_) => setIsLoaded(true))
+        .catch((err) => {
+          console.log(err);
+          setIsLoaded(true);
+        });
+    }
+    if (isMobileScreen) {
+      setIsLoaded(false);
+      checkIfApplied();
+    }
+  }, []);
 
   return (
     <div className={styles.box}>
       {
-        !selectedJob &&
+        !selectedJob && !isMobileScreen &&
         <FindJobDash />
       }
-      {!isLoaded && selectedJob ? <div className={styles.loadingSpinner}><CircularProgress /></div> :
-        selectedJob &&
+      {!isLoaded && (isMobileScreen || selectedJob) ? <div className={styles.loadingSpinner}><CircularProgress /></div> :
+        (isMobileScreen || selectedJob) &&
         <div className={styles.panel}>
           <div className={styles.jobDetails}>
             <div className={styles.jobTitle}>{selectedJob.role}</div>
