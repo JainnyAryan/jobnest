@@ -31,7 +31,7 @@
   height: 100%;
   border-radius: 8px;
   border: "2px solid grey";
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
 ::placeholder {
@@ -76,6 +76,11 @@ progress::-webkit-progress-value {
   border: "none";
   margin: "auto";
   width: "30%";
+}
+
+.errorText {
+  color: red;
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 768px) {
