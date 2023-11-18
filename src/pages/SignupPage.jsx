@@ -239,7 +239,7 @@ const SignupPage = () => {
                     <div style={{ color: "red" }}>{formik.errors.confirmPassword}</div>
                   ) : null}
                 </div>
-
+                {/* Hello people */}
                 <div className="form-group mt-3">
                   <input
                     type="checkbox"
