@@ -25,6 +25,9 @@
   height: 85vh !important;
 }
 
+h5{
+  color:grey;
+}
 @media only screen and (max-width: 768px) {
   .containerr {
     display: flex;
