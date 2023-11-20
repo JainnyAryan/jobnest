@@ -37,7 +37,10 @@ const LoginPage = () => {
         const loginData = result.data;
         if (loginData.status === true) {
           delete loginData.data.password;
-          secureLocalStorage.setItem("userData", JSON.stringify(loginData.data));
+          secureLocalStorage.setItem(
+            "userData",
+            JSON.stringify(loginData.data)
+          );
           userProvider.setUserData(loginData.data);
           navigate("/");
         } else {
@@ -105,7 +108,11 @@ const LoginPage = () => {
               ></img>
 
               <div
-                style={{ display: "flex", flexDirection: "column", padding: "15% 10%" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "15% 10%",
+                }}
               >
                 <form onSubmit={formik.handleSubmit}>
                   <div className="form-group">
@@ -126,7 +133,9 @@ const LoginPage = () => {
                       value={formik.values.userInput}
                     />
                     {formik.touched.userInput && formik.errors.userInput && (
-                      <div style={{ color: "red" }}>{formik.errors.userInput}</div>
+                      <div style={{ color: "red" }}>
+                        {formik.errors.userInput}
+                      </div>
                     )}
                   </div>
 
@@ -149,7 +158,9 @@ const LoginPage = () => {
                       value={formik.values.password}
                     />
                     {formik.touched.password && formik.errors.password && (
-                      <div style={{ color: "red" }}>{formik.errors.password}</div>
+                      <div style={{ color: "red" }}>
+                        {formik.errors.password}
+                      </div>
                     )}
                   </div>
 

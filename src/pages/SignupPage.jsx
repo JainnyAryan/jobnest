@@ -9,18 +9,27 @@ import { useUser } from "../context/userContext";
 import secureLocalStorage from "react-secure-storage";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Alert, LinearProgress } from "@mui/material";
 
 const SignupPage = () => {
   const navigate = useNavigate();
   const userProvider = useUser();
   const [isEmployer, setIsEmployer] = useState(false);
-  const [userExistance, setUserExistance] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object({
-    name: Yup.string().min(3, "Name must be at least 3 characters").required("Name is required"),
-    username: Yup.string().min(3, "Username must be at least 3 characters").required("Username is required"),
-    email: Yup.string().email("Invalid email address").required("Email is required"),
-    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters")
+      .required("Name is required"),
+    username: Yup.string()
+      .min(3, "Username must be at least 3 characters")
+      .required("Username is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm Password is required"),
@@ -38,41 +47,37 @@ const SignupPage = () => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       existance(values);
-      if(userExistance === false){
-        handleSubmit(values);
-      }
-      else{
-        alert("User already exists");
-      }
     },
   });
 
-
-  const existance=(values)=>{
-    axios.post("https://jobnest-backend.vercel.app/find_email_username", {
+  const existance = (values) => {
+    setIsLoading(false);
+    axios
+    .post("https://jobnest-backend.vercel.app/find_email_username", {
       name: values.name,
       username: values.username,
       email: values.email,
       password: values.password,
-      isEmployer: values.isEmployer,})
-      .then((result)=>{
-        const loginData = result.data;
-        if(loginData.status == true){
+      isEmployer: values.isEmployer,
+    })
+    .then((result) => {
+      const loginData = result.data;
+      if (loginData.status == true) {
+        setIsLoading(true);
+        console.log(loginData.message);
+      } else {
+          setIsLoading(false);
           console.log(loginData.message);
-          setUserExistance(true);
-        }
-        else{
-          console.log(loginData.message);
-          setUserExistance(false);
-
+          handleSubmit(values);
         }
       })
       .catch((err) => {
         alert(err);
       });
-  }
+  };
 
-  const handleSubmit=(values)=>{
+  const handleSubmit = (values) => {
+    setIsLoading(true);
     if (values.password === values.confirmPassword) {
       axios
         .post("https://jobnest-backend.vercel.app/register", {
@@ -86,17 +91,24 @@ const SignupPage = () => {
           delete result.data.password;
           secureLocalStorage.setItem("userData", JSON.stringify(result.data));
           userProvider.setUserData(result.data);
-          navigate(values.isEmployer ? "/fill-employer-details" : "/fill-employee-details", {
-            state: { isUserDetails: true },
-          });
+          setIsLoading(false);
+          navigate(
+            values.isEmployer
+              ? "/fill-employer-details"
+              : "/fill-employee-details",
+            {
+              state: { isUserDetails: true },
+            }
+          );
         })
         .catch((err) => {
           console.log(err);
+          setIsLoading(false);
         });
     } else {
       alert("Password Mismatched");
     }
-  }
+  };
 
   return (
     <div
@@ -152,6 +164,7 @@ const SignupPage = () => {
                 padding: "0 10%",
               }}
             ></img>
+            {isLoading && <LinearProgress />}
 
             <div
               style={{
@@ -271,8 +284,11 @@ const SignupPage = () => {
                     onBlur={formik.handleBlur}
                     value={formik.values.confirmPassword}
                   />
-                  {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-                    <div style={{ color: "red" }}>{formik.errors.confirmPassword}</div>
+                  {formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword ? (
+                    <div style={{ color: "red" }}>
+                      {formik.errors.confirmPassword}
+                    </div>
                   ) : null}
                 </div>
                 {/* Hello people */}
@@ -294,15 +310,23 @@ const SignupPage = () => {
 
                 <button
                   className="btn mt-4"
+                  // disabled={isLoading}
                   style={{
                     borderRadius: "10px",
                     backgroundColor: "#6CE4F3",
                     color: "#232423",
+                    marginBottom: "10px",
                   }}
                   type="submit"
                 >
                   Register
                 </button>
+
+                {isLoading && (
+                  <Alert variant="filled" severity="error">
+                    User Already Exists!
+                  </Alert>
+                )}
 
                 <p style={{ color: "#6CE4F3", marginTop: "2vh" }}>
                   Already have an account?
