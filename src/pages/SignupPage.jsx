@@ -14,6 +14,7 @@ const SignupPage = () => {
   const navigate = useNavigate();
   const userProvider = useUser();
   const [isEmployer, setIsEmployer] = useState(false);
+  const [userExistance, setUserExistance] = useState(false);
 
   const validationSchema = Yup.object({
     name: Yup.string().min(3, "Name must be at least 3 characters").required("Name is required"),
@@ -36,31 +37,60 @@ const SignupPage = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      if (values.password === values.confirmPassword) {
-        axios
-          .post("https://jobnest-backend.vercel.app/register", {
-            name: values.name,
-            username: values.username,
-            email: values.email,
-            password: values.password,
-            isEmployer: values.isEmployer,
-          })
-          .then((result) => {
-            delete result.data.password;
-            secureLocalStorage.setItem("userData", JSON.stringify(result.data));
-            userProvider.setUserData(result.data);
-            navigate(values.isEmployer ? "/fill-employer-details" : "/fill-employee-details", {
-              state: { isUserDetails: true },
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        alert("Password Mismatched");
+      existance(values);
+      if(userExistance == false){
+        handleSubmit(values);
+      }
+      else{
+        alert("User already exists");
       }
     },
   });
+
+
+  const existance=(values)=>{
+    axios.post("https://jobnest-backend.vercel.app/find_email_username", {
+      name: values.name,
+      username: values.username,
+      email: values.email,
+      password: values.password,
+      isEmployer: values.isEmployer,})
+      .then((result)=>{
+        const loginData = result.data;
+        if(loginData.status == true){
+          setUserExistance(true);
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  const handleSubmit=(values)=>{
+    if (values.password === values.confirmPassword) {
+      axios
+        .post("https://jobnest-backend.vercel.app/register", {
+          name: values.name,
+          username: values.username,
+          email: values.email,
+          password: values.password,
+          isEmployer: values.isEmployer,
+        })
+        .then((result) => {
+          delete result.data.password;
+          secureLocalStorage.setItem("userData", JSON.stringify(result.data));
+          userProvider.setUserData(result.data);
+          navigate(values.isEmployer ? "/fill-employer-details" : "/fill-employee-details", {
+            state: { isUserDetails: true },
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("Password Mismatched");
+    }
+  }
 
   return (
     <div
