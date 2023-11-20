@@ -58,7 +58,13 @@ const SignupPage = () => {
       .then((result)=>{
         const loginData = result.data;
         if(loginData.status == true){
+          console.log(loginData.message);
           setUserExistance(true);
+        }
+        else{
+          console.log(loginData.message);
+          setUserExistance(false);
+
         }
       })
       .catch((err) => {
