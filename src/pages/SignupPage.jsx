@@ -4,7 +4,7 @@ import Lottie from "react-lottie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles/SignupPage.module.css";
-import { ArrowBack, ArrowBackIos } from "@mui/icons-material";
+import { ArrowBack } from "@mui/icons-material";
 import { useUser } from "../context/userContext";
 import secureLocalStorage from "react-secure-storage";
 import { useFormik } from "formik";
@@ -35,8 +35,12 @@ const SignupPage = () => {
       isEmployer: false,
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      if (values.password === values.confirmPassword) {
+    onSubmit: async (values) => {
+      const isUsernameAvailable = await checkAvailability("username", values.username);
+      const isEmailAvailable = await checkAvailability("email", values.email);
+
+      if (isUsernameAvailable && isEmailAvailable && values.password === values.confirmPassword) {
+        // Proceed with registration logic
         axios
           .post("https://jobnest-backend.vercel.app/register", {
             name: values.name,
@@ -57,10 +61,22 @@ const SignupPage = () => {
             console.log(err);
           });
       } else {
-        alert("Password Mismatched");
+        alert("Username or Email already taken, or Passwords mismatched");
       }
     },
   });
+
+  const checkAvailability = async (type, value) => {
+    try {
+      const response = await axios.post(`https://jobnest-backend.vercel.app/check-${type}`, {
+        [type]: value,
+      });
+      return response.data.available;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
 
   return (
     <div
@@ -279,6 +295,7 @@ const SignupPage = () => {
                   </a>
                 </p>
               </form>
+
             </div>
           </div>
         </div>
