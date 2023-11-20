@@ -14,7 +14,7 @@ const SignupPage = () => {
   const navigate = useNavigate();
   const userProvider = useUser();
   const [isEmployer, setIsEmployer] = useState(false);
-  const [userExistance, setUserExistance] = useState(false);
+  const [userExistance, setUserExistance] = useState(true);
 
   const validationSchema = Yup.object({
     name: Yup.string().min(3, "Name must be at least 3 characters").required("Name is required"),
@@ -38,7 +38,7 @@ const SignupPage = () => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       existance(values);
-      if(userExistance == false){
+      if(userExistance === false){
         handleSubmit(values);
       }
       else{
