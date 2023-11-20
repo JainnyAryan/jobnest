@@ -14,7 +14,7 @@ import { Alert, LinearProgress } from "@mui/material";
 const SignupPage = () => {
   const navigate = useNavigate();
   const userProvider = useUser();
-  const [isEmployer, setIsEmployer] = useState(false);
+  const [userExists, setUserExists] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object({
@@ -46,26 +46,28 @@ const SignupPage = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      setUserExists(false);
       existance(values);
     },
   });
 
   const existance = (values) => {
-    setIsLoading(false);
+    setIsLoading(true);
     axios
-    .post("https://jobnest-backend.vercel.app/find_email_username", {
-      name: values.name,
-      username: values.username,
-      email: values.email,
-      password: values.password,
-      isEmployer: values.isEmployer,
-    })
-    .then((result) => {
-      const loginData = result.data;
-      if (loginData.status == true) {
-        setIsLoading(true);
-        console.log(loginData.message);
-      } else {
+      .post("https://jobnest-backend.vercel.app/find_email_username", {
+        name: values.name,
+        username: values.username,
+        email: values.email,
+        password: values.password,
+        isEmployer: values.isEmployer,
+      })
+      .then((result) => {
+        const loginData = result.data;
+        if (loginData.status == true) {
+          setIsLoading(false);
+          setUserExists(true);
+          console.log(loginData.message);
+        } else {
           setIsLoading(false);
           console.log(loginData.message);
           handleSubmit(values);
@@ -165,7 +167,11 @@ const SignupPage = () => {
               }}
             ></img>
             {isLoading && <LinearProgress />}
-
+            {userExists && (
+              <Alert variant="filled" severity="error">
+                User Already Exists!
+              </Alert>
+            )}
             <div
               style={{
                 display: "flex",
@@ -285,7 +291,7 @@ const SignupPage = () => {
                     value={formik.values.confirmPassword}
                   />
                   {formik.touched.confirmPassword &&
-                  formik.errors.confirmPassword ? (
+                    formik.errors.confirmPassword ? (
                     <div style={{ color: "red" }}>
                       {formik.errors.confirmPassword}
                     </div>
@@ -310,7 +316,7 @@ const SignupPage = () => {
 
                 <button
                   className="btn mt-4"
-                  // disabled={isLoading}
+                  disabled={isLoading}
                   style={{
                     borderRadius: "10px",
                     backgroundColor: "#6CE4F3",
@@ -321,12 +327,6 @@ const SignupPage = () => {
                 >
                   Register
                 </button>
-
-                {isLoading && (
-                  <Alert variant="filled" severity="error">
-                    User Already Exists!
-                  </Alert>
-                )}
 
                 <p style={{ color: "#6CE4F3", marginTop: "2vh" }}>
                   Already have an account?
