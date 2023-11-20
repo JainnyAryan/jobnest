@@ -38,7 +38,7 @@ const SignupPage = () => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       existance(values);
-      if(userExistance == false){
+      if(userExistance == true){
         handleSubmit(values);
       }
       else{
