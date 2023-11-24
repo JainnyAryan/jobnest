@@ -44,7 +44,6 @@ const CreateJobForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       const formData = new FormData();
-      formData.append("jobIcon", values.jobIcon);
       formData.append("iconUrl", firebaseImageUrl ? firebaseImageUrl : DEFAULT_IMG);
       formData.append("employerId", userProvider.user._id);
       formData.append("employer", JSON.stringify(userProvider.user));
